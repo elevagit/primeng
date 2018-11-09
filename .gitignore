@@ -1,11 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
 /tmp
 /out-tsc
-/components
-/resources
 /aot
 
 # dependencies
@@ -36,12 +33,6 @@ npm-debug.log
 testem.log
 /typings
 
-# themes
-/src/assets/components/themes/**/*.css
-/src/assets/components/themes/**/*.map
-!/src/assets/components/themes/bootstrap/theme.css
-!/src/assets/components/themes/nova-*/theme.css
-!/src/assets/components/themes/luna-*/theme.css
 
 # e2e
 /e2e/*.js
