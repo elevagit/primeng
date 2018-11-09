@@ -181,6 +181,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Output() onShow: EventEmitter<any> = new EventEmitter();
 
     @Output() onHide: EventEmitter<any> = new EventEmitter();
+
+    @Output() onKey: EventEmitter<any> = new EventEmitter();
     
     @ViewChild('container') containerViewChild: ElementRef;
     
@@ -719,6 +721,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             //search item based on keyboard input
             default:
                 if (search) {
+                    this.onKey.emit(event);
                     this.search(event);
                 }
             break;
