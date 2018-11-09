@@ -51,7 +51,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
             <div *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
                 <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
                     <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
-                    (keydown.enter)="$event.preventDefault()" (keydown)="onKeydown($event, false)">
+                    (keydown.enter)="$event.preventDefault()" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
                     <span class="ui-dropdown-filter-icon pi pi-search"></span>
                 </div>
                 <div class="ui-dropdown-items-wrapper" [style.max-height]="scrollHeight||'auto'">
@@ -524,6 +524,10 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             this.el.nativeElement.appendChild(this.overlay);
         }
     }
+	
+	dropDownFilter(event){
+		this.onKey.emit(event);
+	}
     
     hide() {
         this.overlayVisible = false;
@@ -720,8 +724,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 
             //search item based on keyboard input
             default:
-                if (search) {
-                    this.onKey.emit(event);
+                if (search) {                    
                     this.search(event);
                 }
             break;

@@ -52,12 +52,15 @@ function View_Dropdown_15(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null
     } if (("click" === en)) {
         var pd_1 = ($event.stopPropagation() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, [[2, 0], ["filter", 1]], null, 0, "input", [["autocomplete", "off"], ["class", "ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all"], ["type", "text"]], [[8, "value", 0], [1, "placeholder", 0]], [[null, "keydown.enter"], [null, "keydown"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("keydown.enter" === en)) {
+    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, [[2, 0], ["filter", 1]], null, 0, "input", [["autocomplete", "off"], ["class", "ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all"], ["type", "text"]], [[8, "value", 0], [1, "placeholder", 0]], [[null, "keydown.enter"], [null, "input"], [null, "keydown"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("keydown.enter" === en)) {
         var pd_0 = ($event.preventDefault() !== false);
         ad = (pd_0 && ad);
-    } if (("keydown" === en)) {
-        var pd_1 = (_co.onKeydown($event, false) !== false);
+    } if (("input" === en)) {
+        var pd_1 = (_co.dropDownFilter($event.target.value) !== false);
         ad = (pd_1 && ad);
+    } if (("keydown" === en)) {
+        var pd_2 = (_co.onKeydown($event, false) !== false);
+        ad = (pd_2 && ad);
     } return ad; }, null, null)), (_l()(), i0.ɵeld(2, 0, null, null, 0, "span", [["class", "ui-dropdown-filter-icon pi pi-search"]], null, null, null, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.filterValue || ""); var currVal_1 = _co.filterPlaceholder; _ck(_v, 1, 0, currVal_0, currVal_1); }); }
 function View_Dropdown_18(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i0.ɵted(1, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = (_v.parent.context.$implicit.label || "empty"); _ck(_v, 1, 0, currVal_0); }); }
 function View_Dropdown_19(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 0, null, null, null, null, null, null, null))], null, null); }

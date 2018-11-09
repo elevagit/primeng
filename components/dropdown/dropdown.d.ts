@@ -112,6 +112,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     onOverlayAnimationStart(event: AnimationEvent): void;
     appendOverlay(): void;
     restoreOverlayAppend(): void;
+    dropDownFilter(event: any): void;
     hide(): void;
     alignOverlay(): void;
     onInputFocus(event: any): void;
