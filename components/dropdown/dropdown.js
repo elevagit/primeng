@@ -241,9 +241,12 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.show = function () {
         this.overlayVisible = true;
-        var selectRect = this.el.nativeElement.getBoundingClientRect();
-        this.containerPanel.nativeElement.style.width = selectRect.width * this.multiplicador + 'px';
-        this.containerPanel.nativeElement.style.minWidth = selectRect.width * this.multiplicador + 'px';
+        var ddRect = this.el.nativeElement.getBoundingClientRect();
+        console.log('EL', this.el);
+        console.log('NE', this.el.nativeElement);
+        console.log('DDRect', ddRect);
+        this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
+        this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
     };
     Dropdown.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
