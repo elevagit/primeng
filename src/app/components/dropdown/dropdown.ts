@@ -346,7 +346,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 	
 	getFilterValue():string {
-		if (this.filter && this.filterViewChild.nativeElement){			
+		if (this.filter && this.filterViewChild && this.filterViewChild.nativeElement){			
 			return this.filterViewChild.nativeElement.value;
 		} else {
 			return "";

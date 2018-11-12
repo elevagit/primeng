@@ -124,7 +124,7 @@ var Dropdown = /** @class */ (function () {
         }, 150);
     };
     Dropdown.prototype.getFilterValue = function () {
-        if (this.filter && this.filterViewChild.nativeElement) {
+        if (this.filter && this.filterViewChild && this.filterViewChild.nativeElement) {
             return this.filterViewChild.nativeElement.value;
         }
         else {
