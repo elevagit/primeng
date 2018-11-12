@@ -240,13 +240,19 @@ var Dropdown = /** @class */ (function () {
         });
     };
     Dropdown.prototype.show = function () {
+        var _this = this;
         this.overlayVisible = true;
         var ddRect = this.el.nativeElement.getBoundingClientRect();
         console.log('EL', this.el);
         console.log('NE', this.el.nativeElement);
         console.log('DDRect', ddRect);
-        this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
-        this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
+        console.log('containerPanel', this.containerPanel);
+        setTimeout(function () {
+            console.log('containerPanel2', _this.containerPanel);
+            console.log('cpEL', _this.containerPanel.nativeElement);
+            _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
+            _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
+        }, 50);
     };
     Dropdown.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
