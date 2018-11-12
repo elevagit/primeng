@@ -480,19 +480,11 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     show() {
         this.overlayVisible = true;
-		let ddRect: ClientRect = this.el.nativeElement.getBoundingClientRect();
-		console.log('EL', this.el);
-		console.log('NE', this.el.nativeElement);
-		console.log('DDRect', ddRect);
-		console.log('containerPanel', this.containerPanel);
-		
+		let ddRect: ClientRect = this.el.nativeElement.getBoundingClientRect();		
 		setTimeout(() => {
-			console.log('containerPanel2', this.containerPanel);
-			console.log('cpEL', this.containerPanel.nativeElement);    
 			this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
 			this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
-        }, 50);
-		
+        }, 50);		
     }
 
     onOverlayAnimationStart(event: AnimationEvent) {

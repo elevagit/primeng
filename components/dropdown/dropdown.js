@@ -243,13 +243,7 @@ var Dropdown = /** @class */ (function () {
         var _this = this;
         this.overlayVisible = true;
         var ddRect = this.el.nativeElement.getBoundingClientRect();
-        console.log('EL', this.el);
-        console.log('NE', this.el.nativeElement);
-        console.log('DDRect', ddRect);
-        console.log('containerPanel', this.containerPanel);
         setTimeout(function () {
-            console.log('containerPanel2', _this.containerPanel);
-            console.log('cpEL', _this.containerPanel.nativeElement);
             _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
             _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
         }, 50);
