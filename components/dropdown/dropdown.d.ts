@@ -24,6 +24,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     autoWidth: boolean;
     required: boolean;
     editable: boolean;
+    podeAdicionar: boolean;
     appendTo: any;
     tabindex: number;
     placeholder: string;
@@ -52,6 +53,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     onShow: EventEmitter<any>;
     onHide: EventEmitter<any>;
     onKey: EventEmitter<any>;
+    onAdd: EventEmitter<any>;
     containerViewChild: ElementRef;
     filterViewChild: ElementRef;
     focusViewChild: ElementRef;
@@ -97,6 +99,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     readonly label: string;
     updateEditableLabel(): void;
     onItemClick(event: any, option: any): void;
+    onAddNovo(event: any, texto: any): void;
     selectItem(event: any, option: any): void;
     ngAfterViewChecked(): void;
     writeValue(value: any): void;

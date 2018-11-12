@@ -79,6 +79,9 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                             </li>
                         </ng-template>
                         <li *ngIf="filter && optionsToDisplay && optionsToDisplay.length === 0">{{emptyFilterMessage}}</li>
+						<li *ngIf="podeAdicionar" (click)="onAddNovo($event, filter.value)" class="ui-dropdown-item ui-corner-all">
+							<span>Adicionar {{filter.value == '' ? 'novo' : filter.value}}</span>							
+						</li>
                     </ul>
                 </div>
             </div>
@@ -129,6 +132,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Input() required: boolean;
     
     @Input() editable: boolean;
+	
+	@Input() podeAdicionar: boolean = true;
     
     @Input() appendTo: any;
 
@@ -185,6 +190,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Output() onHide: EventEmitter<any> = new EventEmitter();
 
     @Output() onKey: EventEmitter<any> = new EventEmitter();
+	
+	@Output() onAdd: EventEmitter<any> = new EventEmitter();
     
     @ViewChild('container') containerViewChild: ElementRef;
     
@@ -337,6 +344,14 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             this.hide();
         }, 150);
     }
+	
+	onAddNovo(event, texto) {		
+		this.onAdd.emit(texto);
+		
+		setTimeout(() => {
+            this.hide();
+        }, 150);		
+	}
     
     selectItem(event, option) {
         if (this.selectedOption != option) {
