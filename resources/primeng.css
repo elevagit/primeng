@@ -445,6 +445,117 @@ button {
 .ui-blockui-document {
     position: fixed;
 }
+/* Button */
+.ui-button {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible; /* the overflow property removes extra width in IE */
+}
+
+p-button {
+    display: inline-block;
+}
+
+/*button text element */
+.ui-button .ui-button-text {
+    display: block;
+    line-height: normal;
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: .25em 1em;
+}
+
+.ui-button-icon-only .ui-button-text,
+.ui-button-text-empty .ui-button-text {
+    padding: .25em;
+    text-indent: -9999999px;
+}
+
+.ui-button-text-icon-left .ui-button-text {
+    padding: .25em 1em .25em 2.1em;
+}
+
+.ui-button-text-icon-right .ui-button-text {
+    padding: .25em 2.1em .25em 1em;
+}
+
+/*button icon element(s) */
+.ui-button-icon-only .ui-button-icon-left,
+.ui-button-text-icon-left .ui-button-icon-left,
+.ui-button-text-icon-right .ui-button-icon-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    height: 1em;
+}
+
+.ui-button-icon-only .ui-button-icon-left {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    width: 1em;
+    height: 1em;
+}
+
+.ui-button-icon-left {
+    left: .5em;
+}
+
+.ui-button-icon-right {
+    right: .5em;
+}
+
+/*button sets*/
+.ui-buttonset .ui-button {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* workarounds */
+button.ui-button::-moz-focus-inner {
+    border: 0; padding: 0; /* reset extra padding in Firefox */
+}
+
+/** Fluid **/
+.ui-fluid .ui-button {
+    width: 100%;
+}
+
+.ui-fluid .ui-button-text-icon-left .ui-button-text,
+.ui-fluid .ui-button-text-icon-right .ui-button-text {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/** ButtonSet **/
+.ui-fluid .ui-buttonset {
+    width: 100%;
+}
+
+.ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button {width: 100%;}
+.ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {width: 50%;}
+.ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button {width: 33.3%;}
+.ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button {width: 25%;}
+.ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button {width: 20%;}
+.ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {width: 16.6%;}
+
+@media (max-width: 640px) {
+    .ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
+        width: 100%;
+    }
+}
 .ui-calendar {
     position: relative;
     display: inline-block;
@@ -718,117 +829,6 @@ input[type=text]::-ms-clear {
     }
 }
 
-/* Button */
-.ui-button {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    text-decoration: none !important;
-    cursor: pointer;
-    text-align: center;
-    zoom: 1;
-    overflow: visible; /* the overflow property removes extra width in IE */
-}
-
-p-button {
-    display: inline-block;
-}
-
-/*button text element */
-.ui-button .ui-button-text {
-    display: block;
-    line-height: normal;
-}
-
-.ui-button-text-only .ui-button-text {
-    padding: .25em 1em;
-}
-
-.ui-button-icon-only .ui-button-text,
-.ui-button-text-empty .ui-button-text {
-    padding: .25em;
-    text-indent: -9999999px;
-}
-
-.ui-button-text-icon-left .ui-button-text {
-    padding: .25em 1em .25em 2.1em;
-}
-
-.ui-button-text-icon-right .ui-button-text {
-    padding: .25em 2.1em .25em 1em;
-}
-
-/*button icon element(s) */
-.ui-button-icon-only .ui-button-icon-left,
-.ui-button-text-icon-left .ui-button-icon-left,
-.ui-button-text-icon-right .ui-button-icon-right {
-    position: absolute;
-    top: 50%;
-    margin-top: -.5em;
-    height: 1em;
-}
-
-.ui-button-icon-only .ui-button-icon-left {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    width: 1em;
-    height: 1em;
-}
-
-.ui-button-icon-left {
-    left: .5em;
-}
-
-.ui-button-icon-right {
-    right: .5em;
-}
-
-/*button sets*/
-.ui-buttonset .ui-button {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* workarounds */
-button.ui-button::-moz-focus-inner {
-    border: 0; padding: 0; /* reset extra padding in Firefox */
-}
-
-/** Fluid **/
-.ui-fluid .ui-button {
-    width: 100%;
-}
-
-.ui-fluid .ui-button-text-icon-left .ui-button-text,
-.ui-fluid .ui-button-text-icon-right .ui-button-text {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-/** ButtonSet **/
-.ui-fluid .ui-buttonset {
-    width: 100%;
-}
-
-.ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button {width: 100%;}
-.ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {width: 50%;}
-.ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button {width: 33.3%;}
-.ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button {width: 25%;}
-.ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button {width: 20%;}
-.ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {width: 16.6%;}
-
-@media (max-width: 640px) {
-    .ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
-        width: 100%;
-    }
-}
 .ui-card-header img {
     width: 100%;
 }
@@ -1930,6 +1930,35 @@ button.ui-button::-moz-focus-inner {
     width: 100%;
 }
 
+.ui-fieldset, 
+.ui-fieldset .ui-fieldset-legend {
+    padding: 0.5em 1em;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend {
+    padding: 0;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend a {
+    padding: 0.5em 1em;
+    cursor:pointer;
+    white-space: nowrap;
+    display: block;
+}
+
+.ui-fieldset .ui-fieldset-toggler {
+    margin-right: .1em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-legend-text {
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-content-wrapper-overflown {
+    overflow: hidden;
+} 
 /*
  * FileUpload
  */
@@ -2043,35 +2072,6 @@ button.ui-button::-moz-focus-inner {
 
 
 
-.ui-fieldset, 
-.ui-fieldset .ui-fieldset-legend {
-    padding: 0.5em 1em;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend {
-    padding: 0;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend a {
-    padding: 0.5em 1em;
-    cursor:pointer;
-    white-space: nowrap;
-    display: block;
-}
-
-.ui-fieldset .ui-fieldset-toggler {
-    margin-right: .1em;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-legend-text {
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-content-wrapper-overflown {
-    overflow: hidden;
-} 
 .ui-fluid .fc .ui-button {
     width: auto;
 }
@@ -4640,110 +4640,6 @@ button.ui-button::-moz-focus-inner {
 .ui-selectbutton .ui-button.ui-state-focus {
     outline: none;
 }
-.ui-slidemenu {
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu.ui-slidemenu-dynamic {
-    position: absolute;
-}
-
-.ui-slidemenu .ui-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.ui-slidemenu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ui-slidemenu .ui-slidemenu-rootlist {
-    position: absolute;
-    top: 0;
-}
-
-.ui-slidemenu .ui-submenu-list {
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu .ui-menuitem-link {
-    padding: .25em;
-    display: block;
-    position: relative;
-    text-decoration: none;
-}
-
-.ui-slidemenu .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-text {
-    vertical-align: middle;
-}
-
-
-.ui-slidemenu .ui-menuitem {
-    position: relative;
-    margin: .125em 0;
-}
-
-.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
-    position: absolute;
-    margin-top: -.5em;
-    right: 0;
-    top: 50%;
-}
-
-.ui-slidemenu .ui-slidemenu-wrapper {
-    position: relative;
-}
-
-.ui-slidemenu .ui-slidemenu-content {
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-}
-
-.ui-slidemenu-backward {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0.25em;
-    cursor: pointer;
-    display: none;
-}
-
-.ui-slidemenu-backward .ui-slidemenu-backward-icon {
-    vertical-align: middle;
-}
-
-.ui-slidemenu-backward span {
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-active {
-    position: static;
-}
-
-.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: block;
-}
-
-.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: none;
-}
-
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
-    display: block;
-}
 .ui-sidebar {
     position: fixed;
     padding: .5em 1em;
@@ -4860,6 +4756,110 @@ button.ui-button::-moz-focus-inner {
     .ui-sidebar-right.ui-sidebar-md {
         width: 20em;
     }
+}
+.ui-slidemenu {
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu.ui-slidemenu-dynamic {
+    position: absolute;
+}
+
+.ui-slidemenu .ui-menu-separator {
+    border-width: 1px 0 0 0;
+}
+
+.ui-slidemenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-slidemenu .ui-slidemenu-rootlist {
+    position: absolute;
+    top: 0;
+}
+
+.ui-slidemenu .ui-submenu-list {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu .ui-menuitem-link {
+    padding: .25em;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.ui-slidemenu .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-text {
+    vertical-align: middle;
+}
+
+
+.ui-slidemenu .ui-menuitem {
+    position: relative;
+    margin: .125em 0;
+}
+
+.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
+    position: absolute;
+    margin-top: -.5em;
+    right: 0;
+    top: 50%;
+}
+
+.ui-slidemenu .ui-slidemenu-wrapper {
+    position: relative;
+}
+
+.ui-slidemenu .ui-slidemenu-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.ui-slidemenu-backward {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.25em;
+    cursor: pointer;
+    display: none;
+}
+
+.ui-slidemenu-backward .ui-slidemenu-backward-icon {
+    vertical-align: middle;
+}
+
+.ui-slidemenu-backward span {
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-active {
+    position: static;
+}
+
+.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: block;
+}
+
+.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: none;
+}
+
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
+    display: block;
 }
 .ui-slider {
 	position: relative;
@@ -5448,6 +5448,31 @@ button.ui-button::-moz-focus-inner {
     float: right;
 }
 
+.ui-terminal {
+    height: 18em;
+    overflow: auto;
+    padding: .25em;
+}
+
+.ui-terminal-input {
+    border: 0 none;
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    margin: 0 0 0 .125em;
+    width: 75%;
+    outline: none;
+    vertical-align: baseline;
+}
+
+.ui-terminal-command {
+    margin-left: .125em;
+    -moz-margin-start: .125em;
+}
+
+.ui-terminal-input::-ms-clear {
+    display: none;
+}
 .ui-tieredmenu {
     width: 12.5em;
     padding: .25em;
@@ -5597,31 +5622,6 @@ button.ui-button::-moz-focus-inner {
 
 .ui-toolbar-group-right {
     float:right
-}
-.ui-terminal {
-    height: 18em;
-    overflow: auto;
-    padding: .25em;
-}
-
-.ui-terminal-input {
-    border: 0 none;
-    background-color: transparent;
-    color: inherit;
-    padding: 0;
-    margin: 0 0 0 .125em;
-    width: 75%;
-    outline: none;
-    vertical-align: baseline;
-}
-
-.ui-terminal-command {
-    margin-left: .125em;
-    -moz-margin-start: .125em;
-}
-
-.ui-terminal-input::-ms-clear {
-    display: none;
 }
 .ui-tooltip {
     position:absolute;

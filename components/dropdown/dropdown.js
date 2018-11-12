@@ -50,6 +50,7 @@ var Dropdown = /** @class */ (function () {
         this.onHide = new core_1.EventEmitter();
         this.onKey = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
+        this.selectedIndex = 0;
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
     }
@@ -148,6 +149,7 @@ var Dropdown = /** @class */ (function () {
         }, 150);
     };
     Dropdown.prototype.selectItem = function (event, option) {
+        console.log('this.selectedIndex', this.selectedIndex);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
@@ -427,6 +429,9 @@ var Dropdown = /** @class */ (function () {
                     }
                     else {
                         var selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                        this.selectedIndex--;
+                        if (this.selectedIndex < 0)
+                            this.selectedIndex = this.optionsToDisplay.length - 1;
                         var nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
                         if (nextEnabledOption) {
                             this.selectItem(event, nextEnabledOption);
@@ -457,6 +462,9 @@ var Dropdown = /** @class */ (function () {
                 }
                 else {
                     var selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                    this.selectedIndex++;
+                    if (this.selectedIndex >= this.optionsToDisplay.length)
+                        this.selectedIndex = 0;
                     var prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
                     if (prevEnabledOption) {
                         this.selectItem(event, prevEnabledOption);
@@ -628,6 +636,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.activateFilter = function () {
         var searchFields = this.filterBy.split(',');
+        this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
                 var filteredGroups = [];

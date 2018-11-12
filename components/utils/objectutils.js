@@ -96,7 +96,6 @@ var ObjectUtils = /** @class */ (function () {
         if (value) {
             for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
                 var item = value_1[_i];
-                console.log('!!!111!!', value, item);
                 if (item.value && item.value.isAdd) {
                     filteredItems.push(item);
                     continue;

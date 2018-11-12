@@ -216,6 +216,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     selectedItemTemplate: TemplateRef<any>;
     
     selectedOption: any;
+
+    selectedIndex: number = 0;
     
     _options: any[];
     
@@ -373,6 +375,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	}
     
     selectItem(event, option) {
+        console.log('this.selectedIndex', this.selectedIndex);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
@@ -698,6 +701,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                     }
                     else {
                         let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                        this.selectedIndex--;
+                        if (this.selectedIndex < 0) this.selectedIndex = this.optionsToDisplay.length-1;
                         let nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
                         if (nextEnabledOption) {
                             this.selectItem(event, nextEnabledOption);
@@ -731,6 +736,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 }
                 else {
                     let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                    this.selectedIndex++;
+                    if (this.selectedIndex >= this.optionsToDisplay.length) this.selectedIndex = 0;
                     let prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
                     if (prevEnabledOption) {
                         this.selectItem(event, prevEnabledOption);
@@ -932,6 +939,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     activateFilter() {
         let searchFields: string[] = this.filterBy.split(',');
+        this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
                 let filteredGroups = [];

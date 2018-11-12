@@ -66,6 +66,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     groupTemplate: TemplateRef<any>;
     selectedItemTemplate: TemplateRef<any>;
     selectedOption: any;
+    selectedIndex: number;
     _options: any[];
     value: any;
     onModelChange: Function;
