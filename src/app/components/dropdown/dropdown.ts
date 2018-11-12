@@ -307,6 +307,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         this.optionsToDisplay = this._options;
         this.updateSelectedOption(this.value);
         this.optionsChanged = true;
+		
+		let addItem = {label: 'Adicionar novo!', value: {isAdd: true, id: -3}};
+		this._options.push(addItem);
         
         if (this.filterValue && this.filterValue.length) {
             this.activateFilter();
