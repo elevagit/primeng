@@ -50,7 +50,7 @@ var Dropdown = /** @class */ (function () {
         this.onHide = new core_1.EventEmitter();
         this.onKey = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
-        this.selectedIndex = 0;
+        this.selectedIndex = -1;
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
     }
@@ -636,7 +636,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.activateFilter = function () {
         var searchFields = this.filterBy.split(',');
-        this.selectedIndex = 0;
+        this.selectedIndex = -1;
         if (this.options && this.options.length) {
             if (this.group) {
                 var filteredGroups = [];

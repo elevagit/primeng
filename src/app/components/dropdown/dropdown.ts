@@ -217,7 +217,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     selectedOption: any;
 
-    selectedIndex: number = 0;
+    selectedIndex: number = -1;
     
     _options: any[];
     
@@ -939,7 +939,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     activateFilter() {
         let searchFields: string[] = this.filterBy.split(',');
-        this.selectedIndex = 0;
+        this.selectedIndex = -1;
         if (this.options && this.options.length) {
             if (this.group) {
                 let filteredGroups = [];
