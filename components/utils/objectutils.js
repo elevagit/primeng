@@ -96,6 +96,10 @@ var ObjectUtils = /** @class */ (function () {
         if (value) {
             for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
                 var item = value_1[_i];
+                if (item.isAdd) {
+                    filteredItems.push(item);
+                    continue;
+                }
                 for (var _a = 0, fields_1 = fields; _a < fields_1.length; _a++) {
                     var field = fields_1[_a];
                     if (String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {

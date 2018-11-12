@@ -311,6 +311,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         if (this.filterValue && this.filterValue.length) {
             this.activateFilter();
         }
+		console.log('OPTIONS', opts);
     }
     
     ngAfterViewInit() {

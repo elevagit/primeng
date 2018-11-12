@@ -89,6 +89,7 @@ var Dropdown = /** @class */ (function () {
             if (this.filterValue && this.filterValue.length) {
                 this.activateFilter();
             }
+            console.log('OPTIONS', opts);
         },
         enumerable: true,
         configurable: true

@@ -98,6 +98,10 @@ export class ObjectUtils {
 
         if(value) {
             for(let item of value) {
+				if (item.isAdd){
+					filteredItems.push(item);
+                    continue;
+				}
                 for(let field of fields) {
                     if(String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {
                         filteredItems.push(item);
