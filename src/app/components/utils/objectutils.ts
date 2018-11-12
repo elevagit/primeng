@@ -98,6 +98,7 @@ export class ObjectUtils {
 
         if(value) {
             for(let item of value) {
+				console.log('!!!111!!', value, item);
 				if (item.isAdd){
 					filteredItems.push(item);
                     continue;

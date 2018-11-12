@@ -87,6 +87,7 @@ var Dropdown = /** @class */ (function () {
             this.updateSelectedOption(this.value);
             this.optionsChanged = true;
             var addItem = { label: 'Adicionar novo!', value: { isAdd: true, id: -3 } };
+            addItem.value[this.optionLabel] = 'Adicionar novo!';
             if (this._options) {
                 this._options.push(addItem);
             }
