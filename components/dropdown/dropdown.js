@@ -84,14 +84,14 @@ var Dropdown = /** @class */ (function () {
         set: function (val) {
             var opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
             this._options = opts;
-            this.optionsToDisplay = this._options;
-            this.updateSelectedOption(this.value);
-            this.optionsChanged = true;
             var addItem = { label: 'Adicionar novo!', value: { isAdd: true, id: -3 } };
             addItem.value[this.optionLabel] = 'Adicionar novo!';
             if (this._options) {
                 this._options.push(addItem);
             }
+            this.optionsToDisplay = this._options;
+            this.updateSelectedOption(this.value);
+            this.optionsChanged = true;
             if (this.filterValue && this.filterValue.length) {
                 this.activateFilter();
             }

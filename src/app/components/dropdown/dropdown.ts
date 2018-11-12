@@ -306,16 +306,15 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     set options(val: any[]) {
         let opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
         this._options = opts;
-        this.optionsToDisplay = this._options;
-        this.updateSelectedOption(this.value);
-        this.optionsChanged = true;
-		
-		let addItem = {label: 'Adicionar novo!', value: {isAdd: true, id: -3}};
-		addItem.value[this.optionLabel] = 'Adicionar novo!';
-		if (this._options){
+        let addItem = {label: 'Adicionar novo!', value: {isAdd: true, id: -3}};
+        addItem.value[this.optionLabel] = 'Adicionar novo!';
+        if (this._options){
 			this._options.push(addItem);
 		}
-        
+        this.optionsToDisplay = this._options;
+        this.updateSelectedOption(this.value);
+        this.optionsChanged = true;		
+		        
         if (this.filterValue && this.filterValue.length) {
             this.activateFilter();
         }
