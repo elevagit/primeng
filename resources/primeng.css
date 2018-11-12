@@ -967,65 +967,6 @@ input[type=text]::-ms-clear {
 }
 
 
-.ui-chips > ul.ui-inputtext {
-    clear: left;
-    cursor: text;
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    padding: 0 .25em;
-}
-
-.ui-chips-token {
-    cursor: default;
-    display: inline-block;
-    vertical-align: middle;
-    overflow: hidden;
-    padding: .125em .5em;
-    white-space: nowrap;
-    position: relative;
-    margin-right: .125em;
-    border: 0 none;
-    font-size: .9em;
-}
-
-.ui-chips-token .ui-chips-token-label {
-    display: block;
-    margin-right: 2em;
-}
-
-.ui-chips > .ui-state-disabled .ui-chips-token-label {
-    margin-right: 0;
-}
-
-.ui-chips-token .ui-chips-token-icon {
-    margin-top: -.5em;
-    position: absolute;
-    right: 0.2em;
-    top: 50%;
-    cursor: pointer;
-}
-
-.ui-chips-input-token {
-    display: inline-block;
-    vertical-align: middle;
-    list-style-type: none;
-    margin: 0 0 0 .125em;
-    padding: .25em .25em .25em 0;
-}
-
-.ui-chips-input-token input {
-    border: 0 none;
-    width: 10em;
-    outline: medium none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-}
 .ui-colorpicker {
     display: inline-block;
 } 
@@ -1112,6 +1053,65 @@ input[type=text]::-ms-clear {
  .ui-colorpicker-panel.ui-state-disabled .ui-colorpicker-color-handle  {
       opacity: .5;
  }
+.ui-chips > ul.ui-inputtext {
+    clear: left;
+    cursor: text;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 .25em;
+}
+
+.ui-chips-token {
+    cursor: default;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    padding: .125em .5em;
+    white-space: nowrap;
+    position: relative;
+    margin-right: .125em;
+    border: 0 none;
+    font-size: .9em;
+}
+
+.ui-chips-token .ui-chips-token-label {
+    display: block;
+    margin-right: 2em;
+}
+
+.ui-chips > .ui-state-disabled .ui-chips-token-label {
+    margin-right: 0;
+}
+
+.ui-chips-token .ui-chips-token-icon {
+    margin-top: -.5em;
+    position: absolute;
+    right: 0.2em;
+    top: 50%;
+    cursor: pointer;
+}
+
+.ui-chips-input-token {
+    display: inline-block;
+    vertical-align: middle;
+    list-style-type: none;
+    margin: 0 0 0 .125em;
+    padding: .25em .25em .25em 0;
+}
+
+.ui-chips-input-token input {
+    border: 0 none;
+    width: 10em;
+    outline: medium none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
 .ui-contextmenu {
     width: 12.5em;
     padding: .25em;
@@ -1201,34 +1201,6 @@ input[type=text]::-ms-clear {
 }
 
 
-.ui-datascroller {
-}
-
-.ui-datascroller .ui-datascroller-header {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
-}
-
-.ui-datascroller .ui-datascroller-footer {
-    text-align: center;
-    padding: .25em .625em;
-    border-top: 0px none;
-}
-
-.ui-datascroller .ui-datascroller-content {
-    padding: .25em .625em;
-}
-
-.ui-datascroller-inline .ui-datascroller-content {
-    overflow: auto;
-}
-
-.ui-datascroller .ui-datascroller-list {
-    list-style-type: none; 
-    margin: 0;
-    padding: 0;
-}
 .ui-datalist .ui-datalist-header,
 .ui-datalist .ui-datalist-footer {
     text-align:center;
@@ -1267,74 +1239,6 @@ input[type=text]::-ms-clear {
 
 .ui-datalist .ui-paginator-bottom {
     border-top: 0 none;
-}
-
-.ui-dataview {
-    position: relative;
-}
-
-.ui-dataview .ui-paginator {
-	text-align: center;
-}
-
-.ui-dataview-column {
-	padding: .25em;
-}
-
-.ui-dataview-content-empty {
-    padding: .25em .625em;
-}
-
-.ui-dataview .ui-dataview-header,
-.ui-dataview .ui-dataview-footer {
-	padding: .5em .75em;
-}
-
-.ui-dataview .ui-dataview-header {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-dataview-footer {
-    border-top: 0 none;
-}
-
-.ui-dataview .ui-paginator-top {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-paginator-bottom {
-    border-top: 0 none;
-}
-
-.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
-    width: 100%;
-}
-
-.ui-dataview .ui-dataview-emptymessage {
-    padding: .5em .75em;
-}
-
-/* Loader */
-.ui-dataview-loading {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.ui-dataview-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.ui-dataview-loading-icon {
-    font-size: 2em;
 }
 
 .ui-datatable {
@@ -1707,6 +1611,102 @@ input[type=text]::-ms-clear {
         display: block;
     }
 }
+.ui-datascroller {
+}
+
+.ui-datascroller .ui-datascroller-header {
+    text-align: center;
+	padding: .5em .75em;
+    border-bottom: 0 none;
+}
+
+.ui-datascroller .ui-datascroller-footer {
+    text-align: center;
+    padding: .25em .625em;
+    border-top: 0px none;
+}
+
+.ui-datascroller .ui-datascroller-content {
+    padding: .25em .625em;
+}
+
+.ui-datascroller-inline .ui-datascroller-content {
+    overflow: auto;
+}
+
+.ui-datascroller .ui-datascroller-list {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+.ui-dataview {
+    position: relative;
+}
+
+.ui-dataview .ui-paginator {
+	text-align: center;
+}
+
+.ui-dataview-column {
+	padding: .25em;
+}
+
+.ui-dataview-content-empty {
+    padding: .25em .625em;
+}
+
+.ui-dataview .ui-dataview-header,
+.ui-dataview .ui-dataview-footer {
+	padding: .5em .75em;
+}
+
+.ui-dataview .ui-dataview-header {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-dataview-footer {
+    border-top: 0 none;
+}
+
+.ui-dataview .ui-paginator-top {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-paginator-bottom {
+    border-top: 0 none;
+}
+
+.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
+    width: 100%;
+}
+
+.ui-dataview .ui-dataview-emptymessage {
+    padding: .5em .75em;
+}
+
+/* Loader */
+.ui-dataview-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.ui-dataview-loading-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    margin-top: -1em;
+    margin-left: -1em;
+}
+
+.ui-dataview-loading-icon {
+    font-size: 2em;
+}
+
 .ui-dialog {
     position: fixed;
     padding: 0;
@@ -2075,6 +2075,89 @@ input[type=text]::-ms-clear {
 .ui-fluid .fc .ui-button {
     width: auto;
 }
+.ui-galleria {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+
+.ui-galleria .ui-galleria-panel-wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-galleria .ui-galleria-panel {
+    filter: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+}
+
+.ui-galleria .ui-galleria-filmstrip-wrapper {
+    overflow: hidden;
+    margin: .25em auto;
+    position: relative;
+}
+
+.ui-galleria .ui-galleria-filmstrip {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 2340px;
+    z-index: 900;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ui-galleria .ui-galleria-frame {
+    float:left;
+    margin-right: 5px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.ui-galleria .ui-galleria-frame-active {
+    opacity: 1;
+}
+
+.ui-galleria .ui-galleria-frame-content {
+    overflow: hidden;
+}
+
+.ui-galleria .ui-galleria-nav-next, .ui-galleria .ui-galleria-nav-prev {
+	cursor: pointer;
+    position: absolute;
+    z-index: 910;
+}
+
+.ui-galleria .ui-galleria-nav-prev {
+    left: 4px;
+}
+
+.ui-galleria .ui-galleria-nav-next {
+    right: 4px;
+}
+
+.ui-galleria .ui-galleria-caption {
+    position: absolute;
+    left:1px;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    color: #ededed;
+    padding: 0.2em 1em;
+}
+
+.ui-galleria .ui-galleria-caption h4 {
+    color: #ededed;
+}
+
+.ui-galleria .ui-galleria-panel-content {
+    padding: 1em 1.4em;
+}
+
 /* Deprecated Grid CSS */
 .ui-grid {
     clear: both;
@@ -2852,89 +2935,6 @@ input[type=text]::-ms-clear {
     padding: 0;
 }
 
-.ui-galleria {
-    overflow: hidden;
-    visibility: hidden;
-    position: relative;
-}
-
-.ui-galleria .ui-galleria-panel-wrapper {
-    position: relative;
-    padding: 0;
-    margin: 0;
-}
-
-.ui-galleria .ui-galleria-panel {
-    filter: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    list-style-type: none;
-}
-
-.ui-galleria .ui-galleria-filmstrip-wrapper {
-    overflow: hidden;
-    margin: .25em auto;
-    position: relative;
-}
-
-.ui-galleria .ui-galleria-filmstrip {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-    width: 2340px;
-    z-index: 900;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.ui-galleria .ui-galleria-frame {
-    float:left;
-    margin-right: 5px;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.ui-galleria .ui-galleria-frame-active {
-    opacity: 1;
-}
-
-.ui-galleria .ui-galleria-frame-content {
-    overflow: hidden;
-}
-
-.ui-galleria .ui-galleria-nav-next, .ui-galleria .ui-galleria-nav-prev {
-	cursor: pointer;
-    position: absolute;
-    z-index: 910;
-}
-
-.ui-galleria .ui-galleria-nav-prev {
-    left: 4px;
-}
-
-.ui-galleria .ui-galleria-nav-next {
-    right: 4px;
-}
-
-.ui-galleria .ui-galleria-caption {
-    position: absolute;
-    left:1px;
-    background-color: rgba(0,0,0,0.5);
-    display: none;
-    color: #ededed;
-    padding: 0.2em 1em;
-}
-
-.ui-galleria .ui-galleria-caption h4 {
-    color: #ededed;
-}
-
-.ui-galleria .ui-galleria-panel-content {
-    padding: 1em 1.4em;
-}
-
 .ui-growl {
 	position:fixed;
 	top: 20px;
@@ -3429,6 +3429,22 @@ input[type=text]::-ms-clear {
 .ui-menu .ui-menuitem-text {
     vertical-align: middle;
 }
+.ui-message {
+    border: 1px solid;
+    margin: 0px .25em;
+    padding: .25em .5em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ui-message .ui-message-icon,
+.ui-message .ui-message-text {
+    vertical-align: middle;
+}
+
+.ui-fluid .ui-message {
+    display: block;
+}
 .ui-menubar {
     padding: .25em;
 }
@@ -3518,22 +3534,6 @@ input[type=text]::-ms-clear {
     float: right;
     padding: .25em;
 }
-.ui-message {
-    border: 1px solid;
-    margin: 0px .25em;
-    padding: .25em .5em;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.ui-message .ui-message-icon,
-.ui-message .ui-message-text {
-    vertical-align: middle;
-}
-
-.ui-fluid .ui-message {
-    display: block;
-}
 .ui-messages {
     border: 1px solid;
     margin: .5em 0;
@@ -3579,6 +3579,157 @@ input[type=text]::-ms-clear {
     top: 5px;
     right: 5px;
 }
+.ui-multiselect {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    cursor: pointer;
+}
+
+.ui-multiselect .ui-multiselect-trigger {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 .25em;
+}
+
+.ui-multiselect .ui-multiselect-trigger  .ui-multiselect-trigger-icon {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    position: absolute;
+}
+
+.ui-multiselect .ui-multiselect-label-container  {
+    overflow: hidden;
+}
+
+.ui-multiselect .ui-multiselect-label  {
+    display: block;
+    padding: .25em 2em .25em .25em;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ui-multiselect.ui-state-disabled .ui-multiselect-trigger,
+.ui-multiselect.ui-state-disabled .ui-multiselect-label {
+    cursor: auto
+}
+
+.ui-multiselect-panel {
+    padding: 0.2em;
+    position: absolute;
+    min-width: 12em;
+}
+
+.ui-multiselect .ui-multiselect-panel {
+    min-width: 100%;
+}
+
+.ui-multiselect-panel .ui-multiselect-items-wrapper {
+    overflow: auto;
+    position: relative;
+    padding: 0.2em 0;
+}
+
+.ui-multiselect-panel .ui-multiselect-list {
+    border: 0 none;
+}
+
+.ui-multiselect-panel .ui-multiselect-item {
+    border: 0 none;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 1px 0;
+    padding: .125em .25em;
+    text-align: left;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+}
+
+.ui-multiselect-panel .ui-multiselect-item .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-multiselect-panel .ui-multiselect-item label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-multiselect-header {
+    margin-bottom: 0.3em;
+    padding: .25em;
+    position: relative;
+    text-align: left;
+    min-height: 2em;
+}
+
+.ui-multiselect-header .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+.ui-multiselect-header .ui-multiselect-filter-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 65%;
+}
+
+.ui-multiselect-header.ui-multiselect-header-no-toggleall .ui-multiselect-filter-container {
+    width: 85%;
+}
+
+.ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
+    position: absolute;
+    top: .25em;
+    left: .125em;
+}
+            
+.ui-multiselect-header .ui-inputtext {
+    padding: .125em .125em .125em 1.25em;
+    width: 100%;
+}
+
+.ui-multiselect-header .ui-multiselect-close {
+    position: absolute;
+    right: .375em;
+    top: .375em;
+    display: block;
+    border: 0 none;
+    cursor: pointer;
+}
+
+.ui-multiselect-header a.ui-multiselect-all,
+.ui-multiselect-header a.ui-multiselect-none {
+    float:left;
+    margin-right: 10px;
+    display: block;
+}
+
+.ui-multiselect-footer {
+    padding: .25em;
+}
+
+.ui-fluid .ui-multiselect {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
 .ui-orderlist {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3857,157 +4008,6 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-paginator .ui-dropdown {
     width: auto;
 }
-.ui-multiselect {
-    display: inline-block;
-    position: relative;
-    width: auto;
-    cursor: pointer;
-}
-
-.ui-multiselect .ui-multiselect-trigger {
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0 .25em;
-}
-
-.ui-multiselect .ui-multiselect-trigger  .ui-multiselect-trigger-icon {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    position: absolute;
-}
-
-.ui-multiselect .ui-multiselect-label-container  {
-    overflow: hidden;
-}
-
-.ui-multiselect .ui-multiselect-label  {
-    display: block;
-    padding: .25em 2em .25em .25em;
-    width: auto;
-    border: none;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.ui-multiselect.ui-state-disabled .ui-multiselect-trigger,
-.ui-multiselect.ui-state-disabled .ui-multiselect-label {
-    cursor: auto
-}
-
-.ui-multiselect-panel {
-    padding: 0.2em;
-    position: absolute;
-    min-width: 12em;
-}
-
-.ui-multiselect .ui-multiselect-panel {
-    min-width: 100%;
-}
-
-.ui-multiselect-panel .ui-multiselect-items-wrapper {
-    overflow: auto;
-    position: relative;
-    padding: 0.2em 0;
-}
-
-.ui-multiselect-panel .ui-multiselect-list {
-    border: 0 none;
-}
-
-.ui-multiselect-panel .ui-multiselect-item {
-    border: 0 none;
-    cursor: pointer;
-    font-weight: normal;
-    margin: 1px 0;
-    padding: .125em .25em;
-    text-align: left;
-    white-space: nowrap;
-    display: block;
-    position: relative;
-}
-
-.ui-multiselect-panel .ui-multiselect-item .ui-chkbox {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-multiselect-panel .ui-multiselect-item label {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-multiselect-header {
-    margin-bottom: 0.3em;
-    padding: .25em;
-    position: relative;
-    text-align: left;
-    min-height: 2em;
-}
-
-.ui-multiselect-header .ui-chkbox {
-    display: inline-block;
-    vertical-align: middle;
-    cursor:pointer;
-}
-
-.ui-multiselect-header .ui-multiselect-filter-container {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    width: 65%;
-}
-
-.ui-multiselect-header.ui-multiselect-header-no-toggleall .ui-multiselect-filter-container {
-    width: 85%;
-}
-
-.ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
-    position: absolute;
-    top: .25em;
-    left: .125em;
-}
-            
-.ui-multiselect-header .ui-inputtext {
-    padding: .125em .125em .125em 1.25em;
-    width: 100%;
-}
-
-.ui-multiselect-header .ui-multiselect-close {
-    position: absolute;
-    right: .375em;
-    top: .375em;
-    display: block;
-    border: 0 none;
-    cursor: pointer;
-}
-
-.ui-multiselect-header a.ui-multiselect-all,
-.ui-multiselect-header a.ui-multiselect-none {
-    float:left;
-    margin-right: 10px;
-    display: block;
-}
-
-.ui-multiselect-footer {
-    padding: .25em;
-}
-
-.ui-fluid .ui-multiselect {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
 .ui-panel {
 	padding: 0.2em;
 }
@@ -4569,11 +4569,11 @@ input[type=text]::-ms-clear {
 .ui-radiobutton, .ui-radiobutton-label {
     vertical-align: middle;
 }
-.ui-rating {
-    font-size: 1.25em;
-}
 .ui-fluid .fc .ui-button {
     width: auto;
+}
+.ui-rating {
+    font-size: 1.25em;
 }
 .ui-scrollpanel-wrapper {
     overflow: hidden;
@@ -4639,110 +4639,6 @@ input[type=text]::-ms-clear {
 
 .ui-selectbutton .ui-button.ui-state-focus {
     outline: none;
-}
-.ui-slidemenu {
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu.ui-slidemenu-dynamic {
-    position: absolute;
-}
-
-.ui-slidemenu .ui-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.ui-slidemenu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ui-slidemenu .ui-slidemenu-rootlist {
-    position: absolute;
-    top: 0;
-}
-
-.ui-slidemenu .ui-submenu-list {
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu .ui-menuitem-link {
-    padding: .25em;
-    display: block;
-    position: relative;
-    text-decoration: none;
-}
-
-.ui-slidemenu .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-text {
-    vertical-align: middle;
-}
-
-
-.ui-slidemenu .ui-menuitem {
-    position: relative;
-    margin: .125em 0;
-}
-
-.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
-    position: absolute;
-    margin-top: -.5em;
-    right: 0;
-    top: 50%;
-}
-
-.ui-slidemenu .ui-slidemenu-wrapper {
-    position: relative;
-}
-
-.ui-slidemenu .ui-slidemenu-content {
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-}
-
-.ui-slidemenu-backward {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0.25em;
-    cursor: pointer;
-    display: none;
-}
-
-.ui-slidemenu-backward .ui-slidemenu-backward-icon {
-    vertical-align: middle;
-}
-
-.ui-slidemenu-backward span {
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-active {
-    position: static;
-}
-
-.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: block;
-}
-
-.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: none;
-}
-
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
-    display: block;
 }
 .ui-sidebar {
     position: fixed;
@@ -4860,6 +4756,110 @@ input[type=text]::-ms-clear {
     .ui-sidebar-right.ui-sidebar-md {
         width: 20em;
     }
+}
+.ui-slidemenu {
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu.ui-slidemenu-dynamic {
+    position: absolute;
+}
+
+.ui-slidemenu .ui-menu-separator {
+    border-width: 1px 0 0 0;
+}
+
+.ui-slidemenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-slidemenu .ui-slidemenu-rootlist {
+    position: absolute;
+    top: 0;
+}
+
+.ui-slidemenu .ui-submenu-list {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu .ui-menuitem-link {
+    padding: .25em;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.ui-slidemenu .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-text {
+    vertical-align: middle;
+}
+
+
+.ui-slidemenu .ui-menuitem {
+    position: relative;
+    margin: .125em 0;
+}
+
+.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
+    position: absolute;
+    margin-top: -.5em;
+    right: 0;
+    top: 50%;
+}
+
+.ui-slidemenu .ui-slidemenu-wrapper {
+    position: relative;
+}
+
+.ui-slidemenu .ui-slidemenu-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.ui-slidemenu-backward {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.25em;
+    cursor: pointer;
+    display: none;
+}
+
+.ui-slidemenu-backward .ui-slidemenu-backward-icon {
+    vertical-align: middle;
+}
+
+.ui-slidemenu-backward span {
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-active {
+    position: static;
+}
+
+.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: block;
+}
+
+.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: none;
+}
+
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
+    display: block;
 }
 .ui-slider {
 	position: relative;
@@ -4987,6 +4987,32 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-spinner .ui-spinner-button .ui-spinner-button-icon {
     left: .7em;
 }
+.ui-splitbutton {
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+}
+
+.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    width: 2em;
+    vertical-align: top;
+}
+
+.ui-splitbutton.ui-state-disabled button {
+    cursor: default;
+}
+
+.ui-fluid .ui-splitbutton {
+    width: 100%;
+}
+
+.ui-fluid .ui-splitbutton .ui-button:first-child {
+    width: calc(100% - 2em);
+}
+
+.ui-fluid .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    width: 2em;
+}
 .ui-steps ul {
     list-style-type: none;
     padding: 0;
@@ -5035,32 +5061,6 @@ input[type=text]::-ms-clear {
     .ui-steps .ui-steps-item .ui-steps-title {
         display: none;
     }
-}
-.ui-splitbutton {
-    position: relative;
-    display: inline-block;
-    zoom: 1;
-}
-
-.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    width: 2em;
-    vertical-align: top;
-}
-
-.ui-splitbutton.ui-state-disabled button {
-    cursor: default;
-}
-
-.ui-fluid .ui-splitbutton {
-    width: 100%;
-}
-
-.ui-fluid .ui-splitbutton .ui-button:first-child {
-    width: calc(100% - 2em);
-}
-
-.ui-fluid .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    width: 2em;
 }
 .ui-table {
     position: relative;

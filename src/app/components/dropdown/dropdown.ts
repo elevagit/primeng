@@ -71,7 +71,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                         <ng-template #itemslist let-options let-selectedOption="selectedOption">
                             <li *ngFor="let option of options;let i=index"  (click)="onItemClick($event, option)"
                                     [ngClass]="{'ui-dropdown-item ui-corner-all':true,
-                                                'ui-state-highlight':(selectedOption == option),
+                                                'ui-state-highlight':(selectedIndex == i),
                                                 'ui-state-disabled':(option.disabled),
                                                 'ui-dropdown-item-empty':!option.label||option.label.length === 0}">
                                 <span *ngIf="!itemTemplate">{{option.label||'empty'}}</span>
@@ -374,7 +374,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	}
     
     selectItem(event, option) {
-        console.log('this.selectedIndex', this.selectedIndex);
+        console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
