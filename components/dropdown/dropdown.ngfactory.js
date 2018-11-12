@@ -80,7 +80,7 @@ function View_Dropdown_27(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null
 function View_Dropdown_28(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 2, "li", [["class", "ui-dropdown-item ui-corner-all"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.onAddNovo($event, _co.filter.value) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i0.ɵted(2, null, ["Adicionar ", ""]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = ((_co.filter.value == "") ? "novo" : _co.filter.value); _ck(_v, 2, 0, currVal_0); }); }
+    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i0.ɵted(2, null, ["Adicionar ", ""]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.getAddLabel(); _ck(_v, 2, 0, currVal_0); }); }
 function View_Dropdown_14(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, [[4, 0], ["containerPanel", 1]], null, 17, "div", [], [[24, "@overlayAnimation", 0]], [[null, "@overlayAnimation.start"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("@overlayAnimation.start" === en)) {
         var pd_0 = (_co.onOverlayAnimationStart($event) !== false);
         ad = (pd_0 && ad);

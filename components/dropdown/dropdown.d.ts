@@ -99,7 +99,9 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     readonly label: string;
     updateEditableLabel(): void;
     onItemClick(event: any, option: any): void;
-    onAddNovo(event: any, texto: any): void;
+    getFilterValue(): string;
+    getAddLabel(): string;
+    onAddNovo(event: any): void;
     selectItem(event: any, option: any): void;
     ngAfterViewChecked(): void;
     writeValue(value: any): void;
