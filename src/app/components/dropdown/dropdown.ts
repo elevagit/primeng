@@ -48,7 +48,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
             <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
                 <span class="ui-dropdown-trigger-icon ui-clickable" [ngClass]="dropdownIcon"></span>
             </div>
-            <div *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
+            <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
                 <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
                     <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
                     (keydown.enter)="$event.preventDefault()" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
@@ -141,6 +141,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Input() inputId: string;
 
     @Input() selectId: string;
+	
+	@Input() multiplicador: number = 1;
     
     @Input() dataKey: string;
     
@@ -189,6 +191,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @ViewChild('filter') filterViewChild: ElementRef;
     
     @ViewChild('in') focusViewChild: ElementRef;
+	
+	@ViewChild('containerPanel') containerPanel: ElementRef;
     
     @ViewChild('editableInput') editableInputViewChild: ElementRef;
     
@@ -476,6 +480,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     show() {
         this.overlayVisible = true;
+		let selectRect = this.el.nativeElement.getBoundingClientRect();
+		this.containerPanel.nativeElement.style.width = selectRect.width * this.multiplicador + 'px';
+        this.containerPanel.nativeElement.style.minWidth = selectRect.width * this.multiplicador + 'px';
     }
 
     onOverlayAnimationStart(event: AnimationEvent) {

@@ -30,6 +30,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     filterPlaceholder: string;
     inputId: string;
     selectId: string;
+    multiplicador: number;
     dataKey: string;
     filterBy: string;
     autofocus: boolean;
@@ -54,6 +55,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     containerViewChild: ElementRef;
     filterViewChild: ElementRef;
     focusViewChild: ElementRef;
+    containerPanel: ElementRef;
     editableInputViewChild: ElementRef;
     templates: QueryList<any>;
     overlay: HTMLDivElement;
