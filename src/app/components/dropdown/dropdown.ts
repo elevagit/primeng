@@ -79,9 +79,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                             </li>
                         </ng-template>
                         <li *ngIf="filter && optionsToDisplay && optionsToDisplay.length === 0">{{emptyFilterMessage}}</li>
-						<li *ngIf="podeAdicionar" (click)="onAddNovo($event, filter.value)" class="ui-dropdown-item ui-corner-all">
-							<span>Adicionar {{getAddLabel()}}</span>							
-						</li>
+						
                     </ul>
                 </div>
             </div>
@@ -112,7 +110,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Input() scrollHeight: string = '200px';
 
     @Input() filter: boolean;
-    
+    //<li *ngIf="podeAdicionar" (click)="onAddNovo($event, filter.value)" class="ui-dropdown-item ui-corner-all">
+							//<span>Adicionar {{getAddLabel()}}</span>							
+						//</li>
     @Input() name: string;
 
     @Input() style: any;
