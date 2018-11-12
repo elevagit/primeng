@@ -701,8 +701,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                     }
                     else {
                         let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
-                        this.selectedIndex--;
-                        if (this.selectedIndex < 0) this.selectedIndex = this.optionsToDisplay.length-1;
+                        this.selectedIndex++;
+                        if (this.selectedIndex >= this.optionsToDisplay.length) this.selectedIndex = 0;
                         let nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
                         if (nextEnabledOption) {
                             this.selectItem(event, nextEnabledOption);
@@ -736,8 +736,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 }
                 else {
                     let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
-                    this.selectedIndex++;
-                    if (this.selectedIndex >= this.optionsToDisplay.length) this.selectedIndex = 0;
+                    this.selectedIndex--;
+                    if (this.selectedIndex < 0) this.selectedIndex = this.optionsToDisplay.length-1;
                     let prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
                     if (prevEnabledOption) {
                         this.selectItem(event, prevEnabledOption);
