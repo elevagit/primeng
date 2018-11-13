@@ -98,7 +98,7 @@ body {
     -moz-appearance: none;
     appearance: none; }
     body .ui-inputtext:enabled:hover:not(.ui-state-error) {
-      border-color: #212121; }
+      border-color: #4d90fe; }
     body .ui-inputtext:enabled:focus:not(.ui-state-error) {
       border-color: #007ad9;
       outline: 0 none;
@@ -125,7 +125,7 @@ body {
       -webkit-transition: background-color 0.2s, border-color 0.2s;
       transition: background-color 0.2s, border-color 0.2s; }
       body .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {
-        border-color: #212121; }
+        border-color: #4d90fe; }
       body .ui-chkbox .ui-chkbox-box.ui-state-focus {
         border-color: #007ad9;
         background-color: #ffffff;
@@ -169,7 +169,7 @@ body {
       -webkit-border-radius: 50%;
       border-radius: 50%; }
       body .ui-radiobutton .ui-radiobutton-box:not(.ui-state-disabled):not(.ui-state-active):hover {
-        border-color: #212121; }
+        border-color: #4d90fe; }
       body .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
         border-color: #007ad9;
         background-color: #ffffff;
@@ -249,7 +249,7 @@ body {
   body .ui-autocomplete.ui-autocomplete-multiple .ui-autocomplete-multiple-container {
     padding: 0.2145em 0.429em; }
     body .ui-autocomplete.ui-autocomplete-multiple .ui-autocomplete-multiple-container:not(.ui-state-disabled):hover {
-      border-color: #212121; }
+      border-color: #4d90fe; }
     body .ui-autocomplete.ui-autocomplete-multiple .ui-autocomplete-multiple-container:not(.ui-state-disabled).ui-state-focus {
       border-color: #007ad9;
       outline: 0 none;
