@@ -428,15 +428,15 @@ var Dropdown = /** @class */ (function () {
                         }
                     }
                     else {
-                        var selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                        //let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
                         this.selectedIndex++;
                         if (this.selectedIndex >= this.optionsToDisplay.length)
                             this.selectedIndex = 0;
-                        var nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
+                        /*let nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
                         if (nextEnabledOption) {
                             this.selectItem(event, nextEnabledOption);
                             this.selectedOptionUpdated = true;
-                        }
+                        }*/
                     }
                 }
                 event.preventDefault();
@@ -461,15 +461,15 @@ var Dropdown = /** @class */ (function () {
                     }
                 }
                 else {
-                    var selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                    //let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
                     this.selectedIndex--;
                     if (this.selectedIndex < 0)
                         this.selectedIndex = this.optionsToDisplay.length - 1;
-                    var prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
+                    /*let prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
                     if (prevEnabledOption) {
-                        this.selectItem(event, prevEnabledOption);
+                        //this.selectItem(event, prevEnabledOption);
                         this.selectedOptionUpdated = true;
-                    }
+                    }*/
                 }
                 event.preventDefault();
                 break;
@@ -483,6 +483,10 @@ var Dropdown = /** @class */ (function () {
                 break;
             //enter
             case 13:
+                if (this.options[this.selectedIndex]) {
+                    this.selectItem(event, this.options[this.selectedIndex]);
+                    this.selectedOptionUpdated = true;
+                }
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
                 }
