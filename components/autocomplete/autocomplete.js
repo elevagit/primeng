@@ -33,6 +33,7 @@ var AutoComplete = /** @class */ (function () {
         this.differs = differs;
         this.minLength = 1;
         this.delay = 300;
+        this.multiplicador = 1;
         this.type = 'text';
         this.autoZIndex = true;
         this.baseZIndex = 0;
@@ -214,12 +215,18 @@ var AutoComplete = /** @class */ (function () {
         }
     };
     AutoComplete.prototype.show = function () {
+        var _this = this;
         if (this.multiInputEL || this.inputEL) {
             var hasFocus = this.multiple ? document.activeElement == this.multiInputEL.nativeElement : document.activeElement == this.inputEL.nativeElement;
             if (!this.overlayVisible && hasFocus) {
                 this.overlayVisible = true;
             }
         }
+        var ddRect = this.el.nativeElement.getBoundingClientRect();
+        setTimeout(function () {
+            _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
+            _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
+        }, 50);
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
@@ -535,6 +542,10 @@ var AutoComplete = /** @class */ (function () {
     ], AutoComplete.prototype, "size", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Number)
+    ], AutoComplete.prototype, "multiplicador", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object)
     ], AutoComplete.prototype, "appendTo", void 0);
     __decorate([
@@ -657,6 +668,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.ViewChild('ddBtn'),
         __metadata("design:type", core_1.ElementRef)
     ], AutoComplete.prototype, "dropdownButton", void 0);
+    __decorate([
+        core_1.ViewChild('panel'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AutoComplete.prototype, "containerPanel", void 0);
     __decorate([
         core_1.ContentChildren(shared_1.PrimeTemplate),
         __metadata("design:type", core_1.QueryList)

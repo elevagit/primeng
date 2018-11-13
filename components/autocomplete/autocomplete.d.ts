@@ -24,6 +24,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     maxlength: number;
     required: boolean;
     size: number;
+    multiplicador: number;
     appendTo: any;
     autoHighlight: boolean;
     forceSelection: boolean;
@@ -55,6 +56,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     multiInputEL: ElementRef;
     multiContainerEL: ElementRef;
     dropdownButton: ElementRef;
+    containerPanel: ElementRef;
     templates: QueryList<any>;
     overlay: HTMLDivElement;
     itemTemplate: TemplateRef<any>;

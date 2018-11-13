@@ -97,6 +97,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Input() size: number;
 
+    @Input() multiplicador: number = 1;
+
     @Input() appendTo: any;
 
     @Input() autoHighlight: boolean;
@@ -158,6 +160,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     @ViewChild('multiContainer') multiContainerEL: ElementRef;
 
     @ViewChild('ddBtn') dropdownButton: ElementRef;
+
+    @ViewChild('panel') containerPanel: ElementRef;
 
     @ContentChildren(PrimeTemplate) templates: QueryList<any>;
 
@@ -394,6 +398,11 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                 this.overlayVisible = true;
             }
         }
+        let ddRect: ClientRect = this.el.nativeElement.getBoundingClientRect();		
+		setTimeout(() => {
+			this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
+			this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
+        }, 50);	
     }
 
     onOverlayAnimationStart(event: AnimationEvent) {
