@@ -699,14 +699,14 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                         }
                     }
                     else {
-                        //let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                        let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
                         this.selectedIndex++;
                         if (this.selectedIndex >= this.optionsToDisplay.length) this.selectedIndex = 0;
-                        /*let nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
+                        let nextEnabledOption = this.findNextEnabledOption(selectedItemIndex);
                         if (nextEnabledOption) {
-                            this.selectItem(event, nextEnabledOption);
+                            //this.selectItem(event, nextEnabledOption);
                             this.selectedOptionUpdated = true;
-                        }*/
+                        }
                     }
                 }
                 
@@ -759,8 +759,12 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             //enter
             case 13:
                 if (this.options[this.selectedIndex]){
-                    this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
-                    this.selectedOptionUpdated = true;
+                    if (this.options[this.selectedIndex].value && this.options[this.selectedIndex].value.isAdd){
+                        this.onAddNovo(event);
+                    } else {
+                        this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
+                        this.selectedOptionUpdated = true;
+                    }
                 }                
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
