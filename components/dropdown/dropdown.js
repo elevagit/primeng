@@ -149,7 +149,7 @@ var Dropdown = /** @class */ (function () {
         }, 150);
     };
     Dropdown.prototype.selectItem = function (event, option) {
-        console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
+        //console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
@@ -483,8 +483,8 @@ var Dropdown = /** @class */ (function () {
                 break;
             //enter
             case 13:
-                if (this.options[this.selectedIndex]) {
-                    if (this.options[this.selectedIndex].value && this.options[this.selectedIndex].value.isAdd) {
+                if (this.optionsToDisplay[this.selectedIndex]) {
+                    if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd) {
                         this.onAddNovo(event);
                     }
                     else {

@@ -374,7 +374,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	}
     
     selectItem(event, option) {
-        console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
+        //console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
@@ -758,8 +758,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             
             //enter
             case 13:
-                if (this.options[this.selectedIndex]){
-                    if (this.options[this.selectedIndex].value && this.options[this.selectedIndex].value.isAdd){
+                if (this.optionsToDisplay[this.selectedIndex]){
+                    if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd){
                         this.onAddNovo(event);
                     } else {
                         this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
