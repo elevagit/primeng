@@ -734,14 +734,14 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                     }
                 }
                 else {
-                    //let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
+                    let selectedItemIndex = this.selectedOption ? this.findOptionIndex(this.selectedOption.value, this.optionsToDisplay) : -1;
                     this.selectedIndex--;
                     if (this.selectedIndex < 0) this.selectedIndex = this.optionsToDisplay.length-1;
-                    /*let prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
+                    let prevEnabledOption = this.findPrevEnabledOption(selectedItemIndex);
                     if (prevEnabledOption) {
                         //this.selectItem(event, prevEnabledOption);
                         this.selectedOptionUpdated = true;
-                    }*/
+                    }
                 }
 
                 event.preventDefault();
@@ -759,7 +759,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             //enter
             case 13:
                 if (this.options[this.selectedIndex]){
-                    this.selectItem(event, this.options[this.selectedIndex]);
+                    this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
                     this.selectedOptionUpdated = true;
                 }                
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
