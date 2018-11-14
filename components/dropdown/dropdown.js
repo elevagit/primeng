@@ -654,6 +654,13 @@ var Dropdown = /** @class */ (function () {
         else {
             this.filterValue = null;
             this.optionsToDisplay = this.options;
+            if (this.podeAdicionar) {
+                for (var i = 0; i < this.optionsToDisplay.length; i++) {
+                    if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {
+                        this.optionsToDisplay[i].value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
+                    }
+                }
+            }
         }
         this.optionsChanged = true;
     };
