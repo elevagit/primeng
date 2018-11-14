@@ -50,6 +50,7 @@ var Dropdown = /** @class */ (function () {
         this.onHide = new core_1.EventEmitter();
         this.onKey = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
+        this.onClear = new core_1.EventEmitter();
         this.selectedIndex = -1;
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
@@ -724,6 +725,7 @@ var Dropdown = /** @class */ (function () {
             originalEvent: event,
             value: this.value
         });
+        this.onClear.emit(event);
         this.updateSelectedOption(this.value);
         this.updateEditableLabel();
         this.updateFilledState();
@@ -906,6 +908,10 @@ var Dropdown = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], Dropdown.prototype, "onAdd", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Dropdown.prototype, "onClear", void 0);
     __decorate([
         core_1.ViewChild('container'),
         __metadata("design:type", core_1.ElementRef)

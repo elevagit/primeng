@@ -191,7 +191,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 
     @Output() onKey: EventEmitter<any> = new EventEmitter();
 	
-	@Output() onAdd: EventEmitter<any> = new EventEmitter();
+    @Output() onAdd: EventEmitter<any> = new EventEmitter();
+    
+    @Output() onClear: EventEmitter<any> = new EventEmitter();
     
     @ViewChild('container') containerViewChild: ElementRef;
     
@@ -1036,6 +1038,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             originalEvent: event,
             value: this.value
         });
+        this.onClear.emit(event);
         this.updateSelectedOption(this.value);
         this.updateEditableLabel();
         this.updateFilledState();

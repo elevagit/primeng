@@ -54,6 +54,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     onHide: EventEmitter<any>;
     onKey: EventEmitter<any>;
     onAdd: EventEmitter<any>;
+    onClear: EventEmitter<any>;
     containerViewChild: ElementRef;
     filterViewChild: ElementRef;
     focusViewChild: ElementRef;
