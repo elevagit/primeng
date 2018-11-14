@@ -298,6 +298,9 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.focusSearchInput = function () {
         this.focusInput();
     };
+    AutoComplete.prototype.removeByIndex = function (index) {
+        this.value = this.value.filter(function (val, i) { return i != index; });
+    };
     AutoComplete.prototype.removeItem = function (item) {
         var itemIndex = this.domHandler.index(item);
         var removedValue = this.value[itemIndex];
@@ -305,7 +308,8 @@ var AutoComplete = /** @class */ (function () {
             item.acao = 3;
         }
         if (!this.excluirEmDuasEtapas) {
-            this.onUnselect.emit(removedValue);
+            var chip = { id: itemIndex, chip: removedValue };
+            this.onUnselect.emit(chip);
         }
         if (!this.pseudoExcluir || item.acao == 1) {
             this.value = this.value.filter(function (val, i) { return i != itemIndex; });
@@ -321,23 +325,6 @@ var AutoComplete = /** @class */ (function () {
          this.updateFilledState();
          this.onUnselect.emit(removedValue);
      }*/
-    /*  remove(index: number) {
-            if (this.pseudoExcluir && this.chips[index].acao == 2) {
-                this.chips[index].acao = 3;
-            }
-    
-            if (!this.excluirEmDuasEtapas){
-                this.removeu.emit(this.chips[index]);
-            }
-    
-            if (!this.pseudoExcluir || this.chips[index].acao == 1) {
-                this.chips.splice(index, 1);
-            }
-    
-            this.propagateChange(this.chips);
-            this.selectedChange.emit(this.chips);
-            this.inpEl.nativeElement.focus();
-            } */
     AutoComplete.prototype.onKeydown = function (event) {
         if (this.overlayVisible) {
             var highlightItemIndex = this.findOptionIndex(this.highlightOption);

@@ -130,7 +130,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 	@Output() onClear: EventEmitter<any> = new EventEmitter();
 
     @Output() onKeyUp: EventEmitter<any> = new EventEmitter();
-    
+
     @Output() customValue: EventEmitter<any> = new EventEmitter();
 
     @Input() field: string;
@@ -491,6 +491,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         this.focusInput();
     }
 
+    removeByIndex(index: number){
+        this.value = this.value.filter((val, i) => i!=index);
+    }
+
     removeItem(item: any) {
         let itemIndex = this.domHandler.index(item);
         let removedValue = this.value[itemIndex];
@@ -500,7 +504,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         }
 
         if (!this.excluirEmDuasEtapas){
-            this.onUnselect.emit(removedValue);
+            let chip = {id: itemIndex, chip: removedValue};
+            this.onUnselect.emit(chip);
         }
 
         if (!this.pseudoExcluir || item.acao == 1) {
@@ -519,24 +524,6 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         this.updateFilledState();
         this.onUnselect.emit(removedValue);
     }*/
-
-/*  remove(index: number) {
-        if (this.pseudoExcluir && this.chips[index].acao == 2) {
-            this.chips[index].acao = 3;
-        }
-
-        if (!this.excluirEmDuasEtapas){
-            this.removeu.emit(this.chips[index]);
-        }
-
-        if (!this.pseudoExcluir || this.chips[index].acao == 1) {
-            this.chips.splice(index, 1);
-        }
-
-        this.propagateChange(this.chips);
-        this.selectedChange.emit(this.chips);
-        this.inpEl.nativeElement.focus();
-        } */
 
     onKeydown(event) {
         if (this.overlayVisible) {
