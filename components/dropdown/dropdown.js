@@ -108,6 +108,9 @@ var Dropdown = /** @class */ (function () {
         configurable: true
     });
     Dropdown.prototype.ngAfterViewInit = function () {
+        if (this.options == null) {
+            this.options = [];
+        }
         if (this.editable) {
             this.updateEditableLabel();
         }

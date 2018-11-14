@@ -327,6 +327,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     ngAfterViewInit() {
+        if (this.options == null){
+            this.options = [];
+        }
         if (this.editable) {
             this.updateEditableLabel();
         }
