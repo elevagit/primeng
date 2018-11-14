@@ -217,7 +217,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     selectedOption: any;
 
-    selectedIndex: number = -1;
+    selectedIndex: number = 0;
     
     _options: any[];
     

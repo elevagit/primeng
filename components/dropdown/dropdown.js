@@ -51,7 +51,7 @@ var Dropdown = /** @class */ (function () {
         this.onKey = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
-        this.selectedIndex = -1;
+        this.selectedIndex = 0;
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
     }
