@@ -320,7 +320,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         if (this.filterValue && this.filterValue.length) {
             this.activateFilter();
         }
-		console.log('OPTIONS', opts);
     }
     
     ngAfterViewInit() {
@@ -376,7 +375,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	}
     
     selectItem(event, option) {
-        //console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;

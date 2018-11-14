@@ -98,7 +98,6 @@ var Dropdown = /** @class */ (function () {
             if (this.filterValue && this.filterValue.length) {
                 this.activateFilter();
             }
-            console.log('OPTIONS', opts);
         },
         enumerable: true,
         configurable: true
@@ -152,7 +151,6 @@ var Dropdown = /** @class */ (function () {
         }, 150);
     };
     Dropdown.prototype.selectItem = function (event, option) {
-        //console.log('this.selectedIndex', this.selectedIndex, this.options[this.selectedIndex].label);
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
