@@ -83,7 +83,6 @@ var Dropdown = /** @class */ (function () {
             return this._options;
         },
         set: function (val) {
-            console.log('ON SET OPTIONS', val);
             var opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
             this._options = opts;
             if (this.podeAdicionar) {
@@ -94,9 +93,7 @@ var Dropdown = /** @class */ (function () {
                 else {
                     addItem.value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
                 }
-                if (this._options) {
-                    this._options.push(addItem);
-                }
+                this._options.push(addItem);
             }
             this.optionsToDisplay = this._options;
             this.updateSelectedOption(this.value);
@@ -109,9 +106,8 @@ var Dropdown = /** @class */ (function () {
         configurable: true
     });
     Dropdown.prototype.ngAfterViewInit = function () {
-        if (this.options == null || this.options == []) {
+        if (this.options == null) {
             this.options = [];
-            this.options = this.options.slice();
         }
         if (this.editable) {
             this.updateEditableLabel();

@@ -304,7 +304,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 
     set options(val: any[]) {
-        console.log('ON SET OPTIONS', val);
         let opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
         this._options = opts;
         if (this.podeAdicionar){
@@ -314,9 +313,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             } else {
                 addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
             }
-            if (this._options){
-                this._options.push(addItem);
-            }
+            this._options.push(addItem);
         }
         this.optionsToDisplay = this._options;
         this.updateSelectedOption(this.value);
@@ -328,9 +325,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     ngAfterViewInit() {
-        if (this.options == null || this.options == []){
+        if (this.options == null){
             this.options = [];
-            this.options = [...this.options];
         }
         if (this.editable) {
             this.updateEditableLabel();
