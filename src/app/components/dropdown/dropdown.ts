@@ -983,6 +983,10 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     focus(): void {
         this.applyFocus();
     }
+
+    focusSearchInput(): void {
+        this.applyFocus();
+    }
     
     bindDocumentClickListener() {
         if (!this.documentClickListener) {

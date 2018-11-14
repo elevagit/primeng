@@ -290,6 +290,9 @@ var AutoComplete = /** @class */ (function () {
         else
             this.inputEL.nativeElement.focus();
     };
+    AutoComplete.prototype.focusSearchInput = function () {
+        this.focusInput();
+    };
     AutoComplete.prototype.removeItem = function (item) {
         var itemIndex = this.domHandler.index(item);
         var removedValue = this.value[itemIndex];

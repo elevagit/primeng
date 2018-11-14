@@ -680,6 +680,9 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.focus = function () {
         this.applyFocus();
     };
+    Dropdown.prototype.focusSearchInput = function () {
+        this.applyFocus();
+    };
     Dropdown.prototype.bindDocumentClickListener = function () {
         var _this = this;
         if (!this.documentClickListener) {

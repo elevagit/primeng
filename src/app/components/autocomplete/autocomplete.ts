@@ -479,6 +479,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             this.inputEL.nativeElement.focus();
     }
 
+    focusSearchInput() {
+        this.focusInput();
+    }
+
     removeItem(item: any) {
         let itemIndex = this.domHandler.index(item);
         let removedValue = this.value[itemIndex];

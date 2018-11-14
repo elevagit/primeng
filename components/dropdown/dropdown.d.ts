@@ -140,6 +140,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     activateFilter(): void;
     applyFocus(): void;
     focus(): void;
+    focusSearchInput(): void;
     bindDocumentClickListener(): void;
     clearClickState(): void;
     unbindDocumentClickListener(): void;
