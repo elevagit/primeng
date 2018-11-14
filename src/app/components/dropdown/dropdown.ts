@@ -110,9 +110,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Input() scrollHeight: string = '200px';
 
     @Input() filter: boolean;
-    //<li *ngIf="podeAdicionar" (click)="onAddNovo($event, filter.value)" class="ui-dropdown-item ui-corner-all">
-							//<span>Adicionar {{getAddLabel()}}</span>							
-						//</li>
+
     @Input() name: string;
 
     @Input() style: any;
@@ -133,7 +131,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     @Input() editable: boolean;
 	
-	@Input() podeAdicionar: boolean = true;
+	@Input() podeAdicionar: boolean = false;
     
     @Input() appendTo: any;
 
@@ -308,11 +306,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     set options(val: any[]) {
         let opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
         this._options = opts;
-        let addItem = {label: 'Adicionar novo!', value: {isAdd: true, id: -3}};
-        addItem.value[this.optionLabel] = 'Adicionar novo!';
-        if (this._options){
-			this._options.push(addItem);
-		}
+        if (this.podeAdicionar){
+            let addItem = {label: 'Adicionar novo!', value: {isAdd: true, id: -3}};
+            addItem.value[this.optionLabel] = 'Adicionar novo!';
+            if (this._options){
+                this._options.push(addItem);
+            }
+        }
         this.optionsToDisplay = this._options;
         this.updateSelectedOption(this.value);
         this.optionsChanged = true;		

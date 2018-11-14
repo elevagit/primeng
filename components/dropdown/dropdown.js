@@ -31,7 +31,7 @@ var Dropdown = /** @class */ (function () {
         this.zone = zone;
         this.scrollHeight = '200px';
         this.autoWidth = true;
-        this.podeAdicionar = true;
+        this.podeAdicionar = false;
         this.multiplicador = 1;
         this.filterBy = 'label';
         this.resetFilterOnHide = false;
@@ -85,10 +85,12 @@ var Dropdown = /** @class */ (function () {
         set: function (val) {
             var opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
             this._options = opts;
-            var addItem = { label: 'Adicionar novo!', value: { isAdd: true, id: -3 } };
-            addItem.value[this.optionLabel] = 'Adicionar novo!';
-            if (this._options) {
-                this._options.push(addItem);
+            if (this.podeAdicionar) {
+                var addItem = { label: 'Adicionar novo!', value: { isAdd: true, id: -3 } };
+                addItem.value[this.optionLabel] = 'Adicionar novo!';
+                if (this._options) {
+                    this._options.push(addItem);
+                }
             }
             this.optionsToDisplay = this._options;
             this.updateSelectedOption(this.value);
