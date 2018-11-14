@@ -331,6 +331,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         let value = (<HTMLInputElement> event.target).value;
         if (!this.multiple && !this.forceSelection) {
             this.onModelChange(value);
+            this.onKeyUp.emit(value);
         }
 
         if (value.length === 0) {

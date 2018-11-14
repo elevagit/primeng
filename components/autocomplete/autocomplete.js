@@ -162,6 +162,7 @@ var AutoComplete = /** @class */ (function () {
         var value = event.target.value;
         if (!this.multiple && !this.forceSelection) {
             this.onModelChange(value);
+            this.onKeyUp.emit(value);
         }
         if (value.length === 0) {
             this.hide();
