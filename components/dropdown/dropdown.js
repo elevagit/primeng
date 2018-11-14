@@ -87,7 +87,7 @@ var Dropdown = /** @class */ (function () {
             this._options = opts;
             if (this.podeAdicionar) {
                 var addItem = { label: 'Adicionar novo', value: { isAdd: true, id: -3 } };
-                if (this.getFilterValue() != "") {
+                if (this.getFilterValue() == "") {
                     addItem.value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
                 }
                 else {
@@ -156,6 +156,10 @@ var Dropdown = /** @class */ (function () {
         }, 150);
     };
     Dropdown.prototype.selectItem = function (event, option) {
+        if (option && option.value && option.value.isAdd) {
+            this.onAddNovo(event);
+            return;
+        }
         if (this.selectedOption != option) {
             this.selectedOption = option;
             this.value = option.value;
@@ -670,6 +674,18 @@ var Dropdown = /** @class */ (function () {
             }
             else {
                 this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue);
+                if (this.podeAdicionar) {
+                    for (var i = 0; i < this.optionsToDisplay.length; i++) {
+                        if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {
+                            if (this.filterValue == "") {
+                                this.optionsToDisplay[i].value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
+                            }
+                            else {
+                                this.optionsToDisplay[i].value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.filterValue + "'</span>";
+                            }
+                        }
+                    }
+                }
             }
             this.optionsChanged = true;
         }
