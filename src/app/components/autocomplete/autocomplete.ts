@@ -376,6 +376,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             this.multiInputEL.nativeElement.value = '';
             this.value = this.value||[];
             if (!this.isSelected(option)) {
+                option.acao = 1;
                 this.value = [...this.value,option];
                 this.onModelChange(this.value);
             }

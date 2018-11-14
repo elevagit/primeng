@@ -201,6 +201,7 @@ var AutoComplete = /** @class */ (function () {
             this.multiInputEL.nativeElement.value = '';
             this.value = this.value || [];
             if (!this.isSelected(option)) {
+                option.acao = 1;
                 this.value = this.value.concat([option]);
                 this.onModelChange(this.value);
             }
