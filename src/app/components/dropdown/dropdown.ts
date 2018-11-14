@@ -313,6 +313,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             } else {
                 addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
             }
+            if (!this._options){
+                this._options = [];
+            }
             this._options.push(addItem);
         }
         this.optionsToDisplay = this._options;
