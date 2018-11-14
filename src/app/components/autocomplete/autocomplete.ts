@@ -130,6 +130,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 	@Output() onClear: EventEmitter<any> = new EventEmitter();
 
     @Output() onKeyUp: EventEmitter<any> = new EventEmitter();
+    
+    @Output() customValue: EventEmitter<any> = new EventEmitter();
 
     @Input() field: string;
 
@@ -331,7 +333,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         let value = (<HTMLInputElement> event.target).value;
         if (!this.multiple && !this.forceSelection) {
             this.onModelChange(value);
-            this.onKeyUp.emit(value);
+            this.customValue.emit(value);
         }
 
         if (value.length === 0) {

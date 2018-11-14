@@ -45,6 +45,7 @@ var AutoComplete = /** @class */ (function () {
         this.onDropdownClick = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
         this.onKeyUp = new core_1.EventEmitter();
+        this.customValue = new core_1.EventEmitter();
         this.scrollHeight = '200px';
         this.pseudoExcluir = false;
         this.excluirEmDuasEtapas = false;
@@ -162,7 +163,7 @@ var AutoComplete = /** @class */ (function () {
         var value = event.target.value;
         if (!this.multiple && !this.forceSelection) {
             this.onModelChange(value);
-            this.onKeyUp.emit(value);
+            this.customValue.emit(value);
         }
         if (value.length === 0) {
             this.hide();
@@ -647,6 +648,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onKeyUp", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "customValue", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
