@@ -946,7 +946,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     activateFilter() {
         let searchFields: string[] = this.filterBy.split(',');
-        this.selectedIndex = -1;
+        this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
                 let filteredGroups = [];

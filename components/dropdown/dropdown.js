@@ -646,7 +646,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.activateFilter = function () {
         var searchFields = this.filterBy.split(',');
-        this.selectedIndex = -1;
+        this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
                 var filteredGroups = [];
