@@ -46,6 +46,8 @@ var AutoComplete = /** @class */ (function () {
         this.onClear = new core_1.EventEmitter();
         this.onKeyUp = new core_1.EventEmitter();
         this.scrollHeight = '200px';
+        this.pseudoExcluir = false;
+        this.excluirEmDuasEtapas = false;
         this.dropdownMode = 'blank';
         this.immutable = true;
         this.showTransitionOptions = '225ms ease-out';
@@ -296,11 +298,43 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.removeItem = function (item) {
         var itemIndex = this.domHandler.index(item);
         var removedValue = this.value[itemIndex];
-        this.value = this.value.filter(function (val, i) { return i != itemIndex; });
+        if (this.pseudoExcluir && item.acao == 2) {
+            item.acao = 3;
+        }
+        if (!this.excluirEmDuasEtapas) {
+            this.onUnselect.emit(removedValue);
+        }
+        if (!this.pseudoExcluir || item.acao == 1) {
+            this.value = this.value.filter(function (val, i) { return i != itemIndex; });
+        }
         this.onModelChange(this.value);
         this.updateFilledState();
-        this.onUnselect.emit(removedValue);
     };
+    /* removeItem(item: any) {
+         let itemIndex = this.domHandler.index(item);
+         let removedValue = this.value[itemIndex];
+         this.value = this.value.filter((val, i) => i!=itemIndex);
+         this.onModelChange(this.value);
+         this.updateFilledState();
+         this.onUnselect.emit(removedValue);
+     }*/
+    /*  remove(index: number) {
+            if (this.pseudoExcluir && this.chips[index].acao == 2) {
+                this.chips[index].acao = 3;
+            }
+    
+            if (!this.excluirEmDuasEtapas){
+                this.removeu.emit(this.chips[index]);
+            }
+    
+            if (!this.pseudoExcluir || this.chips[index].acao == 1) {
+                this.chips.splice(index, 1);
+            }
+    
+            this.propagateChange(this.chips);
+            this.selectedChange.emit(this.chips);
+            this.inpEl.nativeElement.focus();
+            } */
     AutoComplete.prototype.onKeydown = function (event) {
         if (this.overlayVisible) {
             var highlightItemIndex = this.findOptionIndex(this.highlightOption);
@@ -623,6 +657,14 @@ var AutoComplete = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", Boolean)
     ], AutoComplete.prototype, "dropdown", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AutoComplete.prototype, "pseudoExcluir", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AutoComplete.prototype, "excluirEmDuasEtapas", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)

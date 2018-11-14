@@ -44,6 +44,8 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     field: string;
     scrollHeight: string;
     dropdown: boolean;
+    pseudoExcluir: boolean;
+    excluirEmDuasEtapas: boolean;
     dropdownMode: string;
     multiple: boolean;
     tabindex: number;

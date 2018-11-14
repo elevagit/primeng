@@ -137,6 +137,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Input() dropdown: boolean;
 
+    @Input() pseudoExcluir: boolean = false;
+
+    @Input() excluirEmDuasEtapas: boolean = false;
+
     @Input() dropdownMode: string = 'blank';
 
     @Input() multiple: boolean;
@@ -486,11 +490,49 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     removeItem(item: any) {
         let itemIndex = this.domHandler.index(item);
         let removedValue = this.value[itemIndex];
+
+        if (this.pseudoExcluir && item.acao == 2){
+            item.acao = 3;
+        }
+
+        if (!this.excluirEmDuasEtapas){
+            this.onUnselect.emit(removedValue);
+        }
+
+        if (!this.pseudoExcluir || item.acao == 1) {
+            this.value = this.value.filter((val, i) => i!=itemIndex);
+        }
+
+        this.onModelChange(this.value);
+        this.updateFilledState();
+    }
+
+   /* removeItem(item: any) {
+        let itemIndex = this.domHandler.index(item);
+        let removedValue = this.value[itemIndex];
         this.value = this.value.filter((val, i) => i!=itemIndex);
         this.onModelChange(this.value);
         this.updateFilledState();
         this.onUnselect.emit(removedValue);
-    }
+    }*/
+
+/*  remove(index: number) {
+        if (this.pseudoExcluir && this.chips[index].acao == 2) {
+            this.chips[index].acao = 3;
+        }
+
+        if (!this.excluirEmDuasEtapas){
+            this.removeu.emit(this.chips[index]);
+        }
+
+        if (!this.pseudoExcluir || this.chips[index].acao == 1) {
+            this.chips.splice(index, 1);
+        }
+
+        this.propagateChange(this.chips);
+        this.selectedChange.emit(this.chips);
+        this.inpEl.nativeElement.focus();
+        } */
 
     onKeydown(event) {
         if (this.overlayVisible) {
