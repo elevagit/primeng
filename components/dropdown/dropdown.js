@@ -85,6 +85,7 @@ var Dropdown = /** @class */ (function () {
         set: function (val) {
             var opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
             this._options = opts;
+            this.optionsToDisplay = this._options;
             if (this.podeAdicionar) {
                 var addItem = { label: 'Adicionar novo', value: { isAdd: true, id: -3 } };
                 if (this.getFilterValue() == "") {
@@ -93,12 +94,11 @@ var Dropdown = /** @class */ (function () {
                 else {
                     addItem.value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
                 }
-                if (!this._options) {
-                    this._options = [];
+                if (!this.optionsToDisplay) {
+                    this.optionsToDisplay = [];
                 }
-                this._options.push(addItem);
+                this.optionsToDisplay.push(addItem);
             }
-            this.optionsToDisplay = this._options;
             this.updateSelectedOption(this.value);
             this.optionsChanged = true;
             if (this.filterValue && this.filterValue.length) {
