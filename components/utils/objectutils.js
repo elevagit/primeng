@@ -110,8 +110,8 @@ var ObjectUtils = /** @class */ (function () {
                     }
                 }
                 if (item.value && item.value.isAdd && willAdd) {
+                    console.log('willAdd', willAdd, item, fields, filterValue);
                     filteredItems.push(item);
-                    continue;
                 }
             }
         }
