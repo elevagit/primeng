@@ -348,7 +348,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         }
     }
 
-    /*willShowOption(option): boolean {
+    willShowOption(option): boolean {
         if (this.podeAdicionar) {
             if (option.value && option.value.isAdd){
                 if (this.valueTypedIsPresent()){
@@ -366,7 +366,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             }            
         }
         return false;
-    }*/
+    }
     
     onItemClick(event, option) {
         this.itemClick = true;

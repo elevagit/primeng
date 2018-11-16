@@ -95,7 +95,7 @@ export class ObjectUtils {
 
     public filter(value: any[], fields: any[], filterValue: string) {
         let filteredItems: any[] = [];
-        var willAdd = true;
+
         if(value) {
             for(let item of value) {
                 for(let field of fields) {
@@ -103,16 +103,7 @@ export class ObjectUtils {
                         filteredItems.push(item);
                         break;
                     }
-                    if (item.value && item.value[field]){
-                        if (item.value[field].toLowerCase() == filterValue){
-                            willAdd = false;
-                        }
-                    }
                 }
-                if (item.value && item.value.isAdd && willAdd){
-                    console.log('willAdd', willAdd, item, fields, filterValue);
-					filteredItems.push(item);
-				}
             }
         }
 

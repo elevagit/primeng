@@ -129,25 +129,24 @@ var Dropdown = /** @class */ (function () {
             this.editableInputViewChild.nativeElement.value = (this.selectedOption ? this.selectedOption.label : this.value || '');
         }
     };
-    /*willShowOption(option): boolean {
+    Dropdown.prototype.willShowOption = function (option) {
         if (this.podeAdicionar) {
-            if (option.value && option.value.isAdd){
-                if (this.valueTypedIsPresent()){
+            if (option.value && option.value.isAdd) {
+                if (this.valueTypedIsPresent()) {
                     return false;
                 }
             }
         }
         return true;
-    }
-
-    valueTypedIsPresent():boolean{
-        for (let i = 0; i < this.optionsToDisplay.length; i++) {
+    };
+    Dropdown.prototype.valueTypedIsPresent = function () {
+        for (var i = 0; i < this.optionsToDisplay.length; i++) {
             if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
                 return true;
             }
         }
         return false;
-    }*/
+    };
     Dropdown.prototype.onItemClick = function (event, option) {
         var _this = this;
         this.itemClick = true;

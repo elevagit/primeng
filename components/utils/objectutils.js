@@ -93,7 +93,6 @@ var ObjectUtils = /** @class */ (function () {
     };
     ObjectUtils.prototype.filter = function (value, fields, filterValue) {
         var filteredItems = [];
-        var willAdd = true;
         if (value) {
             for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
                 var item = value_1[_i];
@@ -103,15 +102,6 @@ var ObjectUtils = /** @class */ (function () {
                         filteredItems.push(item);
                         break;
                     }
-                    if (item.value && item.value[field]) {
-                        if (item.value[field].toLowerCase() == filterValue) {
-                            willAdd = false;
-                        }
-                    }
-                }
-                if (item.value && item.value.isAdd && willAdd) {
-                    console.log('willAdd', willAdd, item, fields, filterValue);
-                    filteredItems.push(item);
                 }
             }
         }
