@@ -226,7 +226,9 @@ var Dropdown = /** @class */ (function () {
         this.includeAddToOptionsToDisplay();
     };
     Dropdown.prototype.includeAddToOptionsToDisplay = function () {
-        this.optionsToDisplay = this.optionsToDisplay.filter(function (option) { return !option.value.isAdd; });
+        if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
+            this.optionsToDisplay = this.optionsToDisplay.filter(function (option) { return !option.value.isAdd; });
+        }
         if (this.podeAdicionar && !this.valueTypedIsPresent()) {
             var addItem = { label: 'Adicionar novo', value: { isAdd: true, id: -3 } };
             if (this.getFilterValue() == "") {

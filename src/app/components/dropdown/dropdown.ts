@@ -461,7 +461,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 
     includeAddToOptionsToDisplay(){
-        this.optionsToDisplay = this.optionsToDisplay.filter(option => !option.value.isAdd);
+        if (this.optionsToDisplay && this.optionsToDisplay.length > 0){
+            this.optionsToDisplay = this.optionsToDisplay.filter(option => !option.value.isAdd);
+        }
         if (this.podeAdicionar && !this.valueTypedIsPresent()){
             var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
             if (this.getFilterValue() == ""){
