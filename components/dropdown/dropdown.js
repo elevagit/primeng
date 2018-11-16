@@ -128,8 +128,11 @@ var Dropdown = /** @class */ (function () {
         return true;
     };
     Dropdown.prototype.valueTypedIsPresent = function () {
+        console.log('WTF 1', this.optionsToDisplay);
         if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
+            console.log('WTF 2', this.optionsToDisplay.length);
             for (var i = 0; i < this.optionsToDisplay.length; i++) {
+                console.log('WTF 3', this.optionsToDisplay[i]);
                 if (this.optionsToDisplay[i] && this.optionsToDisplay[i][this.optionLabel] && this.filterValue) {
                     console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
                     if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
