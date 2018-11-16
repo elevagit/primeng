@@ -103,7 +103,7 @@ export class ObjectUtils {
                         filteredItems.push(item);
                         break;
                     }
-                    if (item.value && item.value[field] && item.value.isAdd){
+                    if (item.value && item.value[field]){
                         if (item.value[field].toLowerCase() == filterValue){
                             willAdd = false;
                         }
