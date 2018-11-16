@@ -353,11 +353,11 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
             console.log('WTF 2', this.optionsToDisplay.length);
             for (let i = 0; i < this.optionsToDisplay.length; i++) {
-                console.log('WTF 3', this.optionsToDisplay[i]);
-                if (this.optionsToDisplay[i] && this.optionsToDisplay[i][this.optionLabel] && this.filterValue) { 
-                    console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
-                    if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
-                        //console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
+                console.log('WTF 3', this.optionsToDisplay[i], this.optionLabel, this.getFilterValue());
+                if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value[this.optionLabel] && this.filterValue) { 
+                    //console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i].value[this.optionLabel], this.filterValue);
+                    if (this.optionsToDisplay[i].value[this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                        console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i].value[this.optionLabel], this.filterValue);
                         return true;
                     }            
                 }
