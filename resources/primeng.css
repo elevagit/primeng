@@ -3164,67 +3164,6 @@ input[type=text]::-ms-clear {
   top:-.75em;
   font-size:12px;
 }
-.ui-lightbox {
-    position: fixed;
-    display: none;
-}
-
-.ui-lightbox-content-wrapper {
-    position: relative;
-}
-
-.ui-lightbox-content {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-}
-
-.ui-lightbox-nav-right, .ui-lightbox-nav-left {
-   position: absolute;
-   top: 50%;
-   cursor: pointer;
-}
-
-.ui-lightbox-nav-left {
-   left: 0;
-}
-
-.ui-lightbox-nav-right {
-   right: 0;
-}
-
-.ui-lightbox-loading .ui-lightbox-content {
-    background: url("./images/loading.gif") #000000 center center no-repeat;
-}
-
-.ui-lightbox-caption {
-    padding: 0.2em 0.4em;
-    display: none;
-}
-
-.ui-lightbox-caption-text {
-    margin: 0.3em 0 0.1em 0;
-    float:left;
-}
-
-.ui-lightbox-close {
-    float:right;
-    margin: 0;
-    padding: .125em;
-}
-
-.ui-lightbox-close.ui-state-hover {
-    padding: 0;
-}
-
-.ui-lightbox-nav-left, .ui-lightbox-nav-right {
-    opacity: .5;
-}
-
-.ui-lightbox-nav-left:hover, .ui-lightbox-nav-right:hover{
-    opacity: 1;
-}
 .ui-listbox {
     padding: .25em;
     width: 10em;
@@ -3296,6 +3235,67 @@ input[type=text]::-ms-clear {
 
 .ui-listbox-footer {
     padding: .125em .2em;
+}
+.ui-lightbox {
+    position: fixed;
+    display: none;
+}
+
+.ui-lightbox-content-wrapper {
+    position: relative;
+}
+
+.ui-lightbox-content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+.ui-lightbox-nav-right, .ui-lightbox-nav-left {
+   position: absolute;
+   top: 50%;
+   cursor: pointer;
+}
+
+.ui-lightbox-nav-left {
+   left: 0;
+}
+
+.ui-lightbox-nav-right {
+   right: 0;
+}
+
+.ui-lightbox-loading .ui-lightbox-content {
+    background: url("./images/loading.gif") #000000 center center no-repeat;
+}
+
+.ui-lightbox-caption {
+    padding: 0.2em 0.4em;
+    display: none;
+}
+
+.ui-lightbox-caption-text {
+    margin: 0.3em 0 0.1em 0;
+    float:left;
+}
+
+.ui-lightbox-close {
+    float:right;
+    margin: 0;
+    padding: .125em;
+}
+
+.ui-lightbox-close.ui-state-hover {
+    padding: 0;
+}
+
+.ui-lightbox-nav-left, .ui-lightbox-nav-right {
+    opacity: .5;
+}
+
+.ui-lightbox-nav-left:hover, .ui-lightbox-nav-right:hover{
+    opacity: 1;
 }
 .ui-megamenu {
     padding: .25em;
@@ -4926,6 +4926,32 @@ input[type=text]::-ms-clear {
 .ui-slider-animate .ui-slider-handle {
     transition: left .3s;
 }
+.ui-splitbutton {
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+}
+
+.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    width: 2em;
+    vertical-align: top;
+}
+
+.ui-splitbutton.ui-state-disabled button {
+    cursor: default;
+}
+
+.ui-fluid .ui-splitbutton {
+    width: 100%;
+}
+
+.ui-fluid .ui-splitbutton .ui-button:first-child {
+    width: calc(100% - 2em);
+}
+
+.ui-fluid .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    width: 2em;
+}
 .ui-spinner {
     display: inline-block;
     overflow: visible;
@@ -4987,32 +5013,6 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-spinner .ui-spinner-button .ui-spinner-button-icon {
     left: .7em;
 }
-.ui-splitbutton {
-    position: relative;
-    display: inline-block;
-    zoom: 1;
-}
-
-.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    width: 2em;
-    vertical-align: top;
-}
-
-.ui-splitbutton.ui-state-disabled button {
-    cursor: default;
-}
-
-.ui-fluid .ui-splitbutton {
-    width: 100%;
-}
-
-.ui-fluid .ui-splitbutton .ui-button:first-child {
-    width: calc(100% - 2em);
-}
-
-.ui-fluid .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    width: 2em;
-}
 .ui-steps ul {
     list-style-type: none;
     padding: 0;
@@ -5062,6 +5062,46 @@ input[type=text]::-ms-clear {
         display: none;
     }
 }
+/** TabMenu **/
+.ui-tabmenu .ui-tabmenu-nav { 
+    margin: 0;
+    padding: .25em .5em 0 .25em; 
+}
+
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem { 
+    list-style: none; 
+    float: left; 
+    position: relative; 
+    margin: 0 .2em 1px 0;  
+    padding: 0; 
+    white-space: nowrap;
+    display: block;
+    border-bottom: 0;
+    top: 1px; 
+}
+
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a { 
+    float: left; 
+    padding: 0.5em 1em;
+    text-decoration: none; 
+}
+
+.ui-tabmenu .ui-tabmenu-nav a { 
+    padding: 0.5em 1em;
+}
+
+.ui-tabmenu .ui-menuitem-icon  { 
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-tabmenu .ui-menuitem-text  { 
+    vertical-align: middle;
+}
+
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-disabled a {
+     cursor: default;
+} 
 .ui-table {
     position: relative;
 }
@@ -5267,46 +5307,6 @@ input[type=text]::-ms-clear {
     font-size: 2em;
 }
 
-/** TabMenu **/
-.ui-tabmenu .ui-tabmenu-nav { 
-    margin: 0;
-    padding: .25em .5em 0 .25em; 
-}
-
-.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem { 
-    list-style: none; 
-    float: left; 
-    position: relative; 
-    margin: 0 .2em 1px 0;  
-    padding: 0; 
-    white-space: nowrap;
-    display: block;
-    border-bottom: 0;
-    top: 1px; 
-}
-
-.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a { 
-    float: left; 
-    padding: 0.5em 1em;
-    text-decoration: none; 
-}
-
-.ui-tabmenu .ui-tabmenu-nav a { 
-    padding: 0.5em 1em;
-}
-
-.ui-tabmenu .ui-menuitem-icon  { 
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-tabmenu .ui-menuitem-text  { 
-    vertical-align: middle;
-}
-
-.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-disabled a {
-     cursor: default;
-} 
 .ui-tabview {
     padding: .25em; 
 }

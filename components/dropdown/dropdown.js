@@ -646,7 +646,7 @@ var Dropdown = /** @class */ (function () {
         }
     };
     Dropdown.prototype.onFilter = function (event) {
-        var inputValue = event.target.value.toLowerCase();
+        var inputValue = event.target.value;
         if (inputValue && inputValue.length) {
             this.filterValue = inputValue;
             this.activateFilter();
@@ -672,7 +672,7 @@ var Dropdown = /** @class */ (function () {
                 var filteredGroups = [];
                 for (var _i = 0, _a = this.options; _i < _a.length; _i++) {
                     var optgroup = _a[_i];
-                    var filteredSubOptions = this.objectUtils.filter(optgroup.items, searchFields, this.filterValue);
+                    var filteredSubOptions = this.objectUtils.filter(optgroup.items, searchFields, this.filterValue.toLowerCase());
                     if (filteredSubOptions && filteredSubOptions.length) {
                         filteredGroups.push({
                             label: optgroup.label,
@@ -684,7 +684,7 @@ var Dropdown = /** @class */ (function () {
                 this.optionsToDisplay = filteredGroups;
             }
             else {
-                this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue);
+                this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue.toLowerCase());
                 if (this.podeAdicionar) {
                     for (var i = 0; i < this.optionsToDisplay.length; i++) {
                         if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {

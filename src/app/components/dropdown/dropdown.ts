@@ -943,7 +943,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     onFilter(event): void {
-        let inputValue = event.target.value.toLowerCase();
+        let inputValue = event.target.value;
         if (inputValue && inputValue.length) {
             this.filterValue = inputValue;
             this.activateFilter();
@@ -970,7 +970,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             if (this.group) {
                 let filteredGroups = [];
                 for (let optgroup of this.options) {
-                    let filteredSubOptions = this.objectUtils.filter(optgroup.items, searchFields, this.filterValue);
+                    let filteredSubOptions = this.objectUtils.filter(optgroup.items, searchFields, this.filterValue.toLowerCase());
                     if (filteredSubOptions && filteredSubOptions.length) {
                         filteredGroups.push({
                             label: optgroup.label,
@@ -983,7 +983,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 this.optionsToDisplay = filteredGroups;
             }
             else {
-                this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue);
+                this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue.toLowerCase());
                 if (this.podeAdicionar){
                     for (let i = 0; i < this.optionsToDisplay.length; i++) {
                         if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {

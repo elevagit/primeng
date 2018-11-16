@@ -97,13 +97,10 @@ export class ObjectUtils {
         let filteredItems: any[] = [];
 
         if(value) {
-            for(let item of value) {
-				if (item.value && item.value.isAdd){
-					filteredItems.push(item);
-                    continue;
-				}
+            for(let item of value) {				
                 for(let field of fields) {
-                    if(String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {
+                    if((String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) ||
+                     (item.value && item.value.isAdd && item.value[field] != filterValue)) {
                         filteredItems.push(item);
                         break;
                     }
