@@ -307,18 +307,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         let opts = this.optionLabel ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
         this._options = opts;
         this.optionsToDisplay = this._options;
-        if (this.podeAdicionar){
-            let addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
-            if (this.getFilterValue() == ""){
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
-            } else {
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
-            }
-            if (!this.optionsToDisplay){
-                this.optionsToDisplay = [];
-            }
-            this.optionsToDisplay.push(addItem);
-        }
+        this.includeAddToOptionsToDisplay();
         this.updateSelectedOption(this.value);
         this.optionsChanged = true;		
 		        
@@ -465,6 +454,31 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         }
         
         this.optionsToDisplay = this.options;
+        this.includeAddToOptionsToDisplay();
+    }
+
+    includeAddToOptionsToDisplay(){
+        if (this.podeAdicionar){
+            var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
+            var addExiste = false;
+            for (let i = 0; i < this.optionsToDisplay.length; i++) {
+                if (this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd){
+                    addItem = this.optionsToDisplay[i];
+                    addExiste = true;
+                }                
+            }
+            if (this.getFilterValue() == ""){
+                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
+            } else if (this.optionsChanged && this.optionsToDisplay.length > 0 && !this.valueTypedIsPresent()) {
+                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
+            }
+            if (!this.optionsToDisplay){
+                this.optionsToDisplay = [];
+            }
+            if (!addExiste){
+                this.optionsToDisplay.push(addItem);
+            }
+        }
     }
     
     updateSelectedOption(val: any): void {
@@ -971,13 +985,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         else {
             this.filterValue = null;
             this.optionsToDisplay = this.options;
-            if (this.podeAdicionar){
-                for (let i = 0; i < this.optionsToDisplay.length; i++) {
-                    if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {
-                        this.optionsToDisplay[i].value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
-                    }                        
-                }
-            }
+            this.includeAddToOptionsToDisplay();
         }
         
         this.optionsChanged = true;
@@ -1004,17 +1012,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             }
             else {
                 this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue.toLowerCase());
-                if (this.podeAdicionar){
-                    for (let i = 0; i < this.optionsToDisplay.length; i++) {
-                        if (this.optionsToDisplay[i] && this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {
-                            if (this.filterValue == ""){
-                                this.optionsToDisplay[i].value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
-                            } else {
-                                this.optionsToDisplay[i].value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.filterValue}'</span>`;
-                            }
-                        }                        
-                    }
-                }
+                this.includeAddToOptionsToDisplay();
             }
 
             this.optionsChanged = true;

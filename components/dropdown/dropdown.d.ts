@@ -110,6 +110,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     ngAfterViewChecked(): void;
     writeValue(value: any): void;
     resetFilter(): void;
+    includeAddToOptionsToDisplay(): void;
     updateSelectedOption(val: any): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
