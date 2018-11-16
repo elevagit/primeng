@@ -223,27 +223,19 @@ var Dropdown = /** @class */ (function () {
         this.includeAddToOptionsToDisplay();
     };
     Dropdown.prototype.includeAddToOptionsToDisplay = function () {
-        if (this.podeAdicionar) {
+        this.optionsToDisplay = this.optionsToDisplay.filter(function (option) { return !option.value.isAdd; });
+        if (this.podeAdicionar && !this.valueTypedIsPresent()) {
             var addItem = { label: 'Adicionar novo', value: { isAdd: true, id: -3 } };
-            var addExiste = false;
-            for (var i = 0; i < this.optionsToDisplay.length; i++) {
-                if (this.optionsToDisplay[i].value && this.optionsToDisplay[i].value.isAdd) {
-                    addItem = this.optionsToDisplay[i];
-                    addExiste = true;
-                }
-            }
             if (this.getFilterValue() == "") {
                 addItem.value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
             }
-            else if (this.optionsChanged && this.optionsToDisplay.length > 0 && !this.valueTypedIsPresent()) {
+            else {
                 addItem.value[this.optionLabel] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
             }
             if (!this.optionsToDisplay) {
                 this.optionsToDisplay = [];
             }
-            if (!addExiste) {
-                this.optionsToDisplay.push(addItem);
-            }
+            this.optionsToDisplay.push(addItem);
         }
     };
     Dropdown.prototype.updateSelectedOption = function (val) {
