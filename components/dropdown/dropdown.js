@@ -128,9 +128,11 @@ var Dropdown = /** @class */ (function () {
         return true;
     };
     Dropdown.prototype.valueTypedIsPresent = function () {
-        for (var i = 0; i < this.optionsToDisplay.length; i++) {
-            if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
-                return true;
+        if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
+            for (var i = 0; i < this.optionsToDisplay.length; i++) {
+                if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                    return true;
+                }
             }
         }
         return false;

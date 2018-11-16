@@ -349,10 +349,12 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 
     valueTypedIsPresent():boolean{
-        for (let i = 0; i < this.optionsToDisplay.length; i++) {
-            if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
-                return true;
-            }            
+        if (this.optionsToDisplay && this.optionsToDisplay.length > 0){
+            for (let i = 0; i < this.optionsToDisplay.length; i++) {
+                if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                    return true;
+                }            
+            }
         }
         return false;
     }
