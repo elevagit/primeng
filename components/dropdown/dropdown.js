@@ -132,6 +132,7 @@ var Dropdown = /** @class */ (function () {
             for (var i = 0; i < this.optionsToDisplay.length; i++) {
                 if ((this.optionsToDisplay[i] && this.optionsToDisplay[i][this.optionLabel] && this.filterValue) &&
                     this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                    console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
                     return true;
                 }
             }
@@ -240,6 +241,7 @@ var Dropdown = /** @class */ (function () {
             if (!this.optionsToDisplay) {
                 this.optionsToDisplay = [];
             }
+            console.log('ADDDDDDD', addItem, this.optionsToDisplay);
             this.optionsToDisplay.push(addItem);
         }
     };
