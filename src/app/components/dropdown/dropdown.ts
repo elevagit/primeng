@@ -69,7 +69,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                             <ng-container *ngTemplateOutlet="itemslist; context: {$implicit: optionsToDisplay, selectedOption: selectedOption}"></ng-container>
                         </ng-container>
                         <ng-template #itemslist let-options let-selectedOption="selectedOption">
-                            <li *ngFor="let option of options;let i=index"  (click)="onItemClick($event, option)"
+                            <li *ngFor="let option of options;let i=index" (click)="onItemClick($event, option)"
                                     [ngClass]="{'ui-dropdown-item ui-corner-all':true,
                                                 'ui-state-highlight':(selectedIndex == i),
                                                 'ui-state-disabled':(option.disabled),
@@ -347,6 +347,26 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             this.editableInputViewChild.nativeElement.value = (this.selectedOption ? this.selectedOption.label : this.value||'');
         }
     }
+
+    /*willShowOption(option): boolean {
+        if (this.podeAdicionar) {
+            if (option.value && option.value.isAdd){
+                if (this.valueTypedIsPresent()){
+                    return false;
+                } 
+            } 
+        }
+        return true;
+    }
+
+    valueTypedIsPresent():boolean{
+        for (let i = 0; i < this.optionsToDisplay.length; i++) {
+            if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                return true;
+            }            
+        }
+        return false;
+    }*/
     
     onItemClick(event, option) {
         this.itemClick = true;

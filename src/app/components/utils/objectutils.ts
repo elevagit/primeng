@@ -95,16 +95,24 @@ export class ObjectUtils {
 
     public filter(value: any[], fields: any[], filterValue: string) {
         let filteredItems: any[] = [];
-
+        var willAdd = true;
         if(value) {
-            for(let item of value) {				
+            for(let item of value) {
                 for(let field of fields) {
-                    if((String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) ||
-                     (item.value && item.value.isAdd && item.value[field] != filterValue)) {
+                    if(String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {
                         filteredItems.push(item);
                         break;
                     }
+                    if (item.value && item.value[field] && item.value.isAdd){
+                        if (item.value[field].toLowerCase() == filterValue){
+                            willAdd = false;
+                        }
+                    }
                 }
+                if (item.value && item.value.isAdd && willAdd){
+					filteredItems.push(item);
+                    continue;
+				}
             }
         }
 
