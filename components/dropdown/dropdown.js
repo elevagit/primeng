@@ -130,10 +130,12 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.valueTypedIsPresent = function () {
         if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
             for (var i = 0; i < this.optionsToDisplay.length; i++) {
-                if ((this.optionsToDisplay[i] && this.optionsToDisplay[i][this.optionLabel] && this.filterValue) &&
-                    this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                if (this.optionsToDisplay[i] && this.optionsToDisplay[i][this.optionLabel] && this.filterValue) {
                     console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
-                    return true;
+                    if (this.optionsToDisplay[i][this.optionLabel].toLowerCase() == this.filterValue.toLowerCase()) {
+                        //console.log('VALOR DIGITADO PRESENTE', this.optionsToDisplay[i], this.optionsToDisplay[i][this.optionLabel], this.filterValue);
+                        return true;
+                    }
                 }
             }
         }
