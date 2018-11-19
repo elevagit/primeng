@@ -135,6 +135,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Input() field: string;
 
+    @Input() colunaChip: string;
+
+    @Input() colunaOpcao: string;
+
     @Input() scrollHeight: string = '200px';
 
     @Input() dropdown: boolean;
@@ -599,7 +603,9 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
                         let newItem = {};
                         newItem['acao'] = 1;
-                        newItem[this.field]=this.multiInputEL.nativeElement.value;
+                        newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                        newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+                        newItem[this.field] = this.multiInputEL.nativeElement.value;
                         this.selectItem(newItem);
                     }
                     event.preventDefault();
@@ -610,6 +616,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple){
                         let newItem = {};
                         newItem['acao'] = 1;
+                        newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                        newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
                         newItem[this.field]=this.multiInputEL.nativeElement.value;
                         this.selectItem(newItem);
                     }

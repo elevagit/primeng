@@ -43,6 +43,8 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     onKeyUp: EventEmitter<any>;
     customValue: EventEmitter<any>;
     field: string;
+    colunaChip: string;
+    colunaOpcao: string;
     scrollHeight: string;
     dropdown: boolean;
     pseudoExcluir: boolean;

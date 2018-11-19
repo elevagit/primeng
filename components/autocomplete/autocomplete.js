@@ -391,6 +391,8 @@ var AutoComplete = /** @class */ (function () {
                     if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
                         var newItem = {};
                         newItem['acao'] = 1;
+                        newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                        newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
                         newItem[this.field] = this.multiInputEL.nativeElement.value;
                         this.selectItem(newItem);
                     }
@@ -401,6 +403,8 @@ var AutoComplete = /** @class */ (function () {
                     if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
                         var newItem = {};
                         newItem['acao'] = 1;
+                        newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                        newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
                         newItem[this.field] = this.multiInputEL.nativeElement.value;
                         this.selectItem(newItem);
                     }
@@ -672,6 +676,14 @@ var AutoComplete = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", String)
     ], AutoComplete.prototype, "field", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AutoComplete.prototype, "colunaChip", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AutoComplete.prototype, "colunaOpcao", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
