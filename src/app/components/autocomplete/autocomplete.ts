@@ -380,9 +380,9 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     selectItem(option: any, focus: boolean = true) {
         if (this.multiple) {
+            this.value = this.value||[];
             if (!this.value.some(opt => opt[this.field] == option[this.field])) {
                 this.multiInputEL.nativeElement.value = '';
-                this.value = this.value||[];
                 if (!this.isSelected(option)) {
                     option.acao = 1;
                     this.value = [...this.value,option];

@@ -201,9 +201,9 @@ var AutoComplete = /** @class */ (function () {
         var _this = this;
         if (focus === void 0) { focus = true; }
         if (this.multiple) {
+            this.value = this.value || [];
             if (!this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
                 this.multiInputEL.nativeElement.value = '';
-                this.value = this.value || [];
                 if (!this.isSelected(option)) {
                     option.acao = 1;
                     this.value = this.value.concat([option]);
