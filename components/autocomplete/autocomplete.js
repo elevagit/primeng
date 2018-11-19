@@ -199,6 +199,7 @@ var AutoComplete = /** @class */ (function () {
     };
     AutoComplete.prototype.selectItem = function (option, focus) {
         if (focus === void 0) { focus = true; }
+        console.log('SELECT ITEM', option, focus);
         if (this.multiple) {
             this.multiInputEL.nativeElement.value = '';
             this.value = this.value || [];

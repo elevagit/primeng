@@ -375,6 +375,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     selectItem(option: any, focus: boolean = true) {
+        console.log('SELECT ITEM', option, focus);
         if (this.multiple) {
             this.multiInputEL.nativeElement.value = '';
             this.value = this.value||[];
