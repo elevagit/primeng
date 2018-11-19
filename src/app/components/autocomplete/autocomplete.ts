@@ -566,11 +566,6 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                         this.hide();
-                    } else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
-                        let newItem = {};
-                        newItem['acao'] = 1;
-                        newItem[this.field]=this.multiInputEL.nativeElement.value;
-                        this.selectItem(newItem);
                     }
                     event.preventDefault();
                 break;
@@ -586,7 +581,33 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                 case 9:
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
-                    } else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple){
+                    }
+                    this.hide();
+                break;
+            }
+        } else {
+            switch(event.which) {
+                //down
+                case 40:
+                    if (this.suggestions){
+                        this.search(event,event.target.value);
+                    }
+                break;
+
+                //enter
+                case 13:
+                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                        let newItem = {};
+                        newItem['acao'] = 1;
+                        newItem[this.field]=this.multiInputEL.nativeElement.value;
+                        this.selectItem(newItem);
+                    }
+                    event.preventDefault();
+                break;
+
+                //tab
+                case 9:
+                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple){
                         let newItem = {};
                         newItem['acao'] = 1;
                         newItem[this.field]=this.multiInputEL.nativeElement.value;
@@ -594,10 +615,6 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     }
                     this.hide();
                 break;
-            }
-        } else {
-            if (event.which === 40 && this.suggestions) {
-                this.search(event,event.target.value);
             }
         }
 
