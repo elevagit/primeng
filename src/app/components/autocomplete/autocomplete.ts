@@ -562,6 +562,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
                 //enter
                 case 13:
+                    console.log('ENTER', this.highlightOption, this.multiInputEL.nativeElement.value, this.forceSelection , this.multiple);
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                         this.hide();
