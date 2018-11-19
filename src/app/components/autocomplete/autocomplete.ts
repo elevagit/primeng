@@ -379,14 +379,15 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     selectItem(option: any, focus: boolean = true) {
-        console.log('SELECT ITEM', option, focus);
         if (this.multiple) {
-            this.multiInputEL.nativeElement.value = '';
-            this.value = this.value||[];
-            if (!this.isSelected(option)) {
-                option.acao = 1;
-                this.value = [...this.value,option];
-                this.onModelChange(this.value);
+            if (!this.value.some(opt => opt[this.field] == option[this.field])) {
+                this.multiInputEL.nativeElement.value = '';
+                this.value = this.value||[];
+                if (!this.isSelected(option)) {
+                    option.acao = 1;
+                    this.value = [...this.value,option];
+                    this.onModelChange(this.value);
+                }
             }
         }
         else {
@@ -566,7 +567,6 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
                 //enter
                 case 13:
-                    console.log('ENTER', this.highlightOption, this.multiInputEL.nativeElement.value, this.forceSelection , this.multiple);
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                         this.hide();

@@ -198,15 +198,17 @@ var AutoComplete = /** @class */ (function () {
         });
     };
     AutoComplete.prototype.selectItem = function (option, focus) {
+        var _this = this;
         if (focus === void 0) { focus = true; }
-        console.log('SELECT ITEM', option, focus);
         if (this.multiple) {
-            this.multiInputEL.nativeElement.value = '';
-            this.value = this.value || [];
-            if (!this.isSelected(option)) {
-                option.acao = 1;
-                this.value = this.value.concat([option]);
-                this.onModelChange(this.value);
+            if (!this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
+                this.multiInputEL.nativeElement.value = '';
+                this.value = this.value || [];
+                if (!this.isSelected(option)) {
+                    option.acao = 1;
+                    this.value = this.value.concat([option]);
+                    this.onModelChange(this.value);
+                }
             }
         }
         else {
@@ -357,7 +359,6 @@ var AutoComplete = /** @class */ (function () {
                     break;
                 //enter
                 case 13:
-                    console.log('ENTER', this.highlightOption, this.multiInputEL.nativeElement.value, this.forceSelection, this.multiple);
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                         this.hide();
