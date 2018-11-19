@@ -229,10 +229,12 @@ var AutoComplete = /** @class */ (function () {
             }
         }
         var ddRect = this.el.nativeElement.getBoundingClientRect();
-        setTimeout(function () {
-            _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
-            _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
-        }, 50);
+        if (this.containerPanel) {
+            setTimeout(function () {
+                _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
+                _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
+            }, 50);
+        }
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
@@ -359,6 +361,12 @@ var AutoComplete = /** @class */ (function () {
                         this.selectItem(this.highlightOption);
                         this.hide();
                     }
+                    else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                        var newItem = {};
+                        newItem['acao'] = 1;
+                        newItem[this.field] = this.multiInputEL.nativeElement.value;
+                        this.selectItem(newItem);
+                    }
                     event.preventDefault();
                     break;
                 //escape
@@ -371,6 +379,12 @@ var AutoComplete = /** @class */ (function () {
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                     }
+                    else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                        var newItem = {};
+                        newItem['acao'] = 1;
+                        newItem[this.field] = this.multiInputEL.nativeElement.value;
+                        this.selectItem(newItem);
+                    }
                     this.hide();
                     break;
             }
@@ -380,20 +394,20 @@ var AutoComplete = /** @class */ (function () {
                 this.search(event, event.target.value);
             }
         }
-        if (this.multiple) {
-            switch (event.which) {
+        /*if (this.multiple) {
+            switch(event.which) {
                 //backspace
                 case 8:
                     if (this.value && this.value.length && !this.multiInputEL.nativeElement.value) {
-                        this.value = this.value.slice();
-                        var removedValue = this.value.pop();
+                        this.value = [...this.value];
+                        const removedValue = this.value.pop();
                         this.onModelChange(this.value);
                         this.updateFilledState();
                         this.onUnselect.emit(removedValue);
                     }
-                    break;
+                break;
             }
-        }
+        }*/
         this.inputKeyDown = true;
     };
     AutoComplete.prototype.onKeyup = function (event) {

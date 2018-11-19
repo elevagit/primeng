@@ -408,10 +408,12 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             }
         }
         let ddRect: ClientRect = this.el.nativeElement.getBoundingClientRect();		
-		setTimeout(() => {
-			this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
-			this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
-        }, 50);	
+        if (this.containerPanel){
+            setTimeout(() => {
+                this.containerPanel.nativeElement.style.width = ddRect.width * this.multiplicador + 'px';
+                this.containerPanel.nativeElement.style.minWidth = ddRect.width * this.multiplicador + 'px';
+            }, 50);	
+        }
     }
 
     onOverlayAnimationStart(event: AnimationEvent) {
@@ -563,6 +565,11 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
                         this.hide();
+                    } else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                        let newItem = {};
+                        newItem['acao'] = 1;
+                        newItem[this.field]=this.multiInputEL.nativeElement.value;
+                        this.selectItem(newItem);
                     }
                     event.preventDefault();
                 break;
@@ -578,6 +585,11 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                 case 9:
                     if (this.highlightOption) {
                         this.selectItem(this.highlightOption);
+                    } else if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple){
+                        let newItem = {};
+                        newItem['acao'] = 1;
+                        newItem[this.field]=this.multiInputEL.nativeElement.value;
+                        this.selectItem(newItem);
                     }
                     this.hide();
                 break;
@@ -588,7 +600,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             }
         }
 
-        if (this.multiple) {
+        /*if (this.multiple) {
             switch(event.which) {
                 //backspace
                 case 8:
@@ -601,7 +613,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     }
                 break;
             }
-        }
+        }*/
 
         this.inputKeyDown = true;
     }
