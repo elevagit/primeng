@@ -51,7 +51,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
             <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
                 <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
                     <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
-                    (keydown.enter)="$event.preventDefault()" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
+                    (keyup.enter)="onEnterKey($event)" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
                     <span class="ui-dropdown-filter-icon pi pi-search"></span>
                 </div>
                 <div class="ui-dropdown-items-wrapper" [style.max-height]="scrollHeight||'auto'">
@@ -835,10 +835,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 }                
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
-                } 
-                if (this.filterValue){
-                    this.buscouEnter.emit(this.filterValue);
-                }                
+                }                           
                 event.preventDefault();
             break;
             
@@ -855,6 +852,12 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 }
             break;
         }
+    }
+
+    onEnterKey($event) {
+        if (this.filterValue){
+            this.buscouEnter.emit(this.filterValue);
+        }  
     }
 
     search(event) {

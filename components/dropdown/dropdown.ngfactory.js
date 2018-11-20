@@ -52,8 +52,8 @@ function View_Dropdown_15(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null
     } if (("click" === en)) {
         var pd_1 = ($event.stopPropagation() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, [[2, 0], ["filter", 1]], null, 0, "input", [["autocomplete", "off"], ["class", "ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all"], ["type", "text"]], [[8, "value", 0], [1, "placeholder", 0]], [[null, "keydown.enter"], [null, "input"], [null, "keydown"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("keydown.enter" === en)) {
-        var pd_0 = ($event.preventDefault() !== false);
+    } return ad; }, null, null)), (_l()(), i0.ɵeld(1, 0, [[2, 0], ["filter", 1]], null, 0, "input", [["autocomplete", "off"], ["class", "ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all"], ["type", "text"]], [[8, "value", 0], [1, "placeholder", 0]], [[null, "keyup.enter"], [null, "input"], [null, "keydown"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("keyup.enter" === en)) {
+        var pd_0 = (_co.onEnterKey($event) !== false);
         ad = (pd_0 && ad);
     } if (("input" === en)) {
         var pd_1 = (_co.dropDownFilter($event.target.value) !== false);

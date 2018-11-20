@@ -135,6 +135,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     findPrevEnabledOption(index: any): any;
     findNextEnabledOption(index: any): any;
     onKeydown(event: KeyboardEvent, search: boolean): void;
+    onEnterKey($event: any): void;
     search(event: any): void;
     searchOption(index: any): any;
     searchOptionInRange(start: any, end: any): any;
