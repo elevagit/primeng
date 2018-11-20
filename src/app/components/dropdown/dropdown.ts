@@ -188,6 +188,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @Output() onHide: EventEmitter<any> = new EventEmitter();
 
     @Output() onKey: EventEmitter<any> = new EventEmitter();
+
+    @Output() buscouEnter: EventEmitter<any> = new EventEmitter();
 	
     @Output() onAdd: EventEmitter<any> = new EventEmitter();
     
@@ -833,8 +835,10 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 }                
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
-                }
-                
+                } 
+                if (this.searchValue){
+                    this.buscouEnter.emit(this.searchValue);
+                }                
                 event.preventDefault();
             break;
             

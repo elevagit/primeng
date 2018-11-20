@@ -49,6 +49,7 @@ var Dropdown = /** @class */ (function () {
         this.onShow = new core_1.EventEmitter();
         this.onHide = new core_1.EventEmitter();
         this.onKey = new core_1.EventEmitter();
+        this.buscouEnter = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
         this.selectedIndex = 0;
@@ -558,6 +559,9 @@ var Dropdown = /** @class */ (function () {
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
                 }
+                if (this.searchValue) {
+                    this.buscouEnter.emit(this.searchValue);
+                }
                 event.preventDefault();
                 break;
             //escape and tab
@@ -971,6 +975,10 @@ var Dropdown = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], Dropdown.prototype, "onKey", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Dropdown.prototype, "buscouEnter", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
