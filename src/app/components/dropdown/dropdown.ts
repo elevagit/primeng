@@ -836,8 +836,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                 if (!this.filter || (this.optionsToDisplay && this.optionsToDisplay.length > 0)) {
                     this.hide();
                 } 
-                if (this.searchValue){
-                    this.buscouEnter.emit(this.searchValue);
+                if (this.filterValue){
+                    this.buscouEnter.emit(this.filterValue);
                 }                
                 event.preventDefault();
             break;
