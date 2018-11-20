@@ -401,39 +401,6 @@ button {
     width: 2em;
 }
 
-/** Breadcrumb **/
-.ui-breadcrumb {
-    margin: 0;
-    padding: 0;
-    padding: .5em;
-}
-
-.ui-breadcrumb ul {
-    margin: 0;
-    padding: 0;
-}
-
-.ui-breadcrumb ul li {
-    display: inline-block;
-    margin: 0 .25em;
-}
-
-.ui-breadcrumb-chevron, .ui-breadcrumb-home {
-    vertical-align: middle;
-}
-
-.ui-breadcrumb ul li .ui-menuitem-link {
-    text-decoration: none;
-}
-
-.ui-breadcrumb .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-breadcrumb .ui-menuitem-text {
-    vertical-align: middle;
-}
 .ui-blockui {
     position: absolute;
     top: 0;
@@ -555,6 +522,39 @@ button.ui-button::-moz-focus-inner {
     .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
         width: 100%;
     }
+}
+/** Breadcrumb **/
+.ui-breadcrumb {
+    margin: 0;
+    padding: 0;
+    padding: .5em;
+}
+
+.ui-breadcrumb ul {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-breadcrumb ul li {
+    display: inline-block;
+    margin: 0 .25em;
+}
+
+.ui-breadcrumb-chevron, .ui-breadcrumb-home {
+    vertical-align: middle;
+}
+
+.ui-breadcrumb ul li .ui-menuitem-link {
+    text-decoration: none;
+}
+
+.ui-breadcrumb .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-breadcrumb .ui-menuitem-text {
+    vertical-align: middle;
 }
 .ui-calendar {
     position: relative;
@@ -829,30 +829,6 @@ input[type=text]::-ms-clear {
     }
 }
 
-.ui-card-header img {
-    width: 100%;
-}
-
-.ui-card-body {
-    padding: 1em;
-}
-
-.ui-card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: .5em;
-}
-
-.ui-card-subtitle {
-    opacity: .7;
-    margin-bottom: .5em;
-    margin-top: -.25em;
-    font-weight: bold;
-}
-
-.ui-card-footer {
-    padding-top: 1em;
-}
 .ui-carousel {
     position: relative;
     padding: .063em;
@@ -937,6 +913,30 @@ input[type=text]::-ms-clear {
 
 .ui-carousel .ui-carousel-mobiledropdown {
     display: none;
+}
+.ui-card-header img {
+    width: 100%;
+}
+
+.ui-card-body {
+    padding: 1em;
+}
+
+.ui-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.ui-card-subtitle {
+    opacity: .7;
+    margin-bottom: .5em;
+    margin-top: -.25em;
+    font-weight: bold;
+}
+
+.ui-card-footer {
+    padding-top: 1em;
 }
 .ui-chkbox {
     display: inline-block;
@@ -1241,6 +1241,34 @@ input[type=text]::-ms-clear {
     border-top: 0 none;
 }
 
+.ui-datascroller {
+}
+
+.ui-datascroller .ui-datascroller-header {
+    text-align: center;
+	padding: .5em .75em;
+    border-bottom: 0 none;
+}
+
+.ui-datascroller .ui-datascroller-footer {
+    text-align: center;
+    padding: .25em .625em;
+    border-top: 0px none;
+}
+
+.ui-datascroller .ui-datascroller-content {
+    padding: .25em .625em;
+}
+
+.ui-datascroller-inline .ui-datascroller-content {
+    overflow: auto;
+}
+
+.ui-datascroller .ui-datascroller-list {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
 .ui-datatable {
     position: relative;
 }
@@ -1610,34 +1638,6 @@ input[type=text]::-ms-clear {
     .ui-datatable-reflow.ui-datatable-scrollable .ui-datatable-scrollable-body colgroup {
         display: block;
     }
-}
-.ui-datascroller {
-}
-
-.ui-datascroller .ui-datascroller-header {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
-}
-
-.ui-datascroller .ui-datascroller-footer {
-    text-align: center;
-    padding: .25em .625em;
-    border-top: 0px none;
-}
-
-.ui-datascroller .ui-datascroller-content {
-    padding: .25em .625em;
-}
-
-.ui-datascroller-inline .ui-datascroller-content {
-    overflow: auto;
-}
-
-.ui-datascroller .ui-datascroller-list {
-    list-style-type: none; 
-    margin: 0;
-    padding: 0;
 }
 .ui-dataview {
     position: relative;
@@ -2935,6 +2935,17 @@ input[type=text]::-ms-clear {
     padding: 0;
 }
 
+.ui-inplace .ui-inplace-display {
+    display: inline;
+    cursor: pointer;
+    border: 0 none;
+    padding: .25em;
+    font-weight: normal;
+}
+
+.ui-inplace .ui-inplace-content {
+    display: inline;
+}
 .ui-growl {
 	position:fixed;
 	top: 20px;
@@ -2989,17 +3000,6 @@ input[type=text]::-ms-clear {
 
 .ui-growl-message p {
 	font-weight: normal;
-}
-.ui-inplace .ui-inplace-display {
-    display: inline;
-    cursor: pointer;
-    border: 0 none;
-    padding: .25em;
-    font-weight: normal;
-}
-
-.ui-inplace .ui-inplace-content {
-    display: inline;
 }
 .ui-inputswitch {
     position: relative;
@@ -3534,6 +3534,51 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-message {
     display: block;
 }
+.ui-messages {
+    border: 1px solid;
+    margin: .5em 0;
+    padding: 1em 1em 1em .5em;
+    position: relative;
+}
+
+.ui-messages .ui-messages-icon {
+    display:inline-block;
+    padding: 0;
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+.ui-messages .ui-messages-summary {
+    font-weight: bold;
+    margin-left: .25em;
+}
+
+.ui-messages .ui-messages-detail {
+    margin-left: .25em;
+}
+
+.ui-messages ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-messages ul > li {
+    padding: .25em 0;
+}
+
+.ui-messages.ui-messages-noicon ul {
+    margin: 0 1.5em 0 0;
+}
+
+.ui-messages .ui-messages-close {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 .ui-multiselect {
     display: inline-block;
     position: relative;
@@ -3685,51 +3730,6 @@ input[type=text]::-ms-clear {
 }
 
 
-.ui-messages {
-    border: 1px solid;
-    margin: .5em 0;
-    padding: 1em 1em 1em .5em;
-    position: relative;
-}
-
-.ui-messages .ui-messages-icon {
-    display:inline-block;
-    padding: 0;
-    vertical-align: middle;
-    font-size: 2em;
-}
-
-.ui-messages .ui-messages-summary {
-    font-weight: bold;
-    margin-left: .25em;
-}
-
-.ui-messages .ui-messages-detail {
-    margin-left: .25em;
-}
-
-.ui-messages ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-messages ul > li {
-    padding: .25em 0;
-}
-
-.ui-messages.ui-messages-noicon ul {
-    margin: 0 1.5em 0 0;
-}
-
-.ui-messages .ui-messages-close {
-    cursor: pointer;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
 .ui-orderlist {
     display: -webkit-box;
     display: -ms-flexbox;
