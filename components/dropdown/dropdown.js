@@ -271,6 +271,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.focusInComponent = function (event) {
         var _this = this;
+        console.log('foco');
         if (!this.overlayVisible) {
             this.show();
             setTimeout(function () {
@@ -282,6 +283,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.onMouseclick = function (event) {
         var _this = this;
+        console.log('mouse');
         if (this.disabled || this.readonly) {
             return;
         }

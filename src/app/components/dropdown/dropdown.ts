@@ -510,6 +510,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 
     focusInComponent(event){
+        console.log('foco');
         if (!this.overlayVisible){
             this.show();
             setTimeout(() => {
@@ -521,6 +522,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     onMouseclick(event) {
+        console.log('mouse');
         if (this.disabled||this.readonly) {
             return;
         }
