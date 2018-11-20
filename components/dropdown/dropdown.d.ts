@@ -116,6 +116,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     registerOnTouched(fn: Function): void;
     setDisabledState(val: boolean): void;
     updateDimensions(): void;
+    focusInComponent(event: any): void;
     onMouseclick(event: any): void;
     onEditableInputClick(event: any): void;
     onEditableInputFocus(event: any): void;

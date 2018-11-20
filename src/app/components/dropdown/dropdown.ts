@@ -19,7 +19,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
     template: `
          <div #container [ngClass]="{'ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix':true,
             'ui-state-disabled':disabled, 'ui-dropdown-open':overlayVisible, 'ui-state-focus':focused, 'ui-dropdown-clearable': showClear && !disabled}"
-            (click)="onMouseclick($event)" (focusin)="onMouseclick($event)" [ngStyle]="style" [class]="styleClass">
+            (click)="onMouseclick($event)" (focusin)="focusInComponent($event)" [ngStyle]="style" [class]="styleClass">
             <div class="ui-helper-hidden-accessible" *ngIf="autoWidth">
                 <select [attr.id]="selectId" [required]="required" [attr.name]="name" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" tabindex="-1" aria-hidden="true">
                     <option *ngIf="placeholder">{{placeholder}}</option>
@@ -507,6 +507,15 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             }
             this.dimensionsUpdated = true;
         }
+    }
+
+    focusInComponent(event){
+        this.show();
+        setTimeout(() => {
+            if (this.filterViewChild != undefined) {
+                this.filterViewChild.nativeElement.focus();
+            }
+        }, 200);
     }
     
     onMouseclick(event) {
