@@ -85,7 +85,7 @@ function View_Dropdown_0(_l) { return i0.ɵvid(0, [i0.ɵqud(402653184, 1, { cont
         var pd_0 = (_co.onMouseclick($event) !== false);
         ad = (pd_0 && ad);
     } if (("focusin" === en)) {
-        var pd_1 = (_co.show() !== false);
+        var pd_1 = (_co.onMouseclick($event) !== false);
         ad = (pd_1 && ad);
     } return ad; }, null, null)), i0.ɵdid(6, 278528, null, 0, i2.NgClass, [i0.IterableDiffers, i0.KeyValueDiffers, i0.ElementRef, i0.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), i0.ɵpod(7, { "ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix": 0, "ui-state-disabled": 1, "ui-dropdown-open": 2, "ui-state-focus": 3, "ui-dropdown-clearable": 4 }), i0.ɵdid(8, 278528, null, 0, i2.NgStyle, [i0.KeyValueDiffers, i0.ElementRef, i0.Renderer2], { ngStyle: [0, "ngStyle"] }, null), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_Dropdown_1)), i0.ɵdid(10, 16384, null, 0, i2.NgIf, [i0.ViewContainerRef, i0.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i0.ɵeld(11, 0, null, null, 1, "div", [["class", "ui-helper-hidden-accessible"]], null, null, null, null, null)), (_l()(), i0.ɵeld(12, 0, [[3, 0], ["in", 1]], null, 0, "input", [["readonly", ""], ["role", "listbox"], ["type", "text"]], [[1, "id", 0], [1, "aria-label", 0], [8, "disabled", 0], [1, "tabindex", 0], [1, "autofocus", 0]], [[null, "focus"], [null, "blur"], [null, "keydown"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("focus" === en)) {
         var pd_0 = (_co.onInputFocus($event) !== false);
