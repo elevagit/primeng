@@ -511,11 +511,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 
     focusInComponent(event){
         this.show();
-        setTimeout(() => {
-            if (this.filterViewChild != undefined) {
-                this.filterViewChild.nativeElement.focus();
-            }
-        }, 20);
+        if (!this.overlayVisible){
+            setTimeout(() => {
+                if (this.filterViewChild != undefined) {
+                    this.filterViewChild.nativeElement.focus();
+                }
+            }, 20);
+        }
     }
     
     onMouseclick(event) {

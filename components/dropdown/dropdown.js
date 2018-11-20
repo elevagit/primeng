@@ -272,11 +272,13 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.focusInComponent = function (event) {
         var _this = this;
         this.show();
-        setTimeout(function () {
-            if (_this.filterViewChild != undefined) {
-                _this.filterViewChild.nativeElement.focus();
-            }
-        }, 20);
+        if (!this.overlayVisible) {
+            setTimeout(function () {
+                if (_this.filterViewChild != undefined) {
+                    _this.filterViewChild.nativeElement.focus();
+                }
+            }, 20);
+        }
     };
     Dropdown.prototype.onMouseclick = function (event) {
         var _this = this;
