@@ -70,6 +70,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     selectedIndex: number;
     _options: any[];
     value: any;
+    focandoComMouse: boolean;
     onModelChange: Function;
     onModelTouched: Function;
     optionsToDisplay: any[];

@@ -222,6 +222,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     _options: any[];
     
     value: any;
+
+    focandoComMouse = false;
     
     onModelChange: Function = () => {};
     
@@ -511,7 +513,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 
     focusInComponent(event){
         console.log('foco');
-        if (!this.overlayVisible){
+        if (!this.focandoComMouse && !this.overlayVisible){
             console.log('show do foco');
             this.show();
             setTimeout(() => {
@@ -524,6 +526,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     onMouseclick(event) {
         console.log('mouse');
+        this.focandoComMouse = true;
         if (this.disabled||this.readonly) {
             return;
         }
@@ -539,6 +542,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             if (this.overlayVisible) {
                 console.log('hide do mouseclick');
                 this.hide();
+                this.focandoComMouse = false;
             }
             else {
                 console.log('show do mouseclick');
@@ -548,9 +552,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
                     if (this.filterViewChild != undefined) {
                         this.filterViewChild.nativeElement.focus();
                     }
+                    this.focandoComMouse = false;
                 }, 200);
             }
+        } else {
+            this.focandoComMouse = false;
         }
+        
     }
     
     onEditableInputClick(event) {

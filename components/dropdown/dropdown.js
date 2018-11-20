@@ -52,6 +52,7 @@ var Dropdown = /** @class */ (function () {
         this.onAdd = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
         this.selectedIndex = 0;
+        this.focandoComMouse = false;
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
     }
@@ -272,7 +273,7 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.focusInComponent = function (event) {
         var _this = this;
         console.log('foco');
-        if (!this.overlayVisible) {
+        if (!this.focandoComMouse && !this.overlayVisible) {
             console.log('show do foco');
             this.show();
             setTimeout(function () {
@@ -285,6 +286,7 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.onMouseclick = function (event) {
         var _this = this;
         console.log('mouse');
+        this.focandoComMouse = true;
         if (this.disabled || this.readonly) {
             return;
         }
@@ -296,6 +298,7 @@ var Dropdown = /** @class */ (function () {
             if (this.overlayVisible) {
                 console.log('hide do mouseclick');
                 this.hide();
+                this.focandoComMouse = false;
             }
             else {
                 console.log('show do mouseclick');
@@ -304,8 +307,12 @@ var Dropdown = /** @class */ (function () {
                     if (_this.filterViewChild != undefined) {
                         _this.filterViewChild.nativeElement.focus();
                     }
+                    _this.focandoComMouse = false;
                 }, 200);
             }
+        }
+        else {
+            this.focandoComMouse = false;
         }
     };
     Dropdown.prototype.onEditableInputClick = function (event) {
