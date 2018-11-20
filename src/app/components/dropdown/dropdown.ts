@@ -515,7 +515,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             if (this.filterViewChild != undefined) {
                 this.filterViewChild.nativeElement.focus();
             }
-        }, 200);
+        }, 20);
     }
     
     onMouseclick(event) {

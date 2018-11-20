@@ -276,7 +276,7 @@ var Dropdown = /** @class */ (function () {
             if (_this.filterViewChild != undefined) {
                 _this.filterViewChild.nativeElement.focus();
             }
-        }, 200);
+        }, 20);
     };
     Dropdown.prototype.onMouseclick = function (event) {
         var _this = this;
