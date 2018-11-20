@@ -272,9 +272,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.focusInComponent = function (event) {
         var _this = this;
-        console.log('foco');
         if (!this.focandoComMouse && !this.overlayVisible) {
-            console.log('show do foco');
             this.show();
             setTimeout(function () {
                 if (_this.filterViewChild != undefined) {
@@ -285,7 +283,6 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.onMouseclick = function (event) {
         var _this = this;
-        console.log('mouse');
         this.focandoComMouse = true;
         if (this.disabled || this.readonly) {
             return;
@@ -296,12 +293,10 @@ var Dropdown = /** @class */ (function () {
         if (!this.itemClick && !this.clearClick) {
             this.focusViewChild.nativeElement.focus();
             if (this.overlayVisible) {
-                console.log('hide do mouseclick');
                 this.hide();
                 this.focandoComMouse = false;
             }
             else {
-                console.log('show do mouseclick');
                 this.show();
                 setTimeout(function () {
                     if (_this.filterViewChild != undefined) {
@@ -335,7 +330,6 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.show = function () {
         var _this = this;
-        console.log('entrou no show');
         this.overlayVisible = true;
         var ddRect = this.el.nativeElement.getBoundingClientRect();
         if (this.containerPanel) {
@@ -389,7 +383,6 @@ var Dropdown = /** @class */ (function () {
         this.onKey.emit(event);
     };
     Dropdown.prototype.hide = function () {
-        console.log('entrou no hide');
         this.overlayVisible = false;
         if (this.filter && this.resetFilterOnHide) {
             this.resetFilter();

@@ -512,9 +512,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
 
     focusInComponent(event){
-        console.log('foco');
         if (!this.focandoComMouse && !this.overlayVisible){
-            console.log('show do foco');
             this.show();
             setTimeout(() => {
                 if (this.filterViewChild != undefined) {
@@ -525,7 +523,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     onMouseclick(event) {
-        console.log('mouse');
         this.focandoComMouse = true;
         if (this.disabled||this.readonly) {
             return;
@@ -540,12 +537,10 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             this.focusViewChild.nativeElement.focus();
             
             if (this.overlayVisible) {
-                console.log('hide do mouseclick');
                 this.hide();
                 this.focandoComMouse = false;
             }
             else {
-                console.log('show do mouseclick');
                 this.show();
 
                 setTimeout(() => {
@@ -583,7 +578,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     show() {
-        console.log('entrou no show');
         this.overlayVisible = true;
         let ddRect: ClientRect = this.el.nativeElement.getBoundingClientRect();		
         if (this.containerPanel){
@@ -646,7 +640,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	}
     
     hide() {
-        console.log('entrou no hide');
         this.overlayVisible = false;
         
         if (this.filter && this.resetFilterOnHide) {
