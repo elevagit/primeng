@@ -271,8 +271,8 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.focusInComponent = function (event) {
         var _this = this;
-        this.show();
         if (!this.overlayVisible) {
+            this.show();
             setTimeout(function () {
                 if (_this.filterViewChild != undefined) {
                     _this.filterViewChild.nativeElement.focus();
