@@ -857,6 +857,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     onEnterKey($event) {
         if (this.filterValue){
             this.buscouEnter.emit(this.filterValue);
+            this.hide();
         }  
     }
 

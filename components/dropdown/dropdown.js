@@ -577,6 +577,7 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.onEnterKey = function ($event) {
         if (this.filterValue) {
             this.buscouEnter.emit(this.filterValue);
+            this.hide();
         }
     };
     Dropdown.prototype.search = function (event) {
