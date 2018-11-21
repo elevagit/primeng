@@ -335,7 +335,7 @@ var Dropdown = /** @class */ (function () {
         var ddRect = this.el.nativeElement.getBoundingClientRect();
         setTimeout(function () {
             if (_this.containerPanel && _this.multiplicador != 1) {
-                var maxSize = window.innerWidth;
+                var maxSize = window.innerWidth - 50;
                 var calculatedSize = (ddRect.width * _this.multiplicador) - 2;
                 _this.containerPanel.nativeElement.style.width = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
                 _this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
