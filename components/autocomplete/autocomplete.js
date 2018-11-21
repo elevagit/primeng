@@ -101,8 +101,8 @@ var AutoComplete = /** @class */ (function () {
         }
     };
     AutoComplete.prototype.includeAddToOptionsToDisplay = function () {
-        if (this.suggestions && this.suggestions.length > 0) {
-            this.suggestions = this.suggestions.filter(function (option) { return !option.isAdd; });
+        if (this._suggestions && this._suggestions.length > 0) {
+            this._suggestions = this._suggestions.filter(function (option) { return !option.isAdd; });
         }
         if (this.podeAdicionar && !this.valueTypedIsPresent()) {
             var addItem = { isAdd: true, id: -3 };
@@ -112,10 +112,10 @@ var AutoComplete = /** @class */ (function () {
             else {
                 addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
             }
-            if (!this.suggestions) {
-                this.suggestions = [];
+            if (!this._suggestions) {
+                this._suggestions = [];
             }
-            this.suggestions.push(addItem);
+            this._suggestions.push(addItem);
         }
     };
     AutoComplete.prototype.getFilterValue = function () {

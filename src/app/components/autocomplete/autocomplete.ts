@@ -264,8 +264,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     includeAddToOptionsToDisplay(){
-        if (this.suggestions && this.suggestions.length > 0){
-            this.suggestions = this.suggestions.filter(option => !option.isAdd);
+        if (this._suggestions && this._suggestions.length > 0){
+            this._suggestions = this._suggestions.filter(option => !option.isAdd);
         }
         if (this.podeAdicionar && !this.valueTypedIsPresent()){
             var addItem = {isAdd: true, id: -3};
@@ -274,10 +274,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             } else {
                 addItem[this.colunaOpcao] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
             }
-            if (!this.suggestions){
-                this.suggestions = [];
+            if (!this._suggestions){
+                this._suggestions = [];
             }
-            this.suggestions.push(addItem);            
+            this._suggestions.push(addItem);            
         }
     }
 
