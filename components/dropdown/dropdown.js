@@ -334,9 +334,9 @@ var Dropdown = /** @class */ (function () {
         this.overlayVisible = true;
         var ddRect = this.el.nativeElement.getBoundingClientRect();
         setTimeout(function () {
-            if (_this.containerPanel) {
-                _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
-                _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
+            if (_this.containerPanel && _this.multiplicador != 1) {
+                _this.containerPanel.nativeElement.style.width = ((ddRect.width * _this.multiplicador) - 2) + 'px';
+                _this.containerPanel.nativeElement.style.minWidth = ((ddRect.width * _this.multiplicador) - 2) + 'px';
             }
         }, 50);
     };
