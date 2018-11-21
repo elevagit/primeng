@@ -282,9 +282,9 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     getFilterValue(): string{
-        if (this.multiple){
+        if (this.multiple && this.multiInputEL){
             return this.multiInputEL.nativeElement.value||"";
-        } else {
+        } else if (this.inputEL) {
             return this.inputEL.nativeElement.value||"";
         }
     }
