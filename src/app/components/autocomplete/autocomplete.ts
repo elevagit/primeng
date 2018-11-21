@@ -151,6 +151,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Input() multiple: boolean;
 
+    @Input() podeAdicionar = true;
+
     @Input() tabindex: number;
 
     @Input() dataKey: string;
@@ -227,7 +229,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     set suggestions(val:any[]) {
         this._suggestions = val;
-        
+        this.includeAddToOptionsToDisplay();
         if (this.immutable) {
             this.handleSuggestionsChange();
         }
@@ -261,36 +263,44 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         }
     }
 
-   /* includeAddToOptionsToDisplay(){
+    includeAddToOptionsToDisplay(){
         if (this.suggestions && this.suggestions.length > 0){
-            this.suggestions = this.suggestions.filter(option => !option.value.isAdd);
+            this.suggestions = this.suggestions.filter(option => !option.isAdd);
         }
         if (this.podeAdicionar && !this.valueTypedIsPresent()){
-            var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
+            var addItem = {isAdd: true, id: -3};
             if (this.getFilterValue() == ""){
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
+                addItem[this.colunaOpcao] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
             } else {
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
+                addItem[this.colunaOpcao] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
             }
-            if (!this.optionsToDisplay){
-                this.optionsToDisplay = [];
+            if (!this.suggestions){
+                this.suggestions = [];
             }
-            this.optionsToDisplay.push(addItem);            
+            this.suggestions.push(addItem);            
+        }
+    }
+
+    getFilterValue(): string{
+        if (this.multiple){
+            return this.multiInputEL.nativeElement.value||"";
+        } else {
+            return this.inputEL.nativeElement.value||"";
         }
     }
 
     valueTypedIsPresent():boolean {
         if (this.suggestions && this.suggestions.length > 0) {
             for (let i = 0; i < this.suggestions.length; i++) {
-                if (this.suggestions[i] && this.suggestions[i].value[this.field] && this.filterValue) { 
-                    if (this.suggestions[i].value[this.field].toLowerCase() == this.filterValue.toLowerCase()) {
+                if (this.suggestions[i] && this.suggestions[i][this.field] && this.getFilterValue()) { 
+                    if (this.suggestions[i][this.field].toLowerCase() == this.getFilterValue().toLowerCase()) {
                         return true;
                     }            
                 }
             }
         }
         return false;
-    }*/
+    }
 
     handleSuggestionsChange() {
         if (this._suggestions != null && this.loading) {

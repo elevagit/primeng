@@ -51,6 +51,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     excluirEmDuasEtapas: boolean;
     dropdownMode: string;
     multiple: boolean;
+    podeAdicionar: boolean;
     tabindex: number;
     dataKey: string;
     emptyMessage: string;
@@ -88,6 +89,9 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     suggestions: any[];
     ngDoCheck(): void;
     ngAfterViewChecked(): void;
+    includeAddToOptionsToDisplay(): void;
+    getFilterValue(): string;
+    valueTypedIsPresent(): boolean;
     handleSuggestionsChange(): void;
     ngAfterContentInit(): void;
     writeValue(value: any): void;

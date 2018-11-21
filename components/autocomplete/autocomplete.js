@@ -50,6 +50,7 @@ var AutoComplete = /** @class */ (function () {
         this.pseudoExcluir = false;
         this.excluirEmDuasEtapas = false;
         this.dropdownMode = 'blank';
+        this.podeAdicionar = true;
         this.immutable = true;
         this.showTransitionOptions = '225ms ease-out';
         this.hideTransitionOptions = '195ms ease-in';
@@ -66,6 +67,7 @@ var AutoComplete = /** @class */ (function () {
         },
         set: function (val) {
             this._suggestions = val;
+            this.includeAddToOptionsToDisplay();
             if (this.immutable) {
                 this.handleSuggestionsChange();
             }
@@ -98,36 +100,44 @@ var AutoComplete = /** @class */ (function () {
             this.highlightOptionChanged = false;
         }
     };
-    /* includeAddToOptionsToDisplay(){
-         if (this.suggestions && this.suggestions.length > 0){
-             this.suggestions = this.suggestions.filter(option => !option.value.isAdd);
-         }
-         if (this.podeAdicionar && !this.valueTypedIsPresent()){
-             var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
-             if (this.getFilterValue() == ""){
-                 addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
-             } else {
-                 addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
-             }
-             if (!this.optionsToDisplay){
-                 this.optionsToDisplay = [];
-             }
-             this.optionsToDisplay.push(addItem);
-         }
-     }
- 
-     valueTypedIsPresent():boolean {
-         if (this.suggestions && this.suggestions.length > 0) {
-             for (let i = 0; i < this.suggestions.length; i++) {
-                 if (this.suggestions[i] && this.suggestions[i].value[this.field] && this.filterValue) {
-                     if (this.suggestions[i].value[this.field].toLowerCase() == this.filterValue.toLowerCase()) {
-                         return true;
-                     }
-                 }
-             }
-         }
-         return false;
-     }*/
+    AutoComplete.prototype.includeAddToOptionsToDisplay = function () {
+        if (this.suggestions && this.suggestions.length > 0) {
+            this.suggestions = this.suggestions.filter(function (option) { return !option.isAdd; });
+        }
+        if (this.podeAdicionar && !this.valueTypedIsPresent()) {
+            var addItem = { isAdd: true, id: -3 };
+            if (this.getFilterValue() == "") {
+                addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
+            }
+            else {
+                addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
+            }
+            if (!this.suggestions) {
+                this.suggestions = [];
+            }
+            this.suggestions.push(addItem);
+        }
+    };
+    AutoComplete.prototype.getFilterValue = function () {
+        if (this.multiple) {
+            return this.multiInputEL.nativeElement.value || "";
+        }
+        else {
+            return this.inputEL.nativeElement.value || "";
+        }
+    };
+    AutoComplete.prototype.valueTypedIsPresent = function () {
+        if (this.suggestions && this.suggestions.length > 0) {
+            for (var i = 0; i < this.suggestions.length; i++) {
+                if (this.suggestions[i] && this.suggestions[i][this.field] && this.getFilterValue()) {
+                    if (this.suggestions[i][this.field].toLowerCase() == this.getFilterValue().toLowerCase()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    };
     AutoComplete.prototype.handleSuggestionsChange = function () {
         if (this._suggestions != null && this.loading) {
             this.highlightOption = null;
@@ -741,6 +751,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", Boolean)
     ], AutoComplete.prototype, "multiple", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AutoComplete.prototype, "podeAdicionar", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Number)
