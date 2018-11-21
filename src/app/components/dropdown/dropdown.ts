@@ -585,8 +585,10 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         
         setTimeout(() => {
             if (this.containerPanel && this.multiplicador != 1){
-            this.containerPanel.nativeElement.style.width = ((ddRect.width * this.multiplicador)-2) + 'px';
-            this.containerPanel.nativeElement.style.minWidth = ((ddRect.width * this.multiplicador)-2) + 'px';
+                let maxSize = window.innerWidth;
+                let calculatedSize = (ddRect.width * this.multiplicador) -2;
+                this.containerPanel.nativeElement.style.width = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
+                this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);		
         

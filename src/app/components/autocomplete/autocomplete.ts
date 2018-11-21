@@ -261,7 +261,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         }
     }
 
- /*   includeAddToOptionsToDisplay(){
+   /* includeAddToOptionsToDisplay(){
         if (this.suggestions && this.suggestions.length > 0){
             this.suggestions = this.suggestions.filter(option => !option.value.isAdd);
         }
@@ -290,8 +290,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
             }
         }
         return false;
-    }
-*/
+    }*/
+
     handleSuggestionsChange() {
         if (this._suggestions != null && this.loading) {
             this.highlightOption = null;
@@ -447,8 +447,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         
         setTimeout(() => {
             if (this.containerPanel && this.multiplicador != 1){
-                this.containerPanel.nativeElement.style.width = ((ddRect.width * this.multiplicador)-2) + 'px';
-                this.containerPanel.nativeElement.style.minWidth = ((ddRect.width * this.multiplicador)-2) + 'px';
+                let maxSize = window.innerWidth;
+                let calculatedSize = (ddRect.width * this.multiplicador) -2;
+                this.containerPanel.nativeElement.style.width = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
+                this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);	
         

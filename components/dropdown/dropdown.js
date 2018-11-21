@@ -335,8 +335,10 @@ var Dropdown = /** @class */ (function () {
         var ddRect = this.el.nativeElement.getBoundingClientRect();
         setTimeout(function () {
             if (_this.containerPanel && _this.multiplicador != 1) {
-                _this.containerPanel.nativeElement.style.width = ((ddRect.width * _this.multiplicador) - 2) + 'px';
-                _this.containerPanel.nativeElement.style.minWidth = ((ddRect.width * _this.multiplicador) - 2) + 'px';
+                var maxSize = window.innerWidth;
+                var calculatedSize = (ddRect.width * _this.multiplicador) - 2;
+                _this.containerPanel.nativeElement.style.width = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
+                _this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);
     };
