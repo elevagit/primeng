@@ -333,12 +333,12 @@ var Dropdown = /** @class */ (function () {
         var _this = this;
         this.overlayVisible = true;
         var ddRect = this.el.nativeElement.getBoundingClientRect();
-        if (this.containerPanel) {
-            setTimeout(function () {
+        setTimeout(function () {
+            if (_this.containerPanel) {
                 _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
                 _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
-            }, 50);
-        }
+            }
+        }, 50);
     };
     Dropdown.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {

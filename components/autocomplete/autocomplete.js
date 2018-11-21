@@ -98,6 +98,37 @@ var AutoComplete = /** @class */ (function () {
             this.highlightOptionChanged = false;
         }
     };
+    /*   includeAddToOptionsToDisplay(){
+           if (this.suggestions && this.suggestions.length > 0){
+               this.suggestions = this.suggestions.filter(option => !option.value.isAdd);
+           }
+           if (this.podeAdicionar && !this.valueTypedIsPresent()){
+               var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
+               if (this.getFilterValue() == ""){
+                   addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
+               } else {
+                   addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
+               }
+               if (!this.optionsToDisplay){
+                   this.optionsToDisplay = [];
+               }
+               this.optionsToDisplay.push(addItem);
+           }
+       }
+   
+       valueTypedIsPresent():boolean {
+           if (this.suggestions && this.suggestions.length > 0) {
+               for (let i = 0; i < this.suggestions.length; i++) {
+                   if (this.suggestions[i] && this.suggestions[i].value[this.field] && this.filterValue) {
+                       if (this.suggestions[i].value[this.field].toLowerCase() == this.filterValue.toLowerCase()) {
+                           return true;
+                       }
+                   }
+               }
+           }
+           return false;
+       }
+   */
     AutoComplete.prototype.handleSuggestionsChange = function () {
         if (this._suggestions != null && this.loading) {
             this.highlightOption = null;
@@ -231,12 +262,12 @@ var AutoComplete = /** @class */ (function () {
             }
         }
         var ddRect = this.el.nativeElement.getBoundingClientRect();
-        if (this.containerPanel) {
-            setTimeout(function () {
+        setTimeout(function () {
+            if (_this.containerPanel) {
                 _this.containerPanel.nativeElement.style.width = ddRect.width * _this.multiplicador + 'px';
                 _this.containerPanel.nativeElement.style.minWidth = ddRect.width * _this.multiplicador + 'px';
-            }, 50);
-        }
+            }
+        }, 50);
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
