@@ -470,7 +470,7 @@ var AutoComplete = /** @class */ (function () {
                     break;
                 //enter
                 case 13:
-                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
                         var newItem = {};
                         newItem['acao'] = 1;
                         newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -482,7 +482,7 @@ var AutoComplete = /** @class */ (function () {
                     break;
                 //tab
                 case 9:
-                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
                         var newItem = {};
                         newItem['acao'] = 1;
                         newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;

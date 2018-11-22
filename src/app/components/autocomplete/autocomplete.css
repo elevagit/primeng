@@ -63,7 +63,6 @@
 
 /* Multiple Selection */
 .ui-autocomplete-multiple-container {
-    display: inline-block;
     vertical-align: middle;
 }
 

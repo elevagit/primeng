@@ -684,7 +684,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
                 //enter
                 case 13:
-                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+                    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
                         let newItem = {};
                         newItem['acao'] = 1;
                         newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -697,7 +697,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
                 //tab
                 case 9:
-                    if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple){
+                    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection){
                         let newItem = {};
                         newItem['acao'] = 1;
                         newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
