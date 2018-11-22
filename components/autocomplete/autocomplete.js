@@ -46,11 +46,12 @@ var AutoComplete = /** @class */ (function () {
         this.onClear = new core_1.EventEmitter();
         this.onKeyUp = new core_1.EventEmitter();
         this.customValue = new core_1.EventEmitter();
+        this.onAdd = new core_1.EventEmitter();
         this.scrollHeight = '200px';
         this.pseudoExcluir = false;
         this.excluirEmDuasEtapas = false;
         this.dropdownMode = 'blank';
-        this.podeAdicionar = true;
+        this.podeAdicionar = false;
         this.immutable = true;
         this.showTransitionOptions = '225ms ease-out';
         this.hideTransitionOptions = '195ms ease-in';
@@ -137,6 +138,13 @@ var AutoComplete = /** @class */ (function () {
             }
         }
         return false;
+    };
+    AutoComplete.prototype.onAddNovo = function (event) {
+        var _this = this;
+        this.onAdd.emit(this.getFilterValue());
+        setTimeout(function () {
+            _this.hide();
+        }, 150);
     };
     AutoComplete.prototype.handleSuggestionsChange = function () {
         if (this._suggestions != null && this.loading) {
@@ -238,29 +246,60 @@ var AutoComplete = /** @class */ (function () {
         });
     };
     AutoComplete.prototype.selectItem = function (option, focus) {
+        /*if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+            let newItem = {};
+            newItem['acao'] = 1;
+            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+            newItem[this.field] = this.multiInputEL.nativeElement.value;
+            this.selectItem(newItem);
+        }*/
         var _this = this;
         if (focus === void 0) { focus = true; }
         if (this.multiple) {
             this.value = this.value || [];
-            if (!this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
-                this.multiInputEL.nativeElement.value = '';
-                if (!this.isSelected(option)) {
+            if (option && !this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
+                if (option.isAdd) {
+                    var newItem = {};
+                    newItem['acao'] = 1;
+                    newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                    newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+                    newItem[this.field] = this.multiInputEL.nativeElement.value;
+                    this.value = this.value.concat([newItem]);
+                    this.onAddNovo(null);
+                    this.onModelChange(this.value);
+                }
+                else if (!this.isSelected(option)) {
                     option.acao = 1;
                     this.value = this.value.concat([option]);
                     this.onModelChange(this.value);
                 }
+                this.multiInputEL.nativeElement.value = '';
             }
         }
         else {
-            this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field) || '' : option;
-            this.value = option;
-            this.onModelChange(this.value);
+            if (option.isAdd) {
+                var newItem = {};
+                newItem['acao'] = 1;
+                newItem[this.colunaOpcao] = this.inputEL.nativeElement.value;
+                newItem[this.field] = this.inputEL.nativeElement.value;
+                this.value = newItem;
+                this.onAddNovo(null);
+                this.onModelChange(this.value);
+            }
+            else {
+                this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field) || '' : option;
+                this.value = option;
+                this.onModelChange(this.value);
+            }
         }
-        this.onSelect.emit(option);
+        if (!option.isAdd) {
+            this.onSelect.emit(option);
+            if (focus) {
+                this.focusInput();
+            }
+        }
         this.updateFilledState();
-        if (focus) {
-            this.focusInput();
-        }
     };
     AutoComplete.prototype.show = function () {
         var _this = this;
@@ -715,6 +754,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "customValue", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onAdd", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)

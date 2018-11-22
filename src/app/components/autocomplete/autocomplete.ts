@@ -133,6 +133,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Output() customValue: EventEmitter<any> = new EventEmitter();
 
+    @Output() onAdd: EventEmitter<any> = new EventEmitter();
+
     @Input() field: string;
 
     @Input() colunaChip: string;
@@ -151,7 +153,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     @Input() multiple: boolean;
 
-    @Input() podeAdicionar = true;
+    @Input() podeAdicionar = false;
 
     @Input() tabindex: number;
 
@@ -302,6 +304,14 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         return false;
     }
 
+    onAddNovo(event) {		
+        this.onAdd.emit(this.getFilterValue());
+		
+		setTimeout(() => {
+            this.hide();
+        }, 150);		
+	}
+
     handleSuggestionsChange() {
         if (this._suggestions != null && this.loading) {
             this.highlightOption = null;
@@ -420,29 +430,58 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     selectItem(option: any, focus: boolean = true) {
+        /*if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
+            let newItem = {};
+            newItem['acao'] = 1;
+            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+            newItem[this.field] = this.multiInputEL.nativeElement.value;
+            this.selectItem(newItem);
+        }*/
+
         if (this.multiple) {
             this.value = this.value||[];
-            if (!this.value.some(opt => opt[this.field] == option[this.field])) {
-                this.multiInputEL.nativeElement.value = '';
-                if (!this.isSelected(option)) {
+            if (option && !this.value.some(opt => opt[this.field] == option[this.field])) {                
+                if (option.isAdd) {
+                    let newItem = {};
+                    newItem['acao'] = 1;
+                    newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                    newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+                    newItem[this.field] = this.multiInputEL.nativeElement.value;
+                    this.value = [...this.value,newItem];
+                    this.onAddNovo(null);
+                    this.onModelChange(this.value);
+                } else if (!this.isSelected(option)) {
                     option.acao = 1;
                     this.value = [...this.value,option];
                     this.onModelChange(this.value);
                 }
+                this.multiInputEL.nativeElement.value = '';
             }
         }
         else {
-            this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field)||'': option;
-            this.value = option;
-            this.onModelChange(this.value);
+            if (option.isAdd) {
+                let newItem = {};
+                newItem['acao'] = 1;
+                newItem[this.colunaOpcao] = this.inputEL.nativeElement.value;
+                newItem[this.field] = this.inputEL.nativeElement.value;                
+                this.value = newItem;
+                this.onAddNovo(null);
+                this.onModelChange(this.value);
+            } else {
+                this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field)||'': option;
+                this.value = option;
+                this.onModelChange(this.value);
+            }
         }
 
-        this.onSelect.emit(option);
+        if (!option.isAdd){
+            this.onSelect.emit(option);  
+            if (focus) {
+                this.focusInput();
+            }
+        }
         this.updateFilledState();
-
-        if (focus) {
-            this.focusInput();
-        }
     }
 
     show() {

@@ -42,6 +42,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     onClear: EventEmitter<any>;
     onKeyUp: EventEmitter<any>;
     customValue: EventEmitter<any>;
+    onAdd: EventEmitter<any>;
     field: string;
     colunaChip: string;
     colunaOpcao: string;
@@ -92,6 +93,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     includeAddToOptionsToDisplay(): void;
     getFilterValue(): string;
     valueTypedIsPresent(): boolean;
+    onAddNovo(event: any): void;
     handleSuggestionsChange(): void;
     ngAfterContentInit(): void;
     writeValue(value: any): void;
