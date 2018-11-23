@@ -67,8 +67,8 @@ var AutoComplete = /** @class */ (function () {
             return this._suggestions;
         },
         set: function (val) {
+            console.log('SUGGESTIONS ', val, this._suggestions);
             this._suggestions = val;
-            console.log('SUGGESTIONS ', this.suggestions);
             this.includeAddToOptionsToDisplay();
             if (this.immutable) {
                 this.handleSuggestionsChange();
