@@ -112,7 +112,7 @@ var ObjectUtils = /** @class */ (function () {
         var first = [];
         var others = [];
         for (var i = 0; i < data.length; i++) {
-            if (data[i][field].indexOf(input) == 0) {
+            if (data[i][field].toLowerCase().indexOf(input.toLowerCase()) == 0) {
                 first.push(data[i]);
             }
             else {
