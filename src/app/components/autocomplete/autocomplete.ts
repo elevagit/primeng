@@ -731,6 +731,9 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     onInputFocus(event) {
         this.focus = true;
         this.onFocus.emit(event);
+        if (this.suggestions && this.suggestions.length > 0){
+            this.show();
+        }
     }
 
     onInputBlur(event) {

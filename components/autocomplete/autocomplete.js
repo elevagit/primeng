@@ -514,6 +514,9 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.onInputFocus = function (event) {
         this.focus = true;
         this.onFocus.emit(event);
+        if (this.suggestions && this.suggestions.length > 0) {
+            this.show();
+        }
     };
     AutoComplete.prototype.onInputBlur = function (event) {
         this.focus = false;
