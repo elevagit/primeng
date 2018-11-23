@@ -108,7 +108,7 @@ var AutoComplete = /** @class */ (function () {
         }
         if (this.podeAdicionar && !this.valueTypedIsPresent()) {
             var addItem = { isAdd: true, id: -3 };
-            if (this.getFilterValue() == "") {
+            if (this.getFilterValue() == "" || this.getFilterValue() == null || this.getFilterValue() == undefined) {
                 addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
             }
             else {
