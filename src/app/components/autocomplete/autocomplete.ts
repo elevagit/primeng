@@ -231,6 +231,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     set suggestions(val:any[]) {
         this._suggestions = val;
+        console.log('SUGGESTIONS', this.suggestions);
         this.includeAddToOptionsToDisplay();
         if (this.immutable) {
             this.handleSuggestionsChange();
