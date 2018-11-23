@@ -95,7 +95,7 @@ export class ObjectUtils {
 
     public filter(value: any[], fields: any[], filterValue: string) {
         let filteredItems: any[] = [];
-
+        
         if(value) {
             for(let item of value) {
                 for(let field of fields) {
@@ -107,7 +107,22 @@ export class ObjectUtils {
             }
         }
 
-        return filteredItems;
+        return this.sortInputFirst(filterValue, filteredItems);
+    }
+
+    public sortInputFirst(input, data) {
+        var first = [];
+        var others = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].indexOf(input) == 0) {
+                first.push(data[i]);
+            } else {
+                others.push(data[i]);
+            }
+        }
+        first.sort();
+        others.sort();
+        return(first.concat(others));
     }
 
     public reorderArray(value: any[], from: number, to: number) {
