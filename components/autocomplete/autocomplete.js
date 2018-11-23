@@ -336,9 +336,9 @@ var AutoComplete = /** @class */ (function () {
         }
     };
     AutoComplete.prototype.onOverlayAnimationDone = function (event) {
-        if (event.toState === 'void') {
+        /*if (event.toState === 'void') {
             this._suggestions = null;
-        }
+        }*/
     };
     AutoComplete.prototype.appendOverlay = function () {
         if (this.appendTo) {
