@@ -430,19 +430,11 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     }
 
     selectItem(option: any, focus: boolean = true) {
-        /*if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
-            let newItem = {};
-            newItem['acao'] = 1;
-            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-            newItem[this.field] = this.multiInputEL.nativeElement.value;
-            this.selectItem(newItem);
-        }*/
-
+        var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value||[];
             if (option && !this.value.some(opt => opt[this.field] == option[this.field])) {                
-                if (option.isAdd) {
+                if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
                     let newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -457,6 +449,8 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                     this.onModelChange(this.value);
                 }
                 this.multiInputEL.nativeElement.value = '';
+            } else {
+                deveEmitir = false;
             }
         }
         else {
@@ -476,7 +470,9 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         }
 
         if (!option.isAdd){
-            this.onSelect.emit(option);  
+            if (deveEmitir) {
+                this.onSelect.emit(option);  
+            }            
             if (focus) {
                 this.focusInput();
             }

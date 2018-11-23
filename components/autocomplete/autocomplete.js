@@ -246,20 +246,13 @@ var AutoComplete = /** @class */ (function () {
         });
     };
     AutoComplete.prototype.selectItem = function (option, focus) {
-        /*if (this.multiInputEL.nativeElement.value && !this.forceSelection && this.multiple) {
-            let newItem = {};
-            newItem['acao'] = 1;
-            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-            newItem[this.field] = this.multiInputEL.nativeElement.value;
-            this.selectItem(newItem);
-        }*/
         var _this = this;
         if (focus === void 0) { focus = true; }
+        var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value || [];
             if (option && !this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
-                if (option.isAdd) {
+                if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
                     var newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -275,6 +268,9 @@ var AutoComplete = /** @class */ (function () {
                     this.onModelChange(this.value);
                 }
                 this.multiInputEL.nativeElement.value = '';
+            }
+            else {
+                deveEmitir = false;
             }
         }
         else {
@@ -294,7 +290,9 @@ var AutoComplete = /** @class */ (function () {
             }
         }
         if (!option.isAdd) {
-            this.onSelect.emit(option);
+            if (deveEmitir) {
+                this.onSelect.emit(option);
+            }
             if (focus) {
                 this.focusInput();
             }
