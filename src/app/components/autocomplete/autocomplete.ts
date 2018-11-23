@@ -498,7 +498,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
                 this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);	
-        
+        console.log('SHOW', this.overlayVisible, this.suggestions, ddRect, this.containerPanel);
     }
 
     onOverlayAnimationStart(event: AnimationEvent) {
@@ -731,9 +731,6 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     onInputFocus(event) {
         this.focus = true;
         this.onFocus.emit(event);
-        if (this.suggestions && this.suggestions.length > 0){
-            this.show();
-        }
     }
 
     onInputBlur(event) {

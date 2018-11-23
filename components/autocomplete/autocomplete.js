@@ -316,6 +316,7 @@ var AutoComplete = /** @class */ (function () {
                 _this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);
+        console.log('SHOW', this.overlayVisible, this.suggestions, ddRect, this.containerPanel);
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
@@ -514,9 +515,6 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.onInputFocus = function (event) {
         this.focus = true;
         this.onFocus.emit(event);
-        if (this.suggestions && this.suggestions.length > 0) {
-            this.show();
-        }
     };
     AutoComplete.prototype.onInputBlur = function (event) {
         this.focus = false;
