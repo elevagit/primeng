@@ -107,14 +107,14 @@ export class ObjectUtils {
             }
         }
 
-        return this.sortInputFirst(filterValue, filteredItems);
+        return this.sortInputFirst(filterValue, filteredItems, fields[0]);
     }
 
-    public sortInputFirst(input, data) {
+    public sortInputFirst(input, data, field) {
         var first = [];
         var others = [];
         for (var i = 0; i < data.length; i++) {
-            if (data[i].indexOf(input) == 0) {
+            if (data[i][field].indexOf(input) == 0) {
                 first.push(data[i]);
             } else {
                 others.push(data[i]);

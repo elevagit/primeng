@@ -105,13 +105,13 @@ var ObjectUtils = /** @class */ (function () {
                 }
             }
         }
-        return this.sortInputFirst(filterValue, filteredItems);
+        return this.sortInputFirst(filterValue, filteredItems, fields[0]);
     };
-    ObjectUtils.prototype.sortInputFirst = function (input, data) {
+    ObjectUtils.prototype.sortInputFirst = function (input, data, field) {
         var first = [];
         var others = [];
         for (var i = 0; i < data.length; i++) {
-            if (data[i].indexOf(input) == 0) {
+            if (data[i][field].indexOf(input) == 0) {
                 first.push(data[i]);
             }
             else {
