@@ -252,6 +252,7 @@ var Dropdown = /** @class */ (function () {
         if (this.autoDisplayFirst && !this.placeholder && !this.selectedOption && this.optionsToDisplay && this.optionsToDisplay.length && !this.editable) {
             this.selectedOption = this.optionsToDisplay[0];
         }
+        console.log('updateSelectedOption (selectedOption, val)', this.selectedOption, val);
         this.selectedOptionUpdated = true;
     };
     Dropdown.prototype.registerOnChange = function (fn) {
