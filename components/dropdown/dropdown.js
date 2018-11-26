@@ -252,7 +252,7 @@ var Dropdown = /** @class */ (function () {
         if (this.autoDisplayFirst && !this.placeholder && !this.selectedOption && this.optionsToDisplay && this.optionsToDisplay.length && !this.editable) {
             this.selectedOption = this.optionsToDisplay[0];
         }
-        if (this.selectedOption == null) {
+        if (this.selectedOption == null && val && val[this.optionLabel]) {
             var newSelectedOption = {};
             newSelectedOption['label'] = val[this.optionLabel];
             newSelectedOption['value'] = val;
