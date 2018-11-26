@@ -444,6 +444,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     writeValue(value: any): void {
+        console.log('WRITE VALUE DROPDOWN OG: ', value);
         if (this.filter) {
             this.resetFilter();
         }

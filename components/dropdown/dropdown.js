@@ -211,6 +211,7 @@ var Dropdown = /** @class */ (function () {
         }
     };
     Dropdown.prototype.writeValue = function (value) {
+        console.log('WRITE VALUE DROPDOWN OG: ', value);
         if (this.filter) {
             this.resetFilter();
         }
