@@ -232,7 +232,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   set suggestions(val: any[]) {
-    console.log('SUGGESTIONS ', val, this._suggestions);
     this._suggestions = val;
 
     this.includeAddToOptionsToDisplay();
@@ -502,7 +501,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
       }
     }, 50);
-    console.log('SHOW', this.overlayVisible, this.suggestions, ddRect, this.containerPanel);
   }
 
   onOverlayAnimationStart(event: AnimationEvent) {
@@ -604,6 +602,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       this.value = this.value.filter((val, i) => i != itemIndex);
     }
 
+    console.log('REMOVE-ITEM(AUTOCOMPLETE):', 'ITEM - ', item, 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
     this.onModelChange(this.value);
     this.updateFilledState();
   }

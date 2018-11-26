@@ -67,7 +67,6 @@ var AutoComplete = /** @class */ (function () {
             return this._suggestions;
         },
         set: function (val) {
-            console.log('SUGGESTIONS ', val, this._suggestions);
             this._suggestions = val;
             this.includeAddToOptionsToDisplay();
             if (this.immutable) {
@@ -317,7 +316,6 @@ var AutoComplete = /** @class */ (function () {
                 _this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);
-        console.log('SHOW', this.overlayVisible, this.suggestions, ddRect, this.containerPanel);
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
@@ -400,6 +398,7 @@ var AutoComplete = /** @class */ (function () {
         if (!this.pseudoExcluir || item.acao == 1) {
             this.value = this.value.filter(function (val, i) { return i != itemIndex; });
         }
+        console.log('REMOVE-ITEM(AUTOCOMPLETE):', 'ITEM - ', item, 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
         this.onModelChange(this.value);
         this.updateFilledState();
     };
