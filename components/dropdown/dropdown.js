@@ -252,7 +252,12 @@ var Dropdown = /** @class */ (function () {
         if (this.autoDisplayFirst && !this.placeholder && !this.selectedOption && this.optionsToDisplay && this.optionsToDisplay.length && !this.editable) {
             this.selectedOption = this.optionsToDisplay[0];
         }
-        console.log('updateSelectedOption (selectedOption, val)', this.selectedOption, val);
+        if (this.selectedOption == null) {
+            var newSelectedOption = {};
+            newSelectedOption['label'] = val[this.optionLabel];
+            newSelectedOption['value'] = val;
+            this.selectedOption = newSelectedOption;
+        }
         this.selectedOptionUpdated = true;
     };
     Dropdown.prototype.registerOnChange = function (fn) {
