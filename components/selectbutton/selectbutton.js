@@ -32,8 +32,8 @@ var SelectButton = /** @class */ (function () {
             return this._options;
         },
         set: function (val) {
-            var opts = this.optionLabel || this.itemTemplate ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
-            this._options = opts;
+            //let opts = this.optionLabel || this.itemTemplate ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
+            this._options = val;
         },
         enumerable: true,
         configurable: true
@@ -61,7 +61,7 @@ var SelectButton = /** @class */ (function () {
             if (itemIndex_1 != -1)
                 this.value = this.value.filter(function (val, i) { return i != itemIndex_1; });
             else
-                this.value = (this.value || []).concat([option.value]);
+                this.value = (this.value || []).concat([option]);
         }
         else {
             this.value = option.value;
@@ -94,7 +94,7 @@ var SelectButton = /** @class */ (function () {
         var index = -1;
         if (this.value) {
             for (var i = 0; i < this.value.length; i++) {
-                if (this.value[i] == option.value) {
+                if (this.value[i][this.dataKey] == option[this.dataKey]) {
                     index = i;
                     break;
                 }
@@ -150,7 +150,7 @@ var SelectButton = /** @class */ (function () {
     SelectButton = __decorate([
         core_1.Component({
             selector: 'p-selectButton',
-            template: "\n        <div [ngClass]=\"'ui-selectbutton ui-buttonset ui-widget ui-corner-all ui-buttonset-' + (options ? options.length : 0)\" [ngStyle]=\"style\" [class]=\"styleClass\">\n            <div *ngFor=\"let option of options; let i = index\" class=\"ui-button ui-widget ui-state-default ui-button-text-only {{option.styleClass}}\"\n                [ngClass]=\"{'ui-state-active':isSelected(option), 'ui-state-disabled': disabled || option.disabled, 'ui-state-focus': cbox == focusedItem, \n                'ui-button-text-icon-left': (option.icon != null), 'ui-button-icon-only': (option.icon && !option.label)}\" (click)=\"onItemClick($event,option,cbox,i)\" [attr.title]=\"option.title\">\n                <ng-container *ngIf=\"!itemTemplate else customcontent\">\n                    <span [ngClass]=\"['ui-clickable', 'ui-button-icon-left']\" [class]=\"option.icon\" *ngIf=\"option.icon\"></span>\n                    <span class=\"ui-button-text ui-clickable\">{{option.label||'ui-btn'}}</span>\n                </ng-container>\n                <ng-template #customcontent>\n                    <ng-container *ngTemplateOutlet=\"itemTemplate; context: {$implicit: option.value, index: i}\"></ng-container>\n                </ng-template>\n                <div class=\"ui-helper-hidden-accessible\">\n                    <input #cbox type=\"checkbox\" [checked]=\"isSelected(option)\" (focus)=\"onFocus($event)\" (blur)=\"onBlur($event)\" [attr.tabindex]=\"tabindex\" [attr.disabled]=\"disabled || option.disabled\">\n                </div>\n            </div>\n        </div>\n    ",
+            template: "\n        <div [ngClass]=\"'ui-selectbutton ui-buttonset ui-widget ui-corner-all ui-buttonset-' + (options ? options.length : 0)\" [ngStyle]=\"style\" [class]=\"styleClass\">\n            <div *ngFor=\"let option of options; let i = index\" class=\"ui-button ui-widget ui-state-default ui-button-text-only {{option.styleClass}}\"\n                [ngClass]=\"{'ui-state-active':isSelected(option), 'ui-state-disabled': disabled || option.disabled, 'ui-state-focus': cbox == focusedItem, \n                'ui-button-text-icon-left': (option.icon != null), 'ui-button-icon-only': (option.icon && !option.label)}\" (click)=\"onItemClick($event,option,cbox,i)\" [attr.title]=\"option.title\">\n                <ng-container *ngIf=\"!itemTemplate else customcontent\">\n                    <span [ngClass]=\"['ui-clickable', 'ui-button-icon-left']\" [class]=\"option.icon\" *ngIf=\"option.icon\"></span>\n                    <span class=\"ui-button-text ui-clickable\">{{option.label||'ui-btn'}}</span>\n                </ng-container>\n                <ng-template #customcontent>\n                    <ng-container *ngTemplateOutlet=\"itemTemplate; context: {$implicit: option, index: i}\"></ng-container>\n                </ng-template>\n                <div class=\"ui-helper-hidden-accessible\">\n                    <input #cbox type=\"checkbox\" [checked]=\"isSelected(option)\" (focus)=\"onFocus($event)\" (blur)=\"onBlur($event)\" [attr.tabindex]=\"tabindex\" [attr.disabled]=\"disabled || option.disabled\">\n                </div>\n            </div>\n        </div>\n    ",
             providers: [objectutils_1.ObjectUtils, exports.SELECTBUTTON_VALUE_ACCESSOR]
         }),
         __metadata("design:paramtypes", [objectutils_1.ObjectUtils, core_1.ChangeDetectorRef])

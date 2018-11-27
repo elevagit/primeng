@@ -27,7 +27,7 @@ export declare class SelectButton implements ControlValueAccessor {
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(val: boolean): void;
-    onItemClick(event: any, option: SelectItem, checkbox: HTMLInputElement, index: number): void;
+    onItemClick(event: any, option: any, checkbox: HTMLInputElement, index: number): void;
     onFocus(event: Event): void;
     onBlur(event: any): void;
     isSelected(option: SelectItem): boolean;

@@ -22,7 +22,7 @@ export const SELECTBUTTON_VALUE_ACCESSOR: any = {
                     <span class="ui-button-text ui-clickable">{{option.label||'ui-btn'}}</span>
                 </ng-container>
                 <ng-template #customcontent>
-                    <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: option.value, index: i}"></ng-container>
+                    <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: option, index: i}"></ng-container>
                 </ng-template>
                 <div class="ui-helper-hidden-accessible">
                     <input #cbox type="checkbox" [checked]="isSelected(option)" (focus)="onFocus($event)" (blur)="onBlur($event)" [attr.tabindex]="tabindex" [attr.disabled]="disabled || option.disabled">
@@ -71,8 +71,8 @@ export class SelectButton implements ControlValueAccessor {
     }
 
     set options(val: any[]) {
-        let opts = this.optionLabel || this.itemTemplate ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
-        this._options = opts;
+        //let opts = this.optionLabel || this.itemTemplate ? this.objectUtils.generateSelectItems(val, this.optionLabel) : val;
+        this._options = val;
     }
     
     writeValue(value: any) : void {
@@ -92,7 +92,7 @@ export class SelectButton implements ControlValueAccessor {
         this.disabled = val;
     }
     
-    onItemClick(event, option: SelectItem, checkbox: HTMLInputElement, index: number) {
+    onItemClick(event, option, checkbox: HTMLInputElement, index: number) {
         if(this.disabled || option.disabled) {
             return;
         }
@@ -104,7 +104,7 @@ export class SelectButton implements ControlValueAccessor {
             if(itemIndex != -1)
                 this.value = this.value.filter((val,i) => i!=itemIndex);
             else
-                this.value = [...this.value||[], option.value];
+                this.value = [...this.value||[], option];
         }
         else {
             this.value = option.value;
@@ -144,7 +144,7 @@ export class SelectButton implements ControlValueAccessor {
         let index = -1;
         if(this.value) {
             for(let i = 0; i < this.value.length; i++) {
-                if(this.value[i] == option.value) {
+                if(this.value[i][this.dataKey] == option[this.dataKey]) {
                     index = i;
                     break;
                 }
