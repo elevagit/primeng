@@ -211,9 +211,12 @@ var Dropdown = /** @class */ (function () {
         }
     };
     Dropdown.prototype.writeValue = function (value) {
+        var _this = this;
         console.log('WRITE VALUE DROPDOWN OG: ', value);
         if (this.filter) {
-            this.resetFilter();
+            setTimeout(function () {
+                _this.resetFilter();
+            }, 50);
         }
         this.value = value;
         this.updateSelectedOption(value);
@@ -721,6 +724,11 @@ var Dropdown = /** @class */ (function () {
             this.optionsToDisplay = this.options;
             this.includeAddToOptionsToDisplay();
         }
+        this.optionsChanged = true;
+    };
+    Dropdown.prototype.filtrarManualmente = function (filtro) {
+        this.filterValue = filtro;
+        this.activateFilter();
         this.optionsChanged = true;
     };
     Dropdown.prototype.activateFilter = function () {

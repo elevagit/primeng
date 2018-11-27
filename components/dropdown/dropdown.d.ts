@@ -144,6 +144,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     findOptionGroupIndex(val: any, opts: any[]): any;
     findOption(val: any, opts: any[], inGroup?: boolean): SelectItem;
     onFilter(event: any): void;
+    filtrarManualmente(filtro: any): void;
     activateFilter(): void;
     applyFocus(): void;
     focus(): void;
