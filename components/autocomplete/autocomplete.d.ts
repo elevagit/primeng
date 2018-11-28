@@ -95,6 +95,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     includeAddToOptionsToDisplay(): void;
     getFilterValue(): string;
     valueTypedIsPresent(): boolean;
+    getValueFiltradoAcao(): any;
     onAddNovo(event: any): void;
     handleSuggestionsChange(): void;
     ngAfterContentInit(): void;
