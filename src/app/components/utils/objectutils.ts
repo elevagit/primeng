@@ -106,11 +106,11 @@ export class ObjectUtils {
                 }
             }
         }
-
+        console.log('FILTER', filteredItems);
         return this.sortInputFirst(filterValue, filteredItems, fields[0]);
     }
 
-    public sortInputFirst(input, data, field) {
+    public sortInputFirst(input, data, field) {        
         var first = [];
         var others = [];
         for (var i = 0; i < data.length; i++) {
@@ -122,6 +122,7 @@ export class ObjectUtils {
         }
         first.sort();
         others.sort();
+        console.log('sortInputFirst', input, data, field, first, others);
         return(first.concat(others));
     }
 

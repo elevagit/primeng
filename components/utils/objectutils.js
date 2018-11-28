@@ -105,6 +105,7 @@ var ObjectUtils = /** @class */ (function () {
                 }
             }
         }
+        console.log('FILTER', filteredItems);
         return this.sortInputFirst(filterValue, filteredItems, fields[0]);
     };
     ObjectUtils.prototype.sortInputFirst = function (input, data, field) {
@@ -120,6 +121,7 @@ var ObjectUtils = /** @class */ (function () {
         }
         first.sort();
         others.sort();
+        console.log('sortInputFirst', input, data, field, first, others);
         return (first.concat(others));
     };
     ObjectUtils.prototype.reorderArray = function (value, from, to) {
