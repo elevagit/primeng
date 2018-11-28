@@ -759,6 +759,9 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
       let newItem = {};
       newItem['acao'] = 1;
+      if (this.podeAdicionar) {
+        newItem['isAdd'] = true;
+      }
       newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
       newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
       newItem[this.field] = this.multiInputEL.nativeElement.value;
