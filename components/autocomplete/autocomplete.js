@@ -264,6 +264,9 @@ var AutoComplete = /** @class */ (function () {
         var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value || [];
+            if (!Array.isArray(this.value)) {
+                this.value = [].push(this.value);
+            }
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {

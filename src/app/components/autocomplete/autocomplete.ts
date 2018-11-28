@@ -449,6 +449,9 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     var deveEmitir = true;
     if (this.multiple) {
       this.value = this.value || [];
+      if (!Array.isArray(this.value)){
+          this.value = [].push(this.value);
+      }
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
       if (option && !isRepetido) {
         if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
