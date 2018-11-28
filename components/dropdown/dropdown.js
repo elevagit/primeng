@@ -733,6 +733,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.activateFilter = function () {
         var searchFields = this.filterBy.split(',');
+        console.log('ACTIVATE FILTER', searchFields, this.filterBy);
         this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
