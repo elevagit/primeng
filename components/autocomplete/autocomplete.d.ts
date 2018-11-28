@@ -118,7 +118,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     focusInput(): void;
     focusSearchInput(): void;
     removeByIndex(index: number): void;
-    removeItem(item: any): void;
+    removeItem(item: any, index?: number): void;
     onKeydown(event: any): void;
     onKeyup(event: any): void;
     onInputFocus(event: any): void;
