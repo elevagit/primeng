@@ -99,6 +99,7 @@ export class ObjectUtils {
         if(value) {
             for(let item of value) {
                 for(let field of fields) {
+                    console.log('FIELD', field, item, value);
                     if(String(this.resolveFieldData(item, field)).toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {
                         filteredItems.push(item);
                         break;
