@@ -596,8 +596,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     let itemIndex = this.domHandler.index(item);
     let removedValue = this.value[itemIndex];
 
-    if (this.pseudoExcluir && item.acao == 2) {
-      item.acao = 3;
+    if (this.pseudoExcluir && this.value[itemIndex].acao == 2) {
+      this.value[itemIndex].acao = 3;
     }
 
     if (!this.excluirEmDuasEtapas) {
@@ -605,11 +605,11 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       this.onUnselect.emit(chip);
     }
 
-    if (!this.pseudoExcluir || item.acao == 1) {
+    if (!this.pseudoExcluir || this.value[itemIndex].acao == 1) {
       this.value = this.value.filter((val, i) => i != itemIndex);
     }
 
-    console.log('REMOVE-ITEM(AUTOCOMPLETE):', 'ITEM - ', item, 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
+    console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
     this.onModelChange(this.value);
     this.updateFilledState();
   }

@@ -1111,6 +1111,41 @@ input[type=text]::-ms-clear {
  .ui-colorpicker-panel.ui-state-disabled .ui-colorpicker-color-handle  {
       opacity: .5;
  }
+.ui-datagrid .ui-paginator {
+	text-align: center;
+}
+
+.ui-datagrid-column {
+	padding: .25em;
+}
+
+.ui-datagrid-content-empty {
+    padding: .25em .625em;
+}
+
+.ui-datagrid .ui-datagrid-header,
+.ui-datagrid .ui-datagrid-footer {
+    text-align:center;
+	padding: .5em .75em;
+}
+
+.ui-datagrid .ui-datagrid-header {
+    border-bottom: 0 none;
+}
+
+.ui-datagrid .ui-datagrid-footer {
+    border-top: 0 none;
+}
+
+.ui-datagrid .ui-paginator-top {
+    border-bottom: 0 none;
+}
+
+.ui-datagrid .ui-paginator-bottom {
+    border-top: 0 none;
+}
+
+
 .ui-contextmenu {
     width: 12.5em;
     padding: .25em;
@@ -1165,41 +1200,6 @@ input[type=text]::-ms-clear {
 .ui-contextmenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
     display: block !important;
 }
-.ui-datagrid .ui-paginator {
-	text-align: center;
-}
-
-.ui-datagrid-column {
-	padding: .25em;
-}
-
-.ui-datagrid-content-empty {
-    padding: .25em .625em;
-}
-
-.ui-datagrid .ui-datagrid-header,
-.ui-datagrid .ui-datagrid-footer {
-    text-align:center;
-	padding: .5em .75em;
-}
-
-.ui-datagrid .ui-datagrid-header {
-    border-bottom: 0 none;
-}
-
-.ui-datagrid .ui-datagrid-footer {
-    border-top: 0 none;
-}
-
-.ui-datagrid .ui-paginator-top {
-    border-bottom: 0 none;
-}
-
-.ui-datagrid .ui-paginator-bottom {
-    border-top: 0 none;
-}
-
-
 .ui-datalist .ui-datalist-header,
 .ui-datalist .ui-datalist-footer {
     text-align:center;
@@ -4107,6 +4107,47 @@ input[type=text]::-ms-clear {
     display: block;
     text-decoration: none;
 }
+.ui-password-panel {
+    padding: .25em .5em;
+    position: absolute; 
+}
+
+.ui-password-panel .ui-password-meter { 
+    height: 10px; 
+    background:transparent url("./images/password-meter.png") no-repeat left top; 
+    padding: 0;
+    margin: 0;
+}
+
+.ui-password-info { 
+    margin-top: .25em;
+}
+
+/* Overlay Animations */
+.ui-password-panel {
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    opacity: 0;
+    -webkit-transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s;
+}
+
+.ui-password-panel-visible {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.ui-password-panel-hidden {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    -webkit-transition: transform .3s, opacity .15s;
+    transition: transform .3s, opacity .15s;
+}
 .ui-picklist > div {
     float: left;
 }
@@ -4311,47 +4352,6 @@ input[type=text]::-ms-clear {
     }
 }
 
-.ui-password-panel {
-    padding: .25em .5em;
-    position: absolute; 
-}
-
-.ui-password-panel .ui-password-meter { 
-    height: 10px; 
-    background:transparent url("./images/password-meter.png") no-repeat left top; 
-    padding: 0;
-    margin: 0;
-}
-
-.ui-password-info { 
-    margin-top: .25em;
-}
-
-/* Overlay Animations */
-.ui-password-panel {
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    opacity: 0;
-    -webkit-transition: transform .3s, opacity .3s;
-    transition: transform .3s, opacity .3s;
-}
-
-.ui-password-panel-visible {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.ui-password-panel-hidden {
-    opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    -webkit-transition: transform .3s, opacity .15s;
-    transition: transform .3s, opacity .15s;
-}
 .ui-progressbar { 
     height: 1.2em; 
     text-align: left; 

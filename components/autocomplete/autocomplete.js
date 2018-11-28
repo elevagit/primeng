@@ -393,17 +393,17 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.removeItem = function (item) {
         var itemIndex = this.domHandler.index(item);
         var removedValue = this.value[itemIndex];
-        if (this.pseudoExcluir && item.acao == 2) {
-            item.acao = 3;
+        if (this.pseudoExcluir && this.value[itemIndex].acao == 2) {
+            this.value[itemIndex].acao = 3;
         }
         if (!this.excluirEmDuasEtapas) {
             var chip = { id: itemIndex, chip: removedValue };
             this.onUnselect.emit(chip);
         }
-        if (!this.pseudoExcluir || item.acao == 1) {
+        if (!this.pseudoExcluir || this.value[itemIndex].acao == 1) {
             this.value = this.value.filter(function (val, i) { return i != itemIndex; });
         }
-        console.log('REMOVE-ITEM(AUTOCOMPLETE):', 'ITEM - ', item, 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
+        console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
         this.onModelChange(this.value);
         this.updateFilledState();
     };
