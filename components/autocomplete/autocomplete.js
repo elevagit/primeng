@@ -144,7 +144,12 @@ var AutoComplete = /** @class */ (function () {
         return false;
     };
     AutoComplete.prototype.getValueFiltradoAcao = function () {
-        return this.value.filter(function (obj) { return obj.acao != 3; });
+        if (this.value) {
+            return this.value.filter(function (obj) { return obj.acao != 3; });
+        }
+        else {
+            return [];
+        }
     };
     AutoComplete.prototype.onAddNovo = function (event) {
         var _this = this;

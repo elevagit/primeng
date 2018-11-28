@@ -311,8 +311,12 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     return false;
   }
 
-  getValueFiltradoAcao(){
-    return this.value.filter(obj => obj.acao != 3);
+  getValueFiltradoAcao() {
+    if (this.value) {
+      return this.value.filter(obj => obj.acao != 3);
+    } else {
+      return [];
+    }
   }
 
   onAddNovo(event) {
