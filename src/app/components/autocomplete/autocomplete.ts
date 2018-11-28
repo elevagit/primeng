@@ -137,6 +137,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @Output() onAdd: EventEmitter<any> = new EventEmitter();
 
+  @Output() onDuplicado: EventEmitter<any> = new EventEmitter();
+
   @Input() field: string;
 
   @Input() colunaChip: string;
@@ -156,6 +158,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   @Input() multiple: boolean;
 
   @Input() podeAdicionar = false;
+  
+  @Input() podeDuplicados = false;
 
   @Input() tabindex: number;
 
@@ -436,7 +440,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     var deveEmitir = true;
     if (this.multiple) {
       this.value = this.value || [];
-      if (option && !this.value.some(opt => opt[this.field] == option[this.field])) {
+      var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
+      if (option && !isRepetido) {
         if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
           let newItem = {};
           newItem['acao'] = 1;
@@ -454,6 +459,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         this.multiInputEL.nativeElement.value = '';
       } else {
         deveEmitir = false;
+        this.onDuplicado.emit(this.multiInputEL.nativeElement.value);
+        this.multiInputEL.nativeElement.value = '';        
       }
     }
     else {
@@ -740,6 +747,14 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);
+    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+      let newItem = {};
+      newItem['acao'] = 1;
+      newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+      newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+      newItem[this.field] = this.multiInputEL.nativeElement.value;
+      this.selectItem(newItem);
+    }
   }
 
   onInputChange(event) {

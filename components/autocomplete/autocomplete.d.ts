@@ -43,6 +43,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     onKeyUp: EventEmitter<any>;
     customValue: EventEmitter<any>;
     onAdd: EventEmitter<any>;
+    onDuplicado: EventEmitter<any>;
     field: string;
     colunaChip: string;
     colunaOpcao: string;
@@ -53,6 +54,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     dropdownMode: string;
     multiple: boolean;
     podeAdicionar: boolean;
+    podeDuplicados: boolean;
     tabindex: number;
     dataKey: string;
     emptyMessage: string;

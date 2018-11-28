@@ -47,11 +47,13 @@ var AutoComplete = /** @class */ (function () {
         this.onKeyUp = new core_1.EventEmitter();
         this.customValue = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
+        this.onDuplicado = new core_1.EventEmitter();
         this.scrollHeight = '200px';
         this.pseudoExcluir = false;
         this.excluirEmDuasEtapas = false;
         this.dropdownMode = 'blank';
         this.podeAdicionar = false;
+        this.podeDuplicados = false;
         this.immutable = true;
         this.showTransitionOptions = '225ms ease-out';
         this.hideTransitionOptions = '195ms ease-in';
@@ -251,7 +253,8 @@ var AutoComplete = /** @class */ (function () {
         var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value || [];
-            if (option && !this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; })) {
+            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
+            if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
                     var newItem = {};
                     newItem['acao'] = 1;
@@ -271,6 +274,8 @@ var AutoComplete = /** @class */ (function () {
             }
             else {
                 deveEmitir = false;
+                this.onDuplicado.emit(this.multiInputEL.nativeElement.value);
+                this.multiInputEL.nativeElement.value = '';
             }
         }
         else {
@@ -520,6 +525,14 @@ var AutoComplete = /** @class */ (function () {
         this.focus = false;
         this.onModelTouched();
         this.onBlur.emit(event);
+        if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+            var newItem = {};
+            newItem['acao'] = 1;
+            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+            newItem[this.field] = this.multiInputEL.nativeElement.value;
+            this.selectItem(newItem);
+        }
     };
     AutoComplete.prototype.onInputChange = function (event) {
         if (this.forceSelection && this.suggestions) {
@@ -758,6 +771,10 @@ var AutoComplete = /** @class */ (function () {
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onAdd", void 0);
     __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onDuplicado", void 0);
+    __decorate([
         core_1.Input(),
         __metadata("design:type", String)
     ], AutoComplete.prototype, "field", void 0);
@@ -797,6 +814,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", Object)
     ], AutoComplete.prototype, "podeAdicionar", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AutoComplete.prototype, "podeDuplicados", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Number)

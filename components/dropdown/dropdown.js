@@ -234,7 +234,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.includeAddToOptionsToDisplay = function () {
         if (this.optionsToDisplay && this.optionsToDisplay.length > 0) {
-            this.optionsToDisplay = this.optionsToDisplay.filter(function (option) { return !option.value.isAdd; });
+            this.optionsToDisplay = this.optionsToDisplay.filter(function (option) { return option.value && !option.value.isAdd; });
         }
         if (this.podeAdicionar && !this.valueTypedIsPresent()) {
             var addItem = { label: 'Adicionar novo', value: { isAdd: true, id: -3 } };
