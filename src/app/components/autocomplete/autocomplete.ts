@@ -378,7 +378,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
     this.filled = this.value && this.value != '';
     this.updateInputField();
-    this.valorInternoModificado.emit(this.value);
   }
 
   registerOnChange(fn: Function): void {
@@ -405,6 +404,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     let value = (<HTMLInputElement>event.target).value;
     if (!this.multiple && !this.forceSelection) {
       this.onModelChange(value);
+      this.valorInternoModificado.emit(this.value);
       this.customValue.emit(value);
     }
 
@@ -466,11 +466,13 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           if (!this.podeAdicionar) {
             this.value = [...this.value, newItem];          
             this.onModelChange(this.value);
+            this.valorInternoModificado.emit(this.value);
           }
         } else if (!this.isSelected(option)) {
           option.acao = 1;
           this.value = [...this.value, option];
           this.onModelChange(this.value);
+          this.valorInternoModificado.emit(this.value);
         }
         this.multiInputEL.nativeElement.value = '';
       } else {
@@ -488,10 +490,12 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         this.value = newItem;
         this.onAddNovo(null);
         this.onModelChange(this.value);
+        this.valorInternoModificado.emit(this.value);
       } else {
         this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field) || '' : option;
         this.value = option;
         this.onModelChange(this.value);
+        this.valorInternoModificado.emit(this.value);
       }
     }
 
@@ -627,6 +631,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
     console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
     this.onModelChange(this.value);
+    this.valorInternoModificado.emit(this.value);
     this.updateFilledState();
   }
 
@@ -815,6 +820,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
         this.onClear.emit(event);
         this.onModelChange(this.value);
+        this.valorInternoModificado.emit(this.value);
       }
     }
   }

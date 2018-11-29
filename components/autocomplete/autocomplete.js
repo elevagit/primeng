@@ -202,7 +202,6 @@ var AutoComplete = /** @class */ (function () {
         console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
         this.filled = this.value && this.value != '';
         this.updateInputField();
-        this.valorInternoModificado.emit(this.value);
     };
     AutoComplete.prototype.registerOnChange = function (fn) {
         this.onModelChange = fn;
@@ -224,6 +223,7 @@ var AutoComplete = /** @class */ (function () {
         var value = event.target.value;
         if (!this.multiple && !this.forceSelection) {
             this.onModelChange(value);
+            this.valorInternoModificado.emit(this.value);
             this.customValue.emit(value);
         }
         if (value.length === 0) {
@@ -280,12 +280,14 @@ var AutoComplete = /** @class */ (function () {
                     if (!this.podeAdicionar) {
                         this.value = this.value.concat([newItem]);
                         this.onModelChange(this.value);
+                        this.valorInternoModificado.emit(this.value);
                     }
                 }
                 else if (!this.isSelected(option)) {
                     option.acao = 1;
                     this.value = this.value.concat([option]);
                     this.onModelChange(this.value);
+                    this.valorInternoModificado.emit(this.value);
                 }
                 this.multiInputEL.nativeElement.value = '';
             }
@@ -304,11 +306,13 @@ var AutoComplete = /** @class */ (function () {
                 this.value = newItem;
                 this.onAddNovo(null);
                 this.onModelChange(this.value);
+                this.valorInternoModificado.emit(this.value);
             }
             else {
                 this.inputEL.nativeElement.value = this.field ? this.objectUtils.resolveFieldData(option, this.field) || '' : option;
                 this.value = option;
                 this.onModelChange(this.value);
+                this.valorInternoModificado.emit(this.value);
             }
         }
         if (!option.isAdd) {
@@ -422,6 +426,7 @@ var AutoComplete = /** @class */ (function () {
         }
         console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
         this.onModelChange(this.value);
+        this.valorInternoModificado.emit(this.value);
         this.updateFilledState();
     };
     /* removeItem(item: any) {
@@ -590,6 +595,7 @@ var AutoComplete = /** @class */ (function () {
                 }
                 this.onClear.emit(event);
                 this.onModelChange(this.value);
+                this.valorInternoModificado.emit(this.value);
             }
         }
     };
