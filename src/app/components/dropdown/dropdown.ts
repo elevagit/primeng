@@ -52,7 +52,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                 <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
                     <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
                     (keyup.enter)="onEnterKey($event)" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
-                    <span class="ui-dropdown-filter-icon pi pi-search"></span>
+                    <span class="ui-dropdown-filter-icon pi" [ngClass]="{'pi-search': !loading, 'pi-spinner pi-spin': loading}"></span>
                 </div>
                 <div class="ui-dropdown-items-wrapper" [style.max-height]="scrollHeight||'auto'">
                     <ul class="ui-dropdown-items ui-dropdown-list ui-widget-content ui-widget ui-corner-all ui-helper-reset">
@@ -148,6 +148,8 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 	@Input() multiplicador: number = 1;
     
     @Input() dataKey: string;
+
+    @Input() loading: boolean = false;
     
     @Input() filterBy: string = 'label';
     

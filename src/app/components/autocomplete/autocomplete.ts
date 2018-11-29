@@ -374,7 +374,16 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   writeValue(value: any): void {
-    this.value = value;
+    console.log('!!!WRITE VALUE AUTOCOMPLETE!!!', value, this.value);
+    if (this.multiple && !Array.isArray(value)) {
+        if (this.value == null) {
+          this.value = [].push(value);
+        } else {
+          this.value = [...this.value, value];
+        }
+    } else {
+        this.value = value;
+    }
     this.filled = this.value && this.value != '';
     this.updateInputField();
   }

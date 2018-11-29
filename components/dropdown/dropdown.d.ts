@@ -33,6 +33,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     selectId: string;
     multiplicador: number;
     dataKey: string;
+    loading: boolean;
     filterBy: string;
     autofocus: boolean;
     resetFilterOnHide: boolean;
