@@ -400,6 +400,17 @@ button {
     width: 2em;
 }
 
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-blockui-document {
+    position: fixed;
+}
 /** Breadcrumb **/
 .ui-breadcrumb {
     margin: 0;
@@ -432,17 +443,6 @@ button {
 
 .ui-breadcrumb .ui-menuitem-text {
     vertical-align: middle;
-}
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
 }
 /* Button */
 .ui-button {
@@ -1929,35 +1929,6 @@ input[type=text]::-ms-clear {
     width: 100%;
 }
 
-.ui-fieldset, 
-.ui-fieldset .ui-fieldset-legend {
-    padding: 0.5em 1em;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend {
-    padding: 0;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend a {
-    padding: 0.5em 1em;
-    cursor:pointer;
-    white-space: nowrap;
-    display: block;
-}
-
-.ui-fieldset .ui-fieldset-toggler {
-    margin-right: .1em;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-legend-text {
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-content-wrapper-overflown {
-    overflow: hidden;
-} 
 /*
  * FileUpload
  */
@@ -2071,6 +2042,35 @@ input[type=text]::-ms-clear {
 
 
 
+.ui-fieldset, 
+.ui-fieldset .ui-fieldset-legend {
+    padding: 0.5em 1em;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend {
+    padding: 0;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend a {
+    padding: 0.5em 1em;
+    cursor:pointer;
+    white-space: nowrap;
+    display: block;
+}
+
+.ui-fieldset .ui-fieldset-toggler {
+    margin-right: .1em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-legend-text {
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-content-wrapper-overflown {
+    overflow: hidden;
+} 
 .ui-fluid .fc .ui-button {
     width: auto;
 }
@@ -2157,61 +2157,6 @@ input[type=text]::-ms-clear {
     padding: 1em 1.4em;
 }
 
-.ui-growl {
-	position:fixed;
-	top: 20px;
-	right: 20px;
-	width: 20em;
-}
-
-.ui-growl-item-container {
-	position:relative;
-	margin:0 0 10px 0;
-	opacity:0.95;
-	filter:alpha(opacity=95);
-}
-
-.ui-growl-item {
-    position: relative;
-	display: block;
-	padding: .5em 1em;
-}
-
-.ui-growl-item p {
-	padding: 0;
-	margin: 0;
-}
-
-.ui-growl-icon-close {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	cursor: pointer;
-}
-
-.ui-growl-title {
-	font-weight: bold;
-	padding: 0 0 .5em 0;
-	display: block;
-}
-
-.ui-growl-image {
-    position: absolute;
-    display: inline-block;
-    left: .5em;
-    top: .25em;
-    padding: 0;
-    font-size: 2em;
-}
-
-.ui-growl-message {
-	padding: 0 0 .25em 0;
-    margin-left: 2.5em;
-}
-
-.ui-growl-message p {
-	font-weight: normal;
-}
 /* Deprecated Grid CSS */
 .ui-grid {
     clear: both;
@@ -2989,6 +2934,61 @@ input[type=text]::-ms-clear {
     padding: 0;
 }
 
+.ui-growl {
+	position:fixed;
+	top: 20px;
+	right: 20px;
+	width: 20em;
+}
+
+.ui-growl-item-container {
+	position:relative;
+	margin:0 0 10px 0;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+}
+
+.ui-growl-item {
+    position: relative;
+	display: block;
+	padding: .5em 1em;
+}
+
+.ui-growl-item p {
+	padding: 0;
+	margin: 0;
+}
+
+.ui-growl-icon-close {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor: pointer;
+}
+
+.ui-growl-title {
+	font-weight: bold;
+	padding: 0 0 .5em 0;
+	display: block;
+}
+
+.ui-growl-image {
+    position: absolute;
+    display: inline-block;
+    left: .5em;
+    top: .25em;
+    padding: 0;
+    font-size: 2em;
+}
+
+.ui-growl-message {
+	padding: 0 0 .25em 0;
+    margin-left: 2.5em;
+}
+
+.ui-growl-message p {
+	font-weight: normal;
+}
 .ui-inplace .ui-inplace-display {
     display: inline;
     cursor: pointer;
@@ -3296,48 +3296,6 @@ input[type=text]::-ms-clear {
 .ui-listbox-footer {
     padding: .125em .2em;
 }
-.ui-menu {
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-menu.ui-menu-dynamic {
-    position: absolute;
-}
-
-.ui-menu .ui-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.ui-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ui-menu .ui-submenu-header {
-    padding: .25em .5em;
-    margin: .125em 0;
-}
-
-.ui-menu .ui-menuitem {
-    margin: .125em 0;
-}
-
-.ui-menu .ui-menuitem-link {
-    padding: .25em;
-    display: block;
-    text-decoration: none;
-}
-
-.ui-menu .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-menu .ui-menuitem-text {
-    vertical-align: middle;
-}
 .ui-megamenu {
     padding: .25em;
 }
@@ -3427,6 +3385,48 @@ input[type=text]::-ms-clear {
 .ui-megamenu .ui-g {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+}
+.ui-menu {
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-menu.ui-menu-dynamic {
+    position: absolute;
+}
+
+.ui-menu .ui-menu-separator {
+    border-width: 1px 0 0 0;
+}
+
+.ui-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-menu .ui-submenu-header {
+    padding: .25em .5em;
+    margin: .125em 0;
+}
+
+.ui-menu .ui-menuitem {
+    margin: .125em 0;
+}
+
+.ui-menu .ui-menuitem-link {
+    padding: .25em;
+    display: block;
+    text-decoration: none;
+}
+
+.ui-menu .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-menu .ui-menuitem-text {
+    vertical-align: middle;
 }
 .ui-menubar {
     padding: .25em;
@@ -3729,54 +3729,6 @@ input[type=text]::-ms-clear {
 }
 
 
-.ui-organizationchart .ui-organizationchart-table {
-    border-spacing: 0;
-    border-collapse: separate;
-    margin: 0 auto;
-}
-
-.ui-organizationchart .ui-organizationchart-table > tr > td {
-    text-align: center;
-    vertical-align: top;
-    padding: 0;
-    padding: 0 .75em;
-}
-
-.ui-organizationchart .ui-organizationchart-node-content {
-    padding: .5em .75em;
-    display: inline-block;
-    position: relative;
-}
-
-.ui-organizationchart .ui-organizationchart-node-content .ui-node-toggler {
-    position: absolute;
-    bottom: -9px;
-    margin-left: -8px;
-    z-index: 2;
-    left: 50%;
-}
-
-.ui-organizationchart .ui-organizationchart-line-down {
-    margin: 0 auto;
-    height: 20px;
-    width: 1px;
-    float: none;
-}
-
-.ui-organizationchart .ui-organizationchart-line-right {
-    float: none;
-    border-radius: 0px;
-}
-
-.ui-organizationchart .ui-organizationchart-line-left {
-    float: none;
-    border-radius: 0;
-}
-
-.ui-organizationchart .ui-organizationchart-node-content.ui-organizationchart-selectable-node {
-    cursor: pointer;
-}
-
 .ui-orderlist {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3886,6 +3838,54 @@ input[type=text]::-ms-clear {
         margin-right: .25em;
     }
 }
+.ui-organizationchart .ui-organizationchart-table {
+    border-spacing: 0;
+    border-collapse: separate;
+    margin: 0 auto;
+}
+
+.ui-organizationchart .ui-organizationchart-table > tr > td {
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+    padding: 0 .75em;
+}
+
+.ui-organizationchart .ui-organizationchart-node-content {
+    padding: .5em .75em;
+    display: inline-block;
+    position: relative;
+}
+
+.ui-organizationchart .ui-organizationchart-node-content .ui-node-toggler {
+    position: absolute;
+    bottom: -9px;
+    margin-left: -8px;
+    z-index: 2;
+    left: 50%;
+}
+
+.ui-organizationchart .ui-organizationchart-line-down {
+    margin: 0 auto;
+    height: 20px;
+    width: 1px;
+    float: none;
+}
+
+.ui-organizationchart .ui-organizationchart-line-right {
+    float: none;
+    border-radius: 0px;
+}
+
+.ui-organizationchart .ui-organizationchart-line-left {
+    float: none;
+    border-radius: 0;
+}
+
+.ui-organizationchart .ui-organizationchart-node-content.ui-organizationchart-selectable-node {
+    cursor: pointer;
+}
+
 .ui-overlaypanel {
     padding: 0;
     margin: 0;
@@ -4007,6 +4007,43 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-paginator .ui-dropdown {
     width: auto;
 }
+.ui-panel {
+	padding: 0.2em;
+}
+
+.ui-panel .ui-panel-titlebar {
+	padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	float: right;
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	margin-left: 0.2em;
+    margin-top: -0.1em;
+}
+
+.ui-panel .ui-panel-content {
+	border: 0;
+    background: none;
+    padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-footer {
+	border-width: 1px 0 0;
+	padding: .25em .5em;
+	text-align:left;
+}
+  
+.ui-panel-content-wrapper-overflown {
+    overflow: hidden;
+}     
 .ui-panelmenu {
     width: auto;
 }
@@ -4070,43 +4107,47 @@ input[type=text]::-ms-clear {
     display: block;
     text-decoration: none;
 }
-.ui-panel {
-	padding: 0.2em;
+.ui-password-panel {
+    padding: .25em .5em;
+    position: absolute; 
 }
 
-.ui-panel .ui-panel-titlebar {
-	padding: .5em .75em;
+.ui-password-panel .ui-password-meter { 
+    height: 10px; 
+    background:transparent url("./images/password-meter.png") no-repeat left top; 
+    padding: 0;
+    margin: 0;
 }
 
-.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
-    cursor: pointer;
+.ui-password-info { 
+    margin-top: .25em;
 }
 
-.ui-panel .ui-panel-titlebar-icon {
-	float: right;
-    cursor: pointer;
+/* Overlay Animations */
+.ui-password-panel {
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    opacity: 0;
+    -webkit-transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s;
 }
 
-.ui-panel .ui-panel-titlebar-icon {
-	margin-left: 0.2em;
-    margin-top: -0.1em;
+.ui-password-panel-visible {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.ui-panel .ui-panel-content {
-	border: 0;
-    background: none;
-    padding: .5em .75em;
+.ui-password-panel-hidden {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    -webkit-transition: transform .3s, opacity .15s;
+    transition: transform .3s, opacity .15s;
 }
-
-.ui-panel .ui-panel-footer {
-	border-width: 1px 0 0;
-	padding: .25em .5em;
-	text-align:left;
-}
-  
-.ui-panel-content-wrapper-overflown {
-    overflow: hidden;
-}     
 .ui-picklist > div {
     float: left;
 }
@@ -4311,47 +4352,6 @@ input[type=text]::-ms-clear {
     }
 }
 
-.ui-password-panel {
-    padding: .25em .5em;
-    position: absolute; 
-}
-
-.ui-password-panel .ui-password-meter { 
-    height: 10px; 
-    background:transparent url("./images/password-meter.png") no-repeat left top; 
-    padding: 0;
-    margin: 0;
-}
-
-.ui-password-info { 
-    margin-top: .25em;
-}
-
-/* Overlay Animations */
-.ui-password-panel {
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    opacity: 0;
-    -webkit-transition: transform .3s, opacity .3s;
-    transition: transform .3s, opacity .3s;
-}
-
-.ui-password-panel-visible {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.ui-password-panel-hidden {
-    opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    -webkit-transition: transform .3s, opacity .15s;
-    transition: transform .3s, opacity .15s;
-}
 .ui-progressbar { 
     height: 1.2em; 
     text-align: left; 
@@ -4639,110 +4639,6 @@ input[type=text]::-ms-clear {
 .ui-selectbutton .ui-button.ui-state-focus {
     outline: none;
 }
-.ui-slidemenu {
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu.ui-slidemenu-dynamic {
-    position: absolute;
-}
-
-.ui-slidemenu .ui-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.ui-slidemenu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ui-slidemenu .ui-slidemenu-rootlist {
-    position: absolute;
-    top: 0;
-}
-
-.ui-slidemenu .ui-submenu-list {
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-slidemenu .ui-menuitem-link {
-    padding: .25em;
-    display: block;
-    position: relative;
-    text-decoration: none;
-}
-
-.ui-slidemenu .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-text {
-    vertical-align: middle;
-}
-
-
-.ui-slidemenu .ui-menuitem {
-    position: relative;
-    margin: .125em 0;
-}
-
-.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
-    position: absolute;
-    margin-top: -.5em;
-    right: 0;
-    top: 50%;
-}
-
-.ui-slidemenu .ui-slidemenu-wrapper {
-    position: relative;
-}
-
-.ui-slidemenu .ui-slidemenu-content {
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-}
-
-.ui-slidemenu-backward {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0.25em;
-    cursor: pointer;
-    display: none;
-}
-
-.ui-slidemenu-backward .ui-slidemenu-backward-icon {
-    vertical-align: middle;
-}
-
-.ui-slidemenu-backward span {
-    vertical-align: middle;
-}
-
-.ui-slidemenu .ui-menuitem-active {
-    position: static;
-}
-
-.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: block;
-}
-
-.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
-    display: none;
-}
-
-.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
-    display: block;
-}
 .ui-sidebar {
     position: fixed;
     padding: .5em 1em;
@@ -4859,6 +4755,110 @@ input[type=text]::-ms-clear {
     .ui-sidebar-right.ui-sidebar-md {
         width: 20em;
     }
+}
+.ui-slidemenu {
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu.ui-slidemenu-dynamic {
+    position: absolute;
+}
+
+.ui-slidemenu .ui-menu-separator {
+    border-width: 1px 0 0 0;
+}
+
+.ui-slidemenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-slidemenu .ui-slidemenu-rootlist {
+    position: absolute;
+    top: 0;
+}
+
+.ui-slidemenu .ui-submenu-list {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-slidemenu .ui-menuitem-link {
+    padding: .25em;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.ui-slidemenu .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-text {
+    vertical-align: middle;
+}
+
+
+.ui-slidemenu .ui-menuitem {
+    position: relative;
+    margin: .125em 0;
+}
+
+.ui-slidemenu .ui-menuitem-link .ui-submenu-icon {
+    position: absolute;
+    margin-top: -.5em;
+    right: 0;
+    top: 50%;
+}
+
+.ui-slidemenu .ui-slidemenu-wrapper {
+    position: relative;
+}
+
+.ui-slidemenu .ui-slidemenu-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.ui-slidemenu-backward {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.25em;
+    cursor: pointer;
+    display: none;
+}
+
+.ui-slidemenu-backward .ui-slidemenu-backward-icon {
+    vertical-align: middle;
+}
+
+.ui-slidemenu-backward span {
+    vertical-align: middle;
+}
+
+.ui-slidemenu .ui-menuitem-active {
+    position: static;
+}
+
+.ui-slidemenu .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: block;
+}
+
+.ui-slidemenu ul:not(.ui-active-submenu) > .ui-menuitem:not(.ui-menuitem-active),
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active > .ui-submenu > .ui-submenu-list {
+    display: none;
+}
+
+.ui-slidemenu .ui-active-submenu > .ui-menuitem-active ~ .ui-menuitem {
+    display: block;
 }
 .ui-slider {
 	position: relative;
