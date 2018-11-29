@@ -188,6 +188,55 @@ button {
     -webkit-border-radius: 0;
     border-radius: 0;
 }
+.ui-accordion { 
+    width: 100%; 
+}
+
+.ui-accordion .ui-accordion-header { 
+    cursor: pointer; 
+    position: relative; 
+    margin-top: 1px; 
+    zoom: 1; 
+}
+
+.ui-accordion .ui-accordion-header a { 
+    display: block; 
+    padding: .5em;
+}
+
+.ui-accordion .ui-accordion-toggle-icon,
+.ui-accordion .ui-accordion-header-text {
+    vertical-align: middle;   
+}
+
+.ui-accordion .ui-accordion-content { 
+    padding: 1em;
+    border-top: 0; 
+    overflow: visible;
+    zoom: 1; 
+}
+
+.ui-accordion .ui-accordion-header.ui-state-disabled, 
+.ui-accordion .ui-accordion-header.ui-state-disabled a { 
+    cursor: default; 
+}
+
+.ui-accordion-content-wrapper-overflown {
+    overflow: hidden;
+}
+
+.ui-rtl .ui-accordion .ui-accordion-header a {
+    padding: .5em 2em .5em .5em;
+}
+ 
+.ui-rtl .ui-accordion .ui-accordion-toggle-icon {
+    left: initial;
+    right: .5em;
+}
+
+.ui-rtl .ui-accordion .ui-accordion-toggle-icon.pi-caret-right:before {
+    content: '\e904';
+}
 .ui-autocomplete {
     width: auto;
     zoom: 1;
@@ -351,54 +400,16 @@ button {
     width: 2em;
 }
 
-.ui-accordion { 
-    width: 100%; 
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.ui-accordion .ui-accordion-header { 
-    cursor: pointer; 
-    position: relative; 
-    margin-top: 1px; 
-    zoom: 1; 
-}
-
-.ui-accordion .ui-accordion-header a { 
-    display: block; 
-    padding: .5em;
-}
-
-.ui-accordion .ui-accordion-toggle-icon,
-.ui-accordion .ui-accordion-header-text {
-    vertical-align: middle;   
-}
-
-.ui-accordion .ui-accordion-content { 
-    padding: 1em;
-    border-top: 0; 
-    overflow: visible;
-    zoom: 1; 
-}
-
-.ui-accordion .ui-accordion-header.ui-state-disabled, 
-.ui-accordion .ui-accordion-header.ui-state-disabled a { 
-    cursor: default; 
-}
-
-.ui-accordion-content-wrapper-overflown {
-    overflow: hidden;
-}
-
-.ui-rtl .ui-accordion .ui-accordion-header a {
-    padding: .5em 2em .5em .5em;
-}
- 
-.ui-rtl .ui-accordion .ui-accordion-toggle-icon {
-    left: initial;
-    right: .5em;
-}
-
-.ui-rtl .ui-accordion .ui-accordion-toggle-icon.pi-caret-right:before {
-    content: '\e904';
+.ui-blockui-document {
+    position: fixed;
 }
 /** Breadcrumb **/
 .ui-breadcrumb {
@@ -432,17 +443,6 @@ button {
 
 .ui-breadcrumb .ui-menuitem-text {
     vertical-align: middle;
-}
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
 }
 /* Button */
 .ui-button {
@@ -937,35 +937,6 @@ input[type=text]::-ms-clear {
 .ui-carousel .ui-carousel-mobiledropdown {
     display: none;
 }
-.ui-chkbox {
-    display: inline-block;
-    cursor: pointer;
-    vertical-align: middle;
-    margin-right: .25em;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-}
-
-.ui-chkbox .ui-chkbox-box {
-    width: 1.125em;
-    height: 1.125em;
-    line-height: 1.125em;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    text-align: center;
-}
-
-.ui-chkbox .ui-chkbox-icon {
-    display: block;
-}
-
-.ui-chkbox-label {
-    vertical-align: middle;  
-}
-
-
 .ui-chips > ul.ui-inputtext {
     clear: left;
     cursor: text;
@@ -1025,6 +996,35 @@ input[type=text]::-ms-clear {
     -webkit-border-radius: 0;
     border-radius: 0;
 }
+.ui-chkbox {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: .25em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.ui-chkbox .ui-chkbox-box {
+    width: 1.125em;
+    height: 1.125em;
+    line-height: 1.125em;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.ui-chkbox .ui-chkbox-icon {
+    display: block;
+}
+
+.ui-chkbox-label {
+    vertical-align: middle;  
+}
+
+
 .ui-colorpicker {
     display: inline-block;
 } 
@@ -1268,6 +1268,74 @@ input[type=text]::-ms-clear {
     margin: 0;
     padding: 0;
 }
+.ui-dataview {
+    position: relative;
+}
+
+.ui-dataview .ui-paginator {
+	text-align: center;
+}
+
+.ui-dataview-column {
+	padding: .25em;
+}
+
+.ui-dataview-content-empty {
+    padding: .25em .625em;
+}
+
+.ui-dataview .ui-dataview-header,
+.ui-dataview .ui-dataview-footer {
+	padding: .5em .75em;
+}
+
+.ui-dataview .ui-dataview-header {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-dataview-footer {
+    border-top: 0 none;
+}
+
+.ui-dataview .ui-paginator-top {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-paginator-bottom {
+    border-top: 0 none;
+}
+
+.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
+    width: 100%;
+}
+
+.ui-dataview .ui-dataview-emptymessage {
+    padding: .5em .75em;
+}
+
+/* Loader */
+.ui-dataview-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.ui-dataview-loading-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    margin-top: -1em;
+    margin-left: -1em;
+}
+
+.ui-dataview-loading-icon {
+    font-size: 2em;
+}
+
 .ui-datatable {
     position: relative;
 }
@@ -1638,74 +1706,6 @@ input[type=text]::-ms-clear {
         display: block;
     }
 }
-.ui-dataview {
-    position: relative;
-}
-
-.ui-dataview .ui-paginator {
-	text-align: center;
-}
-
-.ui-dataview-column {
-	padding: .25em;
-}
-
-.ui-dataview-content-empty {
-    padding: .25em .625em;
-}
-
-.ui-dataview .ui-dataview-header,
-.ui-dataview .ui-dataview-footer {
-	padding: .5em .75em;
-}
-
-.ui-dataview .ui-dataview-header {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-dataview-footer {
-    border-top: 0 none;
-}
-
-.ui-dataview .ui-paginator-top {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-paginator-bottom {
-    border-top: 0 none;
-}
-
-.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
-    width: 100%;
-}
-
-.ui-dataview .ui-dataview-emptymessage {
-    padding: .5em .75em;
-}
-
-/* Loader */
-.ui-dataview-loading {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.ui-dataview-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.ui-dataview-loading-icon {
-    font-size: 2em;
-}
-
 .ui-dialog {
     position: fixed;
     padding: 0;
@@ -3517,22 +3517,6 @@ input[type=text]::-ms-clear {
     float: right;
     padding: .25em;
 }
-.ui-message {
-    border: 1px solid;
-    margin: 0px .25em;
-    padding: .25em .5em;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.ui-message .ui-message-icon,
-.ui-message .ui-message-text {
-    vertical-align: middle;
-}
-
-.ui-fluid .ui-message {
-    display: block;
-}
 .ui-messages {
     border: 1px solid;
     margin: .5em 0;
@@ -3729,6 +3713,22 @@ input[type=text]::-ms-clear {
 }
 
 
+.ui-message {
+    border: 1px solid;
+    margin: 0px .25em;
+    padding: .25em .5em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ui-message .ui-message-icon,
+.ui-message .ui-message-text {
+    vertical-align: middle;
+}
+
+.ui-fluid .ui-message {
+    display: block;
+}
 .ui-orderlist {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4574,6 +4574,17 @@ input[type=text]::-ms-clear {
 .ui-fluid .fc .ui-button {
     width: auto;
 }
+.ui-selectbutton {
+    display: inline-block;
+}
+            
+.ui-selectbutton.ui-state-error {
+    padding: 0;
+}
+
+.ui-selectbutton .ui-button.ui-state-focus {
+    outline: none;
+}
 .ui-scrollpanel-wrapper {
     overflow: hidden;
     width: 100%;
@@ -4627,17 +4638,6 @@ input[type=text]::-ms-clear {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-}
-.ui-selectbutton {
-    display: inline-block;
-}
-            
-.ui-selectbutton.ui-state-error {
-    padding: 0;
-}
-
-.ui-selectbutton .ui-button.ui-state-focus {
-    outline: none;
 }
 .ui-sidebar {
     position: fixed;

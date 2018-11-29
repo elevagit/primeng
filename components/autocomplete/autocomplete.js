@@ -70,7 +70,6 @@ var AutoComplete = /** @class */ (function () {
         },
         set: function (val) {
             this._suggestions = val;
-            console.log('!1!');
             this.includeAddToOptionsToDisplay();
             if (this.immutable) {
                 this.handleSuggestionsChange();
@@ -118,7 +117,6 @@ var AutoComplete = /** @class */ (function () {
             }
             if (!this._suggestions) {
                 this._suggestions = [];
-                console.log('!2!');
             }
             this._suggestions.push(addItem);
         }
@@ -216,6 +214,7 @@ var AutoComplete = /** @class */ (function () {
         else {
             this.value = value;
         }
+        console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
         this.filled = this.value && this.value != '';
         this.updateInputField();
     };
@@ -252,7 +251,6 @@ var AutoComplete = /** @class */ (function () {
         }
         else {
             this.suggestions = null;
-            console.log('!3!');
             this.hide();
         }
         this.updateFilledState();
@@ -277,6 +275,7 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.selectItem = function (option, focus) {
         var _this = this;
         if (focus === void 0) { focus = true; }
+        console.log('SELECT ITEM', option, this.value);
         var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value || [];

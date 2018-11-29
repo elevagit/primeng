@@ -235,7 +235,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   set suggestions(val: any[]) {
     this._suggestions = val;
-    console.log('!1!');
 
     this.includeAddToOptionsToDisplay();
     if (this.immutable) {
@@ -284,7 +283,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       }
       if (!this._suggestions) {
         this._suggestions = [];
-        console.log('!2!');
       }
       this._suggestions.push(addItem);
     }
@@ -388,7 +386,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     } else {
       this.value = value;
     }
-
+    console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
     this.filled = this.value && this.value != '';
     this.updateInputField();
   }
@@ -432,7 +430,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     }
     else {
       this.suggestions = null;
-      console.log('!3!');
       this.hide();
     }
     this.updateFilledState();
@@ -460,6 +457,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   selectItem(option: any, focus: boolean = true) {
+    console.log('SELECT ITEM', option, this.value);
     var deveEmitir = true;
     if (this.multiple) {
       this.value = this.value || [];

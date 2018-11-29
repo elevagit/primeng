@@ -446,7 +446,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     }
     
     writeValue(value: any): void {
-        console.log('WRITE VALUE DROPDOWN OG: ', value);
         if (this.filter) {
             setTimeout(() => {
                 this.resetFilter();    
@@ -1041,7 +1040,6 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     activateFilter() {
         let searchFields: string[] = this.filterBy.split(',');
-        console.log('ACTIVATE FILTER', searchFields, this.filterBy);
         this.selectedIndex = 0;
         if (this.options && this.options.length) {
             if (this.group) {
