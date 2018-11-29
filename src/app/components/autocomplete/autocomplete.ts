@@ -23,7 +23,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: any = {
             (click)="onInputClick($event)" (input)="onInput($event)" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" (focus)="onInputFocus($event)" (blur)="onInputBlur($event)" (change)="onInputChange($event)" (paste)="onInputPaste($event)"
             [attr.placeholder]="placeholder" [attr.size]="size" [attr.maxlength]="maxlength" [attr.tabindex]="tabindex" [readonly]="readonly" [disabled]="disabled" [attr.aria-label]="ariaLabel" [attr.aria-labelledby]="ariaLabelledBy" [attr.aria-required]="required"
             ><ul *ngIf="multiple" #multiContainer class="ui-autocomplete-multiple-container ui-widget ui-inputtext ui-state-default ui-corner-all" [ngClass]="{'ui-state-disabled':disabled,'ui-state-focus':focus}" (click)="multiIn.focus()">
-                <li #token *ngFor="let val of value; let i = index" [style.display]="val.acao == 3 ? 'none' : 'initial'" class="ui-autocomplete-token ui-state-highlight ui-corner-all">
+                <li #token *ngFor="let val of value; let i = index" [style.display]="val.acao == 3 ? 'none' : 'inline-block'" class="ui-autocomplete-token ui-state-highlight ui-corner-all">
                     <span class="ui-autocomplete-token-icon pi pi-fw pi-times" (click)="removeItem(token, i)" *ngIf="!disabled"></span>
                     <span *ngIf="!selectedItemTemplate" class="ui-autocomplete-token-label">{{field ? objectUtils.resolveFieldData(val, field): val}}</span>
                     <ng-container *ngTemplateOutlet="selectedItemTemplate; context: {$implicit: val}"></ng-container>
@@ -136,6 +136,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   @Output() onAdd: EventEmitter<any> = new EventEmitter();
 
   @Output() onDuplicado: EventEmitter<any> = new EventEmitter();
+
+  @Output() valorInternoModificado: EventEmitter<any> = new EventEmitter();
 
   @Input() field: string;
 
@@ -376,6 +378,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
     this.filled = this.value && this.value != '';
     this.updateInputField();
+    this.valorInternoModificado.emit(value);
   }
 
   registerOnChange(fn: Function): void {
@@ -715,7 +718,19 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           break;
 
         //tab
-        case 9:
+        /*case 9:
+          if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+            let newItem = {};
+            newItem['acao'] = 1;
+            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+            newItem[this.field] = this.multiInputEL.nativeElement.value;
+            this.selectItem(newItem);
+          }
+          this.hide();
+          break;*/
+
+        case 8:
           if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
             let newItem = {};
             newItem['acao'] = 1;
