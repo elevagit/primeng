@@ -274,9 +274,11 @@ var AutoComplete = /** @class */ (function () {
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
                     newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
                     newItem[this.field] = this.multiInputEL.nativeElement.value;
-                    this.value = this.value.concat([newItem]);
                     this.onAddNovo(null);
-                    this.onModelChange(this.value);
+                    if (!this.podeAdicionar) {
+                        this.value = this.value.concat([newItem]);
+                        this.onModelChange(this.value);
+                    }
                 }
                 else if (!this.isSelected(option)) {
                     option.acao = 1;
