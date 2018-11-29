@@ -467,13 +467,8 @@ var AutoComplete = /** @class */ (function () {
                 //enter
                 case 13:
                     if (this.highlightOption) {
-                        if (this.highlightOption.isAdd) {
-                            this.onAddNovo(null);
-                        }
-                        else {
-                            this.selectItem(this.highlightOption);
-                            this.hide();
-                        }
+                        this.selectItem(this.highlightOption);
+                        this.hide();
                     }
                     event.preventDefault();
                     break;
@@ -560,6 +555,7 @@ var AutoComplete = /** @class */ (function () {
         this.onFocus.emit(event);
     };
     AutoComplete.prototype.onInputBlur = function (event) {
+        console.log('-------------- ON INPUT BLUR --------------');
         this.focus = false;
         this.onModelTouched();
         this.onBlur.emit(event);

@@ -679,12 +679,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         //enter
         case 13:
           if (this.highlightOption) {
-            if (this.highlightOption.isAdd) {
-              this.onAddNovo(null);
-            } else {
-              this.selectItem(this.highlightOption);
-              this.hide();
-            }
+            this.selectItem(this.highlightOption);
+            this.hide();
           }
           event.preventDefault();
           break;
@@ -781,6 +777,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   onInputBlur(event) {
+    console.log('-------------- ON INPUT BLUR --------------');
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);
