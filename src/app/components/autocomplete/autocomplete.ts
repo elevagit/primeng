@@ -679,8 +679,12 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         //enter
         case 13:
           if (this.highlightOption) {
-            this.selectItem(this.highlightOption);
-            this.hide();
+            if (this.highlightOption.isAdd) {
+              this.onAddNovo(null);
+            } else {
+              this.selectItem(this.highlightOption);
+              this.hide();
+            }
           }
           event.preventDefault();
           break;
