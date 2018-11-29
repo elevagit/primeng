@@ -200,12 +200,17 @@ var AutoComplete = /** @class */ (function () {
     };
     AutoComplete.prototype.writeValue = function (value) {
         console.log('!!!WRITE VALUE AUTOCOMPLETE!!!', value, this.value);
-        if (this.multiple && !Array.isArray(value)) {
-            if (this.value == null) {
-                this.value = [].push(value);
+        if (value != null) {
+            if (this.multiple && !Array.isArray(value)) {
+                if (this.value == null) {
+                    this.value = [].push(value);
+                }
+                else {
+                    this.value = this.value.concat([value]);
+                }
             }
             else {
-                this.value = this.value.concat([value]);
+                this.value = value;
             }
         }
         else {
