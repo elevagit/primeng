@@ -411,39 +411,6 @@ button {
 .ui-blockui-document {
     position: fixed;
 }
-/** Breadcrumb **/
-.ui-breadcrumb {
-    margin: 0;
-    padding: 0;
-    padding: .5em;
-}
-
-.ui-breadcrumb ul {
-    margin: 0;
-    padding: 0;
-}
-
-.ui-breadcrumb ul li {
-    display: inline-block;
-    margin: 0 .25em;
-}
-
-.ui-breadcrumb-chevron, .ui-breadcrumb-home {
-    vertical-align: middle;
-}
-
-.ui-breadcrumb ul li .ui-menuitem-link {
-    text-decoration: none;
-}
-
-.ui-breadcrumb .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-breadcrumb .ui-menuitem-text {
-    vertical-align: middle;
-}
 /* Button */
 .ui-button {
     display: inline-block;
@@ -554,6 +521,39 @@ button.ui-button::-moz-focus-inner {
     .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
         width: 100%;
     }
+}
+/** Breadcrumb **/
+.ui-breadcrumb {
+    margin: 0;
+    padding: 0;
+    padding: .5em;
+}
+
+.ui-breadcrumb ul {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-breadcrumb ul li {
+    display: inline-block;
+    margin: 0 .25em;
+}
+
+.ui-breadcrumb-chevron, .ui-breadcrumb-home {
+    vertical-align: middle;
+}
+
+.ui-breadcrumb ul li .ui-menuitem-link {
+    text-decoration: none;
+}
+
+.ui-breadcrumb .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-breadcrumb .ui-menuitem-text {
+    vertical-align: middle;
 }
 .ui-calendar {
     position: relative;
@@ -1200,6 +1200,34 @@ input[type=text]::-ms-clear {
 }
 
 
+.ui-datascroller {
+}
+
+.ui-datascroller .ui-datascroller-header {
+    text-align: center;
+	padding: .5em .75em;
+    border-bottom: 0 none;
+}
+
+.ui-datascroller .ui-datascroller-footer {
+    text-align: center;
+    padding: .25em .625em;
+    border-top: 0px none;
+}
+
+.ui-datascroller .ui-datascroller-content {
+    padding: .25em .625em;
+}
+
+.ui-datascroller-inline .ui-datascroller-content {
+    overflow: auto;
+}
+
+.ui-datascroller .ui-datascroller-list {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
 .ui-datalist .ui-datalist-header,
 .ui-datalist .ui-datalist-footer {
     text-align:center;
@@ -1240,34 +1268,6 @@ input[type=text]::-ms-clear {
     border-top: 0 none;
 }
 
-.ui-datascroller {
-}
-
-.ui-datascroller .ui-datascroller-header {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
-}
-
-.ui-datascroller .ui-datascroller-footer {
-    text-align: center;
-    padding: .25em .625em;
-    border-top: 0px none;
-}
-
-.ui-datascroller .ui-datascroller-content {
-    padding: .25em .625em;
-}
-
-.ui-datascroller-inline .ui-datascroller-content {
-    overflow: auto;
-}
-
-.ui-datascroller .ui-datascroller-list {
-    list-style-type: none; 
-    margin: 0;
-    padding: 0;
-}
 .ui-datatable {
     position: relative;
 }
@@ -1929,6 +1929,38 @@ input[type=text]::-ms-clear {
     width: 100%;
 }
 
+.ui-fieldset, 
+.ui-fieldset .ui-fieldset-legend {
+    padding: 0.5em 1em;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend {
+    padding: 0;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend a {
+    padding: 0.5em 1em;
+    cursor:pointer;
+    white-space: nowrap;
+    display: block;
+}
+
+.ui-fieldset .ui-fieldset-toggler {
+    margin-right: .1em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-legend-text {
+    vertical-align: middle;
+}
+
+.ui-fieldset .ui-fieldset-content-wrapper-overflown {
+    overflow: hidden;
+} 
+.ui-fluid .fc .ui-button {
+    width: auto;
+}
 /*
  * FileUpload
  */
@@ -2042,38 +2074,6 @@ input[type=text]::-ms-clear {
 
 
 
-.ui-fieldset, 
-.ui-fieldset .ui-fieldset-legend {
-    padding: 0.5em 1em;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend {
-    padding: 0;
-}
-
-.ui-fieldset-toggleable .ui-fieldset-legend a {
-    padding: 0.5em 1em;
-    cursor:pointer;
-    white-space: nowrap;
-    display: block;
-}
-
-.ui-fieldset .ui-fieldset-toggler {
-    margin-right: .1em;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-legend-text {
-    vertical-align: middle;
-}
-
-.ui-fieldset .ui-fieldset-content-wrapper-overflown {
-    overflow: hidden;
-} 
-.ui-fluid .fc .ui-button {
-    width: auto;
-}
 .ui-galleria {
     overflow: hidden;
     visibility: hidden;
@@ -2934,6 +2934,17 @@ input[type=text]::-ms-clear {
     padding: 0;
 }
 
+.ui-inplace .ui-inplace-display {
+    display: inline;
+    cursor: pointer;
+    border: 0 none;
+    padding: .25em;
+    font-weight: normal;
+}
+
+.ui-inplace .ui-inplace-content {
+    display: inline;
+}
 .ui-growl {
 	position:fixed;
 	top: 20px;
@@ -2988,17 +2999,6 @@ input[type=text]::-ms-clear {
 
 .ui-growl-message p {
 	font-weight: normal;
-}
-.ui-inplace .ui-inplace-display {
-    display: inline;
-    cursor: pointer;
-    border: 0 none;
-    padding: .25em;
-    font-weight: normal;
-}
-
-.ui-inplace .ui-inplace-content {
-    display: inline;
 }
 .ui-inputswitch {
     position: relative;
@@ -4044,6 +4044,47 @@ input[type=text]::-ms-clear {
 .ui-panel-content-wrapper-overflown {
     overflow: hidden;
 }     
+.ui-password-panel {
+    padding: .25em .5em;
+    position: absolute; 
+}
+
+.ui-password-panel .ui-password-meter { 
+    height: 10px; 
+    background:transparent url("./images/password-meter.png") no-repeat left top; 
+    padding: 0;
+    margin: 0;
+}
+
+.ui-password-info { 
+    margin-top: .25em;
+}
+
+/* Overlay Animations */
+.ui-password-panel {
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    opacity: 0;
+    -webkit-transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s;
+}
+
+.ui-password-panel-visible {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.ui-password-panel-hidden {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    -webkit-transition: transform .3s, opacity .15s;
+    transition: transform .3s, opacity .15s;
+}
 .ui-panelmenu {
     width: auto;
 }
@@ -4106,47 +4147,6 @@ input[type=text]::-ms-clear {
     padding: .25em;
     display: block;
     text-decoration: none;
-}
-.ui-password-panel {
-    padding: .25em .5em;
-    position: absolute; 
-}
-
-.ui-password-panel .ui-password-meter { 
-    height: 10px; 
-    background:transparent url("./images/password-meter.png") no-repeat left top; 
-    padding: 0;
-    margin: 0;
-}
-
-.ui-password-info { 
-    margin-top: .25em;
-}
-
-/* Overlay Animations */
-.ui-password-panel {
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    opacity: 0;
-    -webkit-transition: transform .3s, opacity .3s;
-    transition: transform .3s, opacity .3s;
-}
-
-.ui-password-panel-visible {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.ui-password-panel-hidden {
-    opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    -webkit-transition: transform .3s, opacity .15s;
-    transition: transform .3s, opacity .15s;
 }
 .ui-picklist > div {
     float: left;
@@ -4568,11 +4568,11 @@ input[type=text]::-ms-clear {
 .ui-radiobutton, .ui-radiobutton-label {
     vertical-align: middle;
 }
-.ui-rating {
-    font-size: 1.25em;
-}
 .ui-fluid .fc .ui-button {
     width: auto;
+}
+.ui-rating {
+    font-size: 1.25em;
 }
 .ui-scrollpanel-wrapper {
     overflow: hidden;
