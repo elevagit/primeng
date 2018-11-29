@@ -202,7 +202,7 @@ var AutoComplete = /** @class */ (function () {
         console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
         this.filled = this.value && this.value != '';
         this.updateInputField();
-        this.valorInternoModificado.emit(value);
+        this.valorInternoModificado.emit(this.value);
     };
     AutoComplete.prototype.registerOnChange = function (fn) {
         this.onModelChange = fn;

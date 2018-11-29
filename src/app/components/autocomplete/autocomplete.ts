@@ -378,7 +378,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
     this.filled = this.value && this.value != '';
     this.updateInputField();
-    this.valorInternoModificado.emit(value);
+    this.valorInternoModificado.emit(this.value);
   }
 
   registerOnChange(fn: Function): void {
