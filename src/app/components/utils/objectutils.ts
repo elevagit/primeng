@@ -114,7 +114,7 @@ export class ObjectUtils {
         var first = [];
         var others = [];
         for (var i = 0; i < data.length; i++) {
-            if (data[i][field].toLowerCase().indexOf(input.toLowerCase()) == 0) {
+            if (String(data[i].value[field]).toLowerCase().indexOf(input.toLowerCase()) == 0) {
                 first.push(data[i]);
             } else {
                 others.push(data[i]);
