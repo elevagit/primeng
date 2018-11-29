@@ -204,7 +204,7 @@ var AutoComplete = /** @class */ (function () {
                     this.value = [].push(value);
                 }
                 else {
-                    this.value = this.value.concat([value]);
+                    this.value = value.slice();
                 }
             }
             else {

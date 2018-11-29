@@ -378,7 +378,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         if (this.value == null) {
           this.value = [].push(value);
         } else {
-          this.value = [...this.value, value];
+          this.value = [...value];
         }
       } else {
         this.value = value;
