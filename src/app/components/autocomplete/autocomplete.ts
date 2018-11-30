@@ -135,6 +135,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @Output() onAdd: EventEmitter<any> = new EventEmitter();
 
+  @Output() onAddVazio: EventEmitter<any> = new EventEmitter();
+
   @Output() onDuplicado: EventEmitter<any> = new EventEmitter();
 
   @Output() onBackspace: EventEmitter<any> = new EventEmitter();
@@ -461,7 +463,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
       if (option && !isRepetido) {
         if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
-          console.log('2');
           let newItem = {};
           newItem['acao'] = 1;
           newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -474,7 +475,11 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
             this.valorInternoModificado.emit(this.value);
           }
         } else if (!this.isSelected(option)) {
-          console.log('2');
+          if (option.isAdd){
+            this.onAddVazio.emit(null);
+            this.hide();
+            return;
+          }
           option.acao = 1;
           this.value = [...this.value, option];
           this.onModelChange(this.value);

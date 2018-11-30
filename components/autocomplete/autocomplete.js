@@ -47,6 +47,7 @@ var AutoComplete = /** @class */ (function () {
         this.onKeyUp = new core_1.EventEmitter();
         this.customValue = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
+        this.onAddVazio = new core_1.EventEmitter();
         this.onDuplicado = new core_1.EventEmitter();
         this.onBackspace = new core_1.EventEmitter();
         this.valorInternoModificado = new core_1.EventEmitter();
@@ -274,7 +275,6 @@ var AutoComplete = /** @class */ (function () {
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
-                    console.log('2');
                     var newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -288,7 +288,11 @@ var AutoComplete = /** @class */ (function () {
                     }
                 }
                 else if (!this.isSelected(option)) {
-                    console.log('2');
+                    if (option.isAdd) {
+                        this.onAddVazio.emit(null);
+                        this.hide();
+                        return;
+                    }
                     option.acao = 1;
                     this.value = this.value.concat([option]);
                     this.onModelChange(this.value);
@@ -807,6 +811,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onAdd", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onAddVazio", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
