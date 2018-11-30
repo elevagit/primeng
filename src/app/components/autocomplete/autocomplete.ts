@@ -282,6 +282,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       var addItem = { isAdd: true, id: -3 };
       if (this.getFilterValue() == "" || this.getFilterValue() == null || this.getFilterValue() == undefined) {
         addItem[this.colunaOpcao] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
+        addItem['id'] = -5;
       } else {
         addItem[this.colunaOpcao] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
       }
@@ -460,6 +461,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
       if (option && !isRepetido) {
         if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
+          console.log('2');
           let newItem = {};
           newItem['acao'] = 1;
           newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -472,6 +474,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
             this.valorInternoModificado.emit(this.value);
           }
         } else if (!this.isSelected(option)) {
+          console.log('2');
           option.acao = 1;
           this.value = [...this.value, option];
           this.onModelChange(this.value);
@@ -776,7 +779,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   onInputBlur(event) {
-    console.log('-------------- ON INPUT BLUR --------------');
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);

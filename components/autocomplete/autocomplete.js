@@ -113,6 +113,7 @@ var AutoComplete = /** @class */ (function () {
             var addItem = { isAdd: true, id: -3 };
             if (this.getFilterValue() == "" || this.getFilterValue() == null || this.getFilterValue() == undefined) {
                 addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar novo</span>";
+                addItem['id'] = -5;
             }
             else {
                 addItem[this.colunaOpcao] = "<span class=\"adicionar-novo-dropdown\"><i class=\"fa fa-plus\"></i>&nbsp; Adicionar '" + this.getFilterValue() + "'</span>";
@@ -273,6 +274,7 @@ var AutoComplete = /** @class */ (function () {
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
+                    console.log('2');
                     var newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -286,6 +288,7 @@ var AutoComplete = /** @class */ (function () {
                     }
                 }
                 else if (!this.isSelected(option)) {
+                    console.log('2');
                     option.acao = 1;
                     this.value = this.value.concat([option]);
                     this.onModelChange(this.value);
@@ -552,7 +555,6 @@ var AutoComplete = /** @class */ (function () {
         this.onFocus.emit(event);
     };
     AutoComplete.prototype.onInputBlur = function (event) {
-        console.log('-------------- ON INPUT BLUR --------------');
         this.focus = false;
         this.onModelTouched();
         this.onBlur.emit(event);
