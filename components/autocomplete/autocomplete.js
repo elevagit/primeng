@@ -41,6 +41,7 @@ var AutoComplete = /** @class */ (function () {
         this.onSelect = new core_1.EventEmitter();
         this.onUnselect = new core_1.EventEmitter();
         this.onFocus = new core_1.EventEmitter();
+        this.onOpen = new core_1.EventEmitter();
         this.onBlur = new core_1.EventEmitter();
         this.onDropdownClick = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
@@ -202,7 +203,6 @@ var AutoComplete = /** @class */ (function () {
     };
     AutoComplete.prototype.writeValue = function (value) {
         this.value = value;
-        console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
         this.filled = this.value && this.value != '';
         this.updateInputField();
     };
@@ -265,7 +265,6 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.selectItem = function (option, focus) {
         var _this = this;
         if (focus === void 0) { focus = true; }
-        console.log('SELECT ITEM', option, this.value);
         var deveEmitir = true;
         if (this.multiple) {
             this.value = this.value || [];
@@ -351,6 +350,7 @@ var AutoComplete = /** @class */ (function () {
                 _this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
             }
         }, 50);
+        this.onOpen.emit(null);
     };
     AutoComplete.prototype.onOverlayAnimationStart = function (event) {
         switch (event.toState) {
@@ -433,7 +433,6 @@ var AutoComplete = /** @class */ (function () {
         if (!this.pseudoExcluir || this.value[itemIndex].acao == 1) {
             this.value = this.value.filter(function (val, i) { return i != itemIndex; });
         }
-        console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
         this.onModelChange(this.value);
         this.valorInternoModificado.emit(this.value);
         this.updateFilledState();
@@ -787,6 +786,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onFocus", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onOpen", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)

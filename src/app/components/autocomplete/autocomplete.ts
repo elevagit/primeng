@@ -123,6 +123,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
 
+  @Output() onOpen: EventEmitter<any> = new EventEmitter();
+
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @Output() onDropdownClick: EventEmitter<any> = new EventEmitter();
@@ -380,7 +382,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   writeValue(value: any): void {
     this.value = value;
-    console.log('???WRITE VALUE AUTOCOMPLETE???', value, this.value);
     this.filled = this.value && this.value != '';
     this.updateInputField();
   }
@@ -453,7 +454,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
   }
 
   selectItem(option: any, focus: boolean = true) {
-    console.log('SELECT ITEM', option, this.value);
     var deveEmitir = true;
     if (this.multiple) {
       this.value = this.value || [];
@@ -539,6 +539,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         this.containerPanel.nativeElement.style.minWidth = (calculatedSize > maxSize ? maxSize : calculatedSize) + 'px';
       }
     }, 50);
+    this.onOpen.emit(null);
   }
 
   onOverlayAnimationStart(event: AnimationEvent) {
@@ -640,7 +641,6 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       this.value = this.value.filter((val, i) => i != itemIndex);
     }
 
-    console.log('REMOVE-ITEM(AUTOCOMPLETE): ITEM - ', this.value[itemIndex], 'PSEUDOEXCLUIR - ', this.pseudoExcluir, 'EXCLUIR EM DUAS ETAPAS - ', this.excluirEmDuasEtapas);
     this.onModelChange(this.value);
     this.valorInternoModificado.emit(this.value);
     this.updateFilledState();
