@@ -400,6 +400,17 @@ button {
     width: 2em;
 }
 
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-blockui-document {
+    position: fixed;
+}
 /** Breadcrumb **/
 .ui-breadcrumb {
     margin: 0;
@@ -432,17 +443,6 @@ button {
 
 .ui-breadcrumb .ui-menuitem-text {
     vertical-align: middle;
-}
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
 }
 /* Button */
 .ui-button {
@@ -937,6 +937,35 @@ input[type=text]::-ms-clear {
 .ui-carousel .ui-carousel-mobiledropdown {
     display: none;
 }
+.ui-chkbox {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: .25em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.ui-chkbox .ui-chkbox-box {
+    width: 1.125em;
+    height: 1.125em;
+    line-height: 1.125em;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.ui-chkbox .ui-chkbox-icon {
+    display: block;
+}
+
+.ui-chkbox-label {
+    vertical-align: middle;  
+}
+
+
 .ui-chips > ul.ui-inputtext {
     clear: left;
     cursor: text;
@@ -996,35 +1025,6 @@ input[type=text]::-ms-clear {
     -webkit-border-radius: 0;
     border-radius: 0;
 }
-.ui-chkbox {
-    display: inline-block;
-    cursor: pointer;
-    vertical-align: middle;
-    margin-right: .25em;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-}
-
-.ui-chkbox .ui-chkbox-box {
-    width: 1.125em;
-    height: 1.125em;
-    line-height: 1.125em;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    text-align: center;
-}
-
-.ui-chkbox .ui-chkbox-icon {
-    display: block;
-}
-
-.ui-chkbox-label {
-    vertical-align: middle;  
-}
-
-
 .ui-colorpicker {
     display: inline-block;
 } 
@@ -2071,9 +2071,6 @@ input[type=text]::-ms-clear {
 
 
 
-.ui-fluid .fc .ui-button {
-    width: auto;
-}
 .ui-galleria {
     overflow: hidden;
     visibility: hidden;
@@ -2157,6 +2154,9 @@ input[type=text]::-ms-clear {
     padding: 1em 1.4em;
 }
 
+.ui-fluid .fc .ui-button {
+    width: auto;
+}
 /* Deprecated Grid CSS */
 .ui-grid {
     clear: both;
@@ -3112,21 +3112,6 @@ input[type=text]::-ms-clear {
 
 
 
-.ui-inputtextarea-resizable {
-    overflow:hidden;
-    resize:none;
-}
-
-.ui-fluid .ui-inputtextarea {
-    width:100%;
-}
-
-.ui-float-label textarea:focus ~ label,
-.ui-float-label textarea.ui-state-filled ~ label,
-.ui-float-label textarea:-webkit-autofill ~ label {
-  top:-.75em;
-  font-size:12px;
-}
 .ui-inputswitch {
     position: relative;
     display: inline-block;
@@ -3162,6 +3147,21 @@ input[type=text]::-ms-clear {
     -webkit-transform: translateX(1.250em);
     -ms-transform: translateX(1.250em);
     transform: translateX(1.250em);
+}
+.ui-inputtextarea-resizable {
+    overflow:hidden;
+    resize:none;
+}
+
+.ui-fluid .ui-inputtextarea {
+    width:100%;
+}
+
+.ui-float-label textarea:focus ~ label,
+.ui-float-label textarea.ui-state-filled ~ label,
+.ui-float-label textarea:-webkit-autofill ~ label {
+  top:-.75em;
+  font-size:12px;
 }
 .ui-lightbox {
     position: fixed;
@@ -3386,6 +3386,64 @@ input[type=text]::-ms-clear {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
 }
+.ui-menu {
+    width: 12.5em;
+    padding: .25em;
+}
+
+.ui-menu.ui-menu-dynamic {
+    position: absolute;
+}
+
+.ui-menu .ui-menu-separator {
+    border-width: 1px 0 0 0;
+}
+
+.ui-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-menu .ui-submenu-header {
+    padding: .25em .5em;
+    margin: .125em 0;
+}
+
+.ui-menu .ui-menuitem {
+    margin: .125em 0;
+}
+
+.ui-menu .ui-menuitem-link {
+    padding: .25em;
+    display: block;
+    text-decoration: none;
+}
+
+.ui-menu .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-menu .ui-menuitem-text {
+    vertical-align: middle;
+}
+.ui-message {
+    border: 1px solid;
+    margin: 0px .25em;
+    padding: .25em .5em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ui-message .ui-message-icon,
+.ui-message .ui-message-text {
+    vertical-align: middle;
+}
+
+.ui-fluid .ui-message {
+    display: block;
+}
 .ui-menubar {
     padding: .25em;
 }
@@ -3475,215 +3533,6 @@ input[type=text]::-ms-clear {
     float: right;
     padding: .25em;
 }
-.ui-menu {
-    width: 12.5em;
-    padding: .25em;
-}
-
-.ui-menu.ui-menu-dynamic {
-    position: absolute;
-}
-
-.ui-menu .ui-menu-separator {
-    border-width: 1px 0 0 0;
-}
-
-.ui-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ui-menu .ui-submenu-header {
-    padding: .25em .5em;
-    margin: .125em 0;
-}
-
-.ui-menu .ui-menuitem {
-    margin: .125em 0;
-}
-
-.ui-menu .ui-menuitem-link {
-    padding: .25em;
-    display: block;
-    text-decoration: none;
-}
-
-.ui-menu .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-menu .ui-menuitem-text {
-    vertical-align: middle;
-}
-.ui-message {
-    border: 1px solid;
-    margin: 0px .25em;
-    padding: .25em .5em;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.ui-message .ui-message-icon,
-.ui-message .ui-message-text {
-    vertical-align: middle;
-}
-
-.ui-fluid .ui-message {
-    display: block;
-}
-.ui-multiselect {
-    display: inline-block;
-    position: relative;
-    width: auto;
-    cursor: pointer;
-}
-
-.ui-multiselect .ui-multiselect-trigger {
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0 .25em;
-}
-
-.ui-multiselect .ui-multiselect-trigger  .ui-multiselect-trigger-icon {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    position: absolute;
-}
-
-.ui-multiselect .ui-multiselect-label-container  {
-    overflow: hidden;
-}
-
-.ui-multiselect .ui-multiselect-label  {
-    display: block;
-    padding: .25em 2em .25em .25em;
-    width: auto;
-    border: none;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.ui-multiselect.ui-state-disabled .ui-multiselect-trigger,
-.ui-multiselect.ui-state-disabled .ui-multiselect-label {
-    cursor: auto
-}
-
-.ui-multiselect-panel {
-    padding: 0.2em;
-    position: absolute;
-    min-width: 12em;
-}
-
-.ui-multiselect .ui-multiselect-panel {
-    min-width: 100%;
-}
-
-.ui-multiselect-panel .ui-multiselect-items-wrapper {
-    overflow: auto;
-    position: relative;
-    padding: 0.2em 0;
-}
-
-.ui-multiselect-panel .ui-multiselect-list {
-    border: 0 none;
-}
-
-.ui-multiselect-panel .ui-multiselect-item {
-    border: 0 none;
-    cursor: pointer;
-    font-weight: normal;
-    margin: 1px 0;
-    padding: .125em .25em;
-    text-align: left;
-    white-space: nowrap;
-    display: block;
-    position: relative;
-}
-
-.ui-multiselect-panel .ui-multiselect-item .ui-chkbox {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-multiselect-panel .ui-multiselect-item label {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-multiselect-header {
-    margin-bottom: 0.3em;
-    padding: .25em;
-    position: relative;
-    text-align: left;
-    min-height: 2em;
-}
-
-.ui-multiselect-header .ui-chkbox {
-    display: inline-block;
-    vertical-align: middle;
-    cursor:pointer;
-}
-
-.ui-multiselect-header .ui-multiselect-filter-container {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    width: 65%;
-}
-
-.ui-multiselect-header.ui-multiselect-header-no-toggleall .ui-multiselect-filter-container {
-    width: 85%;
-}
-
-.ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
-    position: absolute;
-    top: .25em;
-    left: .125em;
-}
-            
-.ui-multiselect-header .ui-inputtext {
-    padding: .125em .125em .125em 1.25em;
-    width: 100%;
-}
-
-.ui-multiselect-header .ui-multiselect-close {
-    position: absolute;
-    right: .375em;
-    top: .375em;
-    display: block;
-    border: 0 none;
-    cursor: pointer;
-}
-
-.ui-multiselect-header a.ui-multiselect-all,
-.ui-multiselect-header a.ui-multiselect-none {
-    float:left;
-    margin-right: 10px;
-    display: block;
-}
-
-.ui-multiselect-footer {
-    padding: .25em;
-}
-
-.ui-fluid .ui-multiselect {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
 .ui-messages {
     border: 1px solid;
     margin: .5em 0;
@@ -3838,6 +3687,157 @@ input[type=text]::-ms-clear {
         margin-right: .25em;
     }
 }
+.ui-multiselect {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    cursor: pointer;
+}
+
+.ui-multiselect .ui-multiselect-trigger {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 .25em;
+}
+
+.ui-multiselect .ui-multiselect-trigger  .ui-multiselect-trigger-icon {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    position: absolute;
+}
+
+.ui-multiselect .ui-multiselect-label-container  {
+    overflow: hidden;
+}
+
+.ui-multiselect .ui-multiselect-label  {
+    display: block;
+    padding: .25em 2em .25em .25em;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ui-multiselect.ui-state-disabled .ui-multiselect-trigger,
+.ui-multiselect.ui-state-disabled .ui-multiselect-label {
+    cursor: auto
+}
+
+.ui-multiselect-panel {
+    padding: 0.2em;
+    position: absolute;
+    min-width: 12em;
+}
+
+.ui-multiselect .ui-multiselect-panel {
+    min-width: 100%;
+}
+
+.ui-multiselect-panel .ui-multiselect-items-wrapper {
+    overflow: auto;
+    position: relative;
+    padding: 0.2em 0;
+}
+
+.ui-multiselect-panel .ui-multiselect-list {
+    border: 0 none;
+}
+
+.ui-multiselect-panel .ui-multiselect-item {
+    border: 0 none;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 1px 0;
+    padding: .125em .25em;
+    text-align: left;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+}
+
+.ui-multiselect-panel .ui-multiselect-item .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-multiselect-panel .ui-multiselect-item label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-multiselect-header {
+    margin-bottom: 0.3em;
+    padding: .25em;
+    position: relative;
+    text-align: left;
+    min-height: 2em;
+}
+
+.ui-multiselect-header .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+.ui-multiselect-header .ui-multiselect-filter-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 65%;
+}
+
+.ui-multiselect-header.ui-multiselect-header-no-toggleall .ui-multiselect-filter-container {
+    width: 85%;
+}
+
+.ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
+    position: absolute;
+    top: .25em;
+    left: .125em;
+}
+            
+.ui-multiselect-header .ui-inputtext {
+    padding: .125em .125em .125em 1.25em;
+    width: 100%;
+}
+
+.ui-multiselect-header .ui-multiselect-close {
+    position: absolute;
+    right: .375em;
+    top: .375em;
+    display: block;
+    border: 0 none;
+    cursor: pointer;
+}
+
+.ui-multiselect-header a.ui-multiselect-all,
+.ui-multiselect-header a.ui-multiselect-none {
+    float:left;
+    margin-right: 10px;
+    display: block;
+}
+
+.ui-multiselect-footer {
+    padding: .25em;
+}
+
+.ui-fluid .ui-multiselect {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
 .ui-organizationchart .ui-organizationchart-table {
     border-spacing: 0;
     border-collapse: separate;
@@ -4107,47 +4107,6 @@ input[type=text]::-ms-clear {
     display: block;
     text-decoration: none;
 }
-.ui-password-panel {
-    padding: .25em .5em;
-    position: absolute; 
-}
-
-.ui-password-panel .ui-password-meter { 
-    height: 10px; 
-    background:transparent url("./images/password-meter.png") no-repeat left top; 
-    padding: 0;
-    margin: 0;
-}
-
-.ui-password-info { 
-    margin-top: .25em;
-}
-
-/* Overlay Animations */
-.ui-password-panel {
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    opacity: 0;
-    -webkit-transition: transform .3s, opacity .3s;
-    transition: transform .3s, opacity .3s;
-}
-
-.ui-password-panel-visible {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.ui-password-panel-hidden {
-    opacity: 0;
-    -webkit-transform: translateY(5%);
-    -ms-transform: translateY(5%);
-    transform: translateY(5%);
-    -webkit-transition: transform .3s, opacity .15s;
-    transition: transform .3s, opacity .15s;
-}
 .ui-picklist > div {
     float: left;
 }
@@ -4352,6 +4311,47 @@ input[type=text]::-ms-clear {
     }
 }
 
+.ui-password-panel {
+    padding: .25em .5em;
+    position: absolute; 
+}
+
+.ui-password-panel .ui-password-meter { 
+    height: 10px; 
+    background:transparent url("./images/password-meter.png") no-repeat left top; 
+    padding: 0;
+    margin: 0;
+}
+
+.ui-password-info { 
+    margin-top: .25em;
+}
+
+/* Overlay Animations */
+.ui-password-panel {
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    opacity: 0;
+    -webkit-transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s;
+}
+
+.ui-password-panel-visible {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.ui-password-panel-hidden {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    -ms-transform: translateY(5%);
+    transform: translateY(5%);
+    -webkit-transition: transform .3s, opacity .15s;
+    transition: transform .3s, opacity .15s;
+}
 .ui-progressbar { 
     height: 1.2em; 
     text-align: left; 

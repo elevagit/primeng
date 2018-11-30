@@ -166,7 +166,9 @@ var AutoComplete = /** @class */ (function () {
             this.highlightOption = null;
             if (this._suggestions.length) {
                 this.noResults = false;
-                this.show();
+                if (!this.overlayVisible) {
+                    this.show();
+                }
                 this.suggestionsUpdated = true;
                 if (this.autoHighlight) {
                     this.highlightOption = this._suggestions[0];
@@ -175,7 +177,9 @@ var AutoComplete = /** @class */ (function () {
             else {
                 this.noResults = true;
                 if (this.emptyMessage) {
-                    this.show();
+                    if (!this.overlayVisible) {
+                        this.show();
+                    }
                     this.suggestionsUpdated = true;
                 }
                 else {
@@ -249,7 +253,9 @@ var AutoComplete = /** @class */ (function () {
         if (this.documentClickListener) {
             this.inputClick = true;
         }
-        this.show();
+        if (!this.overlayVisible) {
+            this.show();
+        }
     };
     AutoComplete.prototype.search = function (event, query) {
         //allow empty string but not undefined or null

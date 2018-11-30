@@ -339,7 +339,9 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       this.highlightOption = null;
       if (this._suggestions.length) {
         this.noResults = false;
-        this.show();
+        if (!this.overlayVisible){
+          this.show();
+        }
         this.suggestionsUpdated = true;
 
         if (this.autoHighlight) {
@@ -350,7 +352,9 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
         this.noResults = true;
 
         if (this.emptyMessage) {
-          this.show();
+          if (!this.overlayVisible){
+            this.show();
+          }
           this.suggestionsUpdated = true;
         }
         else {
@@ -436,7 +440,9 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     if (this.documentClickListener) {
       this.inputClick = true;
     }
-    this.show();
+    if (!this.overlayVisible){
+      this.show();
+    }    
   }
 
   search(event: any, query: string) {
