@@ -432,6 +432,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     if (this.documentClickListener) {
       this.inputClick = true;
     }
+    this.show();
   }
 
   search(event: any, query: string) {
@@ -701,7 +702,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           }
           this.hide();
           break;
-          
+
         case 8:
           this.onBackspace.emit(event);
           break;

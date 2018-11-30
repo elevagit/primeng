@@ -247,6 +247,7 @@ var AutoComplete = /** @class */ (function () {
         if (this.documentClickListener) {
             this.inputClick = true;
         }
+        this.show();
     };
     AutoComplete.prototype.search = function (event, query) {
         //allow empty string but not undefined or null
