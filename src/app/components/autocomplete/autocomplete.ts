@@ -137,6 +137,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @Output() onDuplicado: EventEmitter<any> = new EventEmitter();
 
+  @Output() onBackspace: EventEmitter<any> = new EventEmitter();
+
   @Output() valorInternoModificado: EventEmitter<any> = new EventEmitter();
 
   @Input() field: string;
@@ -699,6 +701,10 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           }
           this.hide();
           break;
+          
+        case 8:
+          this.onBackspace.emit(event);
+          break;
       }
     } else {
       switch (event.which) {
@@ -723,7 +729,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           break;
 
         //tab
-        /*case 9:
+        case 9:
           if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
             let newItem = {};
             newItem['acao'] = 1;
@@ -733,18 +739,10 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
             this.selectItem(newItem);
           }
           this.hide();
-          break;*/
+          break;
 
         case 8:
-          if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
-            let newItem = {};
-            newItem['acao'] = 1;
-            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-            newItem[this.field] = this.multiInputEL.nativeElement.value;
-            this.selectItem(newItem);
-          }
-          this.hide();
+          this.onBackspace.emit(event);
           break;
       }
     }

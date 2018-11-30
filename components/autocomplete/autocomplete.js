@@ -48,6 +48,7 @@ var AutoComplete = /** @class */ (function () {
         this.customValue = new core_1.EventEmitter();
         this.onAdd = new core_1.EventEmitter();
         this.onDuplicado = new core_1.EventEmitter();
+        this.onBackspace = new core_1.EventEmitter();
         this.valorInternoModificado = new core_1.EventEmitter();
         this.scrollHeight = '200px';
         this.pseudoExcluir = false;
@@ -484,6 +485,9 @@ var AutoComplete = /** @class */ (function () {
                     }
                     this.hide();
                     break;
+                case 8:
+                    this.onBackspace.emit(event);
+                    break;
             }
         }
         else {
@@ -507,18 +511,7 @@ var AutoComplete = /** @class */ (function () {
                     event.preventDefault();
                     break;
                 //tab
-                /*case 9:
-                  if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
-                    let newItem = {};
-                    newItem['acao'] = 1;
-                    newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-                    newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-                    newItem[this.field] = this.multiInputEL.nativeElement.value;
-                    this.selectItem(newItem);
-                  }
-                  this.hide();
-                  break;*/
-                case 8:
+                case 9:
                     if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
                         var newItem = {};
                         newItem['acao'] = 1;
@@ -528,6 +521,9 @@ var AutoComplete = /** @class */ (function () {
                         this.selectItem(newItem);
                     }
                     this.hide();
+                    break;
+                case 8:
+                    this.onBackspace.emit(event);
                     break;
             }
         }
@@ -812,6 +808,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onDuplicado", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onBackspace", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)

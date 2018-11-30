@@ -44,6 +44,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     customValue: EventEmitter<any>;
     onAdd: EventEmitter<any>;
     onDuplicado: EventEmitter<any>;
+    onBackspace: EventEmitter<any>;
     valorInternoModificado: EventEmitter<any>;
     field: string;
     colunaChip: string;
