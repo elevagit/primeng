@@ -710,12 +710,12 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
 
         //tab
-        case 9:
+        /*case 9:
           if (this.highlightOption) {
             this.selectItem(this.highlightOption);
           }
           this.hide();
-          break;
+          break;*/
 
         case 8:
           this.onBackspace.emit(event);
@@ -744,7 +744,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           break;
 
         //tab
-        case 9:
+        /*case 9:
           if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
             let newItem = {};
             newItem['acao'] = 1;
@@ -755,7 +755,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           }
           this.hide();
           break;
-
+*/
         case 8:
           this.onBackspace.emit(event);
           break;
@@ -793,7 +793,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);
-    /*if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
       let newItem = {};
       newItem['acao'] = 1;
       if (this.podeAdicionar) {
@@ -803,7 +803,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
       newItem[this.field] = this.multiInputEL.nativeElement.value;
       this.selectItem(newItem);
-    }*/
+    }
   }
 
   onInputChange(event) {

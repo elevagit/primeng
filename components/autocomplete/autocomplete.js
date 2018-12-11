@@ -492,12 +492,12 @@ var AutoComplete = /** @class */ (function () {
                     event.preventDefault();
                     break;
                 //tab
-                case 9:
-                    if (this.highlightOption) {
-                        this.selectItem(this.highlightOption);
-                    }
-                    this.hide();
-                    break;
+                /*case 9:
+                  if (this.highlightOption) {
+                    this.selectItem(this.highlightOption);
+                  }
+                  this.hide();
+                  break;*/
                 case 8:
                     this.onBackspace.emit(event);
                     break;
@@ -524,17 +524,18 @@ var AutoComplete = /** @class */ (function () {
                     event.preventDefault();
                     break;
                 //tab
-                case 9:
-                    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
-                        var newItem = {};
-                        newItem['acao'] = 1;
-                        newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-                        newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-                        newItem[this.field] = this.multiInputEL.nativeElement.value;
-                        this.selectItem(newItem);
-                    }
-                    this.hide();
-                    break;
+                /*case 9:
+                  if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+                    let newItem = {};
+                    newItem['acao'] = 1;
+                    newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+                    newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+                    newItem[this.field] = this.multiInputEL.nativeElement.value;
+                    this.selectItem(newItem);
+                  }
+                  this.hide();
+                  break;
+        */
                 case 8:
                     this.onBackspace.emit(event);
                     break;
@@ -567,17 +568,17 @@ var AutoComplete = /** @class */ (function () {
         this.focus = false;
         this.onModelTouched();
         this.onBlur.emit(event);
-        /*if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
-          let newItem = {};
-          newItem['acao'] = 1;
-          if (this.podeAdicionar) {
-            newItem['isAdd'] = true;
-          }
-          newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-          newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-          newItem[this.field] = this.multiInputEL.nativeElement.value;
-          this.selectItem(newItem);
-        }*/
+        if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+            var newItem = {};
+            newItem['acao'] = 1;
+            if (this.podeAdicionar) {
+                newItem['isAdd'] = true;
+            }
+            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+            newItem[this.field] = this.multiInputEL.nativeElement.value;
+            this.selectItem(newItem);
+        }
     };
     AutoComplete.prototype.onInputChange = function (event) {
         if (this.forceSelection && this.suggestions) {
