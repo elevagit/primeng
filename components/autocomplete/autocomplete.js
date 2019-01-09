@@ -312,6 +312,7 @@ var AutoComplete = /** @class */ (function () {
                 option.acao = 2;
                 for (var i = 0; i < this.value.length; i++) {
                     if (this.value[i][this.field] == option[this.field]) {
+                        deveEmitir = false;
                         this.value[i].acao = 2;
                         this.onChipRestaurado.emit({ id: i, chip: this.value[i] });
                     }
