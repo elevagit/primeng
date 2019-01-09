@@ -278,14 +278,10 @@ var AutoComplete = /** @class */ (function () {
             if (!Array.isArray(this.value)) {
                 this.value = [].push(this.value);
             }
-            var pseudoExcluido = false;
-            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) {
-                if (opt[_this.field] == option[_this.field] && opt.acao != 3) {
-                    pseudoExcluido = true;
-                }
-                return opt[_this.field] == option[_this.field];
-            });
-            console.log('select item', this.value, option, pseudoExcluido, isRepetido);
+            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
+            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao != 3; });
+            console.log('select item', this.value, option);
+            console.log('select item2', isRepetido, isPseudoExcluido);
             if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
                     var newItem = {};
