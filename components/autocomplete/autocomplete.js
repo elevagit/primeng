@@ -52,6 +52,7 @@ var AutoComplete = /** @class */ (function () {
         this.onAddVazio = new core_1.EventEmitter();
         this.onDuplicado = new core_1.EventEmitter();
         this.onBackspace = new core_1.EventEmitter();
+        this.onChipRestaurado = new core_1.EventEmitter();
         this.valorInternoModificado = new core_1.EventEmitter();
         this.scrollHeight = '200px';
         this.pseudoExcluir = false;
@@ -280,9 +281,7 @@ var AutoComplete = /** @class */ (function () {
             }
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
-            console.log('select item', this.value, option);
-            console.log('select item2', isRepetido, isPseudoExcluido);
-            if (option && !isRepetido) {
+            if (option && !isRepetido && !isPseudoExcluido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
                     var newItem = {};
                     newItem['acao'] = 1;
@@ -308,6 +307,15 @@ var AutoComplete = /** @class */ (function () {
                     this.valorInternoModificado.emit(this.value);
                 }
                 this.multiInputEL.nativeElement.value = '';
+            }
+            else if (isPseudoExcluido) {
+                option.acao = 2;
+                for (var i = 0; i < this.value.length; i++) {
+                    if (this.value[i][this.field] == option[this.field]) {
+                        this.value[i].acao = 2;
+                        this.onChipRestaurado.emit({ id: i, chip: this.value[i] });
+                    }
+                }
             }
             else {
                 deveEmitir = false;
@@ -837,6 +845,10 @@ var AutoComplete = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AutoComplete.prototype, "onBackspace", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AutoComplete.prototype, "onChipRestaurado", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)

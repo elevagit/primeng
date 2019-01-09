@@ -143,6 +143,8 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @Output() onBackspace: EventEmitter<any> = new EventEmitter();
 
+  @Output() onChipRestaurado: EventEmitter<any> = new EventEmitter();
+
   @Output() valorInternoModificado: EventEmitter<any> = new EventEmitter();
 
   @Input() field: string;
@@ -469,9 +471,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
       var isPseudoExcluido = this.value.some(opt => opt[this.field] == option[this.field] && opt.acao == 3);
-      console.log('select item', this.value, option);
-      console.log('select item2', isRepetido, isPseudoExcluido);
-      if (option && !isRepetido) {
+      if (option && !isRepetido && !isPseudoExcluido) {
         if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
           let newItem = {};
           newItem['acao'] = 1;
@@ -496,6 +496,14 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           this.valorInternoModificado.emit(this.value);
         }
         this.multiInputEL.nativeElement.value = '';
+      } else if (isPseudoExcluido) {
+        option.acao = 2;
+        for (let i = 0; i < this.value.length; i++) {
+          if (this.value[i][this.field] == option[this.field]) {
+            this.value[i].acao = 2;
+            this.onChipRestaurado.emit({id: i, chip: this.value[i]});
+          }
+        }
       } else {
         deveEmitir = false;
         this.onDuplicado.emit(this.multiInputEL.nativeElement.value);
