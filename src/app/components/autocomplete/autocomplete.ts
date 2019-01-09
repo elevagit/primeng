@@ -647,6 +647,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     let itemIndex = index || this.domHandler.index(item);
     let removedValue = this.value[itemIndex];
 
+    console.log('removeItem', this.pseudoExcluir, this.excluirEmDuasEtapas , removedValue, this.value);
     if (this.pseudoExcluir && this.value[itemIndex].acao == 2) {
       this.value[itemIndex].acao = 3;
     }

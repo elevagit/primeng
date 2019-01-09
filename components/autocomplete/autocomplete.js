@@ -442,6 +442,7 @@ var AutoComplete = /** @class */ (function () {
     AutoComplete.prototype.removeItem = function (item, index) {
         var itemIndex = index || this.domHandler.index(item);
         var removedValue = this.value[itemIndex];
+        console.log('removeItem', this.pseudoExcluir, this.excluirEmDuasEtapas, removedValue, this.value);
         if (this.pseudoExcluir && this.value[itemIndex].acao == 2) {
             this.value[itemIndex].acao = 3;
         }
