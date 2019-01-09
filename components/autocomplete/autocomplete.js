@@ -279,7 +279,7 @@ var AutoComplete = /** @class */ (function () {
                 this.value = [].push(this.value);
             }
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
-            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao != 3; });
+            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
             console.log('select item', this.value, option);
             console.log('select item2', isRepetido, isPseudoExcluido);
             if (option && !isRepetido) {

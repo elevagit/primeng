@@ -468,7 +468,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       }
       
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
-      var isPseudoExcluido = this.value.some(opt => opt[this.field] == option[this.field] && opt.acao != 3);
+      var isPseudoExcluido = this.value.some(opt => opt[this.field] == option[this.field] && opt.acao == 3);
       console.log('select item', this.value, option);
       console.log('select item2', isRepetido, isPseudoExcluido);
       if (option && !isRepetido) {
