@@ -278,6 +278,7 @@ var AutoComplete = /** @class */ (function () {
             if (!Array.isArray(this.value)) {
                 this.value = [].push(this.value);
             }
+            console.log('select item', this.value, option);
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             if (option && !isRepetido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
