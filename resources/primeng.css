@@ -400,6 +400,17 @@ button {
     width: 2em;
 }
 
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-blockui-document {
+    position: fixed;
+}
 /** Breadcrumb **/
 .ui-breadcrumb {
     margin: 0;
@@ -543,17 +554,6 @@ button.ui-button::-moz-focus-inner {
     .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
         width: 100%;
     }
-}
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
 }
 .ui-calendar {
     position: relative;
@@ -1268,74 +1268,6 @@ input[type=text]::-ms-clear {
     margin: 0;
     padding: 0;
 }
-.ui-dataview {
-    position: relative;
-}
-
-.ui-dataview .ui-paginator {
-	text-align: center;
-}
-
-.ui-dataview-column {
-	padding: .25em;
-}
-
-.ui-dataview-content-empty {
-    padding: .25em .625em;
-}
-
-.ui-dataview .ui-dataview-header,
-.ui-dataview .ui-dataview-footer {
-	padding: .5em .75em;
-}
-
-.ui-dataview .ui-dataview-header {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-dataview-footer {
-    border-top: 0 none;
-}
-
-.ui-dataview .ui-paginator-top {
-    border-bottom: 0 none;
-}
-
-.ui-dataview .ui-paginator-bottom {
-    border-top: 0 none;
-}
-
-.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
-    width: 100%;
-}
-
-.ui-dataview .ui-dataview-emptymessage {
-    padding: .5em .75em;
-}
-
-/* Loader */
-.ui-dataview-loading {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.ui-dataview-loading-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    margin-top: -1em;
-    margin-left: -1em;
-}
-
-.ui-dataview-loading-icon {
-    font-size: 2em;
-}
-
 .ui-datatable {
     position: relative;
 }
@@ -1706,6 +1638,74 @@ input[type=text]::-ms-clear {
         display: block;
     }
 }
+.ui-dataview {
+    position: relative;
+}
+
+.ui-dataview .ui-paginator {
+	text-align: center;
+}
+
+.ui-dataview-column {
+	padding: .25em;
+}
+
+.ui-dataview-content-empty {
+    padding: .25em .625em;
+}
+
+.ui-dataview .ui-dataview-header,
+.ui-dataview .ui-dataview-footer {
+	padding: .5em .75em;
+}
+
+.ui-dataview .ui-dataview-header {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-dataview-footer {
+    border-top: 0 none;
+}
+
+.ui-dataview .ui-paginator-top {
+    border-bottom: 0 none;
+}
+
+.ui-dataview .ui-paginator-bottom {
+    border-top: 0 none;
+}
+
+.ui-dataview.ui-dataview-list > .ui-dataview-content > div.ui-g > div {
+    width: 100%;
+}
+
+.ui-dataview .ui-dataview-emptymessage {
+    padding: .5em .75em;
+}
+
+/* Loader */
+.ui-dataview-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.ui-dataview-loading-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    margin-top: -1em;
+    margin-left: -1em;
+}
+
+.ui-dataview-loading-icon {
+    font-size: 2em;
+}
+
 .ui-dialog {
     position: fixed;
     padding: 0;
@@ -3913,6 +3913,43 @@ input[type=text]::-ms-clear {
 .ui-overlaypanel-close-icon {
     line-height: inherit;
 }
+.ui-panel {
+	padding: 0.2em;
+}
+
+.ui-panel .ui-panel-titlebar {
+	padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	float: right;
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	margin-left: 0.2em;
+    margin-top: -0.1em;
+}
+
+.ui-panel .ui-panel-content {
+	border: 0;
+    background: none;
+    padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-footer {
+	border-width: 1px 0 0;
+	padding: .25em .5em;
+	text-align:left;
+}
+  
+.ui-panel-content-wrapper-overflown {
+    overflow: hidden;
+}     
 .ui-paginator {
     margin: 0;
     text-align: center;
@@ -4007,43 +4044,6 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-paginator .ui-dropdown {
     width: auto;
 }
-.ui-panel {
-	padding: 0.2em;
-}
-
-.ui-panel .ui-panel-titlebar {
-	padding: .5em .75em;
-}
-
-.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
-    cursor: pointer;
-}
-
-.ui-panel .ui-panel-titlebar-icon {
-	float: right;
-    cursor: pointer;
-}
-
-.ui-panel .ui-panel-titlebar-icon {
-	margin-left: 0.2em;
-    margin-top: -0.1em;
-}
-
-.ui-panel .ui-panel-content {
-	border: 0;
-    background: none;
-    padding: .5em .75em;
-}
-
-.ui-panel .ui-panel-footer {
-	border-width: 1px 0 0;
-	padding: .25em .5em;
-	text-align:left;
-}
-  
-.ui-panel-content-wrapper-overflown {
-    overflow: hidden;
-}     
 .ui-panelmenu {
     width: auto;
 }
