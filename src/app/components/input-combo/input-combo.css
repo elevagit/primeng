@@ -1,11 +1,11 @@
-.ui-inputcombo {
+.ui-dropdown {
     display: inline-block;
     position: relative;
     cursor: pointer;
     vertical-align: middle;
 }
 
-.ui-inputcombo .ui-inputcombo-clear-icon {
+.ui-dropdown .ui-dropdown-clear-icon {
     position: absolute;
     right: 2em;
     top: 50%;
@@ -14,7 +14,7 @@
     margin-top: -.5em;
 }
 
-.ui-inputcombo .ui-inputcombo-trigger {
+.ui-dropdown .ui-dropdown-trigger {
     border-right: none;
     border-top: none;
     border-bottom: none;
@@ -27,7 +27,7 @@
     padding: 0 .25em;
 }
 
-.ui-inputcombo .ui-inputcombo-trigger .ui-inputcombo-trigger-icon {
+.ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
     top: 50%;
     left: 50%;
     margin-top: -.5em;
@@ -35,7 +35,7 @@
     position: absolute;
 }
 
-.ui-inputcombo .ui-inputcombo-label  {
+.ui-dropdown .ui-dropdown-label  {
     display: block;
     border: none;
     white-space: nowrap;
@@ -45,39 +45,39 @@
     padding-right: 2.5em;
 }
 
-.ui-inputcombo-item-empty,
-.ui-inputcombo-label-empty {
+.ui-dropdown-item-empty,
+.ui-dropdown-label-empty {
     text-indent: -9999px;   
     overflow: hidden;
 }
 
-.ui-inputcombo.ui-state-disabled .ui-inputcombo-trigger,
-.ui-inputcombo.ui-state-disabled .ui-inputcombo-label {
+.ui-dropdown.ui-state-disabled .ui-dropdown-trigger,
+.ui-dropdown.ui-state-disabled .ui-dropdown-label {
     cursor: default;
 }
 
-.ui-inputcombo label.ui-inputcombo-label  {
+.ui-dropdown label.ui-dropdown-label  {
     cursor: pointer;
 }
 
-.ui-inputcombo input.ui-inputcombo-label  {
+.ui-dropdown input.ui-dropdown-label  {
     cursor: default;
 }
 
-.ui-inputcombo .ui-inputcombo-panel {
+.ui-dropdown .ui-dropdown-panel {
     min-width: 100%;
 }
 
-.ui-inputcombo-panel {
+.ui-dropdown-panel {
     position: absolute;
     height: auto;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-items-wrapper {
+.ui-dropdown-panel .ui-dropdown-items-wrapper {
     overflow: auto;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-item {
+.ui-dropdown-panel .ui-dropdown-item {
     font-weight: normal;
     border: 0 none;
     cursor: pointer;
@@ -86,23 +86,23 @@
     text-align: left;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-item-group {
+.ui-dropdown-panel .ui-dropdown-item-group {
     font-weight: bold;
     cursor: default;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-list {
+.ui-dropdown-panel .ui-dropdown-list {
     padding: 0.4em;
     border: 0 none;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-filter {
+.ui-dropdown-panel .ui-dropdown-filter {
     width: 100%;
     box-sizing: border-box;
     padding-right: 1.5em;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-filter-container {
+.ui-dropdown-panel .ui-dropdown-filter-container {
     position: relative;
     margin: 0;
     padding: 0.4em;
@@ -110,13 +110,13 @@
     width: 100%;
 }
 
-.ui-inputcombo-panel .ui-inputcombo-filter-container .ui-inputcombo-filter-icon {
+.ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
     position: absolute;
     top: .8em;
     right: 1em;
 }
 
 /** Dropdown **/
-.ui-fluid .ui-inputcombo {
+.ui-fluid .ui-dropdown {
     width: 100%;
 }

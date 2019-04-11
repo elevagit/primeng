@@ -37,7 +37,7 @@ export declare class InputCombo implements OnInit, AfterViewInit, AfterContentIn
     filterBy: string;
     autofocus: boolean;
     resetFilterOnHide: boolean;
-    inputcomboIcon: string;
+    dropdownIcon: string;
     optionLabel: string;
     autoDisplayFirst: boolean;
     group: boolean;

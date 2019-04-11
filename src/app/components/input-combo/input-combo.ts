@@ -17,8 +17,8 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
 @Component({
     selector: 'p-inputcombo',
     template: `
-         <div #container [ngClass]="{'ui-inputcombo ui-widget ui-state-default ui-corner-all ui-helper-clearfix':true,
-            'ui-state-disabled':disabled, 'ui-inputcombo-open':overlayVisible, 'ui-state-focus':focused, 'ui-inputcombo-clearable': showClear && !disabled}"
+         <div #container [ngClass]="{'ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix':true,
+            'ui-state-disabled':disabled, 'ui-dropdown-open':overlayVisible, 'ui-state-focus':focused, 'ui-dropdown-clearable': showClear && !disabled}"
             (click)="onMouseclick($event)" (focusin)="focusInComponent($event)" [ngStyle]="style" [class]="styleClass">
             <div class="ui-helper-hidden-accessible" *ngIf="autoWidth">
                 <select [attr.id]="selectId" [required]="required" [attr.name]="name" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" tabindex="-1" aria-hidden="true">
@@ -37,28 +37,28 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                 <input #in [attr.id]="inputId" type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" readonly (focus)="onInputFocus($event)" role="listbox"
                     (blur)="onInputBlur($event)" (keydown)="onKeydown($event, true)" [disabled]="disabled" [attr.tabindex]="tabindex" [attr.autofocus]="autofocus">
             </div>
-            <label [ngClass]="{'ui-inputcombo-label ui-inputtext ui-corner-all':true,'ui-inputcombo-label-empty':(label == null || label.length === 0)}" *ngIf="!editable && (label != null)">
+            <label [ngClass]="{'ui-dropdown-label ui-inputtext ui-corner-all':true,'ui-dropdown-label-empty':(label == null || label.length === 0)}" *ngIf="!editable && (label != null)">
                 <ng-container *ngIf="!selectedItemTemplate">{{label||'empty'}}</ng-container>
                 <ng-container *ngTemplateOutlet="selectedItemTemplate; context: {$implicit: selectedOption}"></ng-container>
             </label>
-            <label [ngClass]="{'ui-inputcombo-label ui-inputtext ui-corner-all ui-placeholder':true,'ui-inputcombo-label-empty': (placeholder == null || placeholder.length === 0)}" *ngIf="!editable && (label == null)">{{placeholder||'empty'}}</label>
-            <input #editableInput type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" class="ui-inputcombo-label ui-inputtext ui-corner-all" *ngIf="editable" [disabled]="disabled" [attr.placeholder]="placeholder"
+            <label [ngClass]="{'ui-dropdown-label ui-inputtext ui-corner-all ui-placeholder':true,'ui-dropdown-label-empty': (placeholder == null || placeholder.length === 0)}" *ngIf="!editable && (label == null)">{{placeholder||'empty'}}</label>
+            <input #editableInput type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" class="ui-dropdown-label ui-inputtext ui-corner-all" *ngIf="editable" [disabled]="disabled" [attr.placeholder]="placeholder"
                         (click)="onEditableInputClick($event)" (input)="onEditableInputChange($event)" (focus)="onEditableInputFocus($event)" (blur)="onInputBlur($event)">
-            <i class="ui-inputcombo-clear-icon pi pi-times" (click)="clear($event)" *ngIf="value != null && showClear && !disabled"></i>
-            <div class="ui-inputcombo-trigger ui-state-default ui-corner-right">
-                <span class="ui-inputcombo-trigger-icon ui-clickable" [ngClass]="inputcomboIcon"></span>
+            <i class="ui-dropdown-clear-icon pi pi-times" (click)="clear($event)" *ngIf="value != null && showClear && !disabled"></i>
+            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
+                <span class="ui-dropdown-trigger-icon ui-clickable" [ngClass]="dropdownIcon"></span>
             </div>
-            <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-inputcombo-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
-                <div *ngIf="filter" class="ui-inputcombo-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
-                    <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-inputcombo-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
+            <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
+                <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
+                    <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
                     (keyup.enter)="onEnterKey($event)" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
-                    <span class="ui-inputcombo-filter-icon pi" [ngClass]="{'pi-search': !loading, 'pi-spinner pi-spin': loading}"></span>
+                    <span class="ui-dropdown-filter-icon pi" [ngClass]="{'pi-search': !loading, 'pi-spinner pi-spin': loading}"></span>
                 </div>
-                <div class="ui-inputcombo-items-wrapper" [style.max-height]="scrollHeight||'auto'">
-                    <ul class="ui-inputcombo-items ui-inputcombo-list ui-widget-content ui-widget ui-corner-all ui-helper-reset">
+                <div class="ui-dropdown-items-wrapper" [style.max-height]="scrollHeight||'auto'">
+                    <ul class="ui-dropdown-items ui-dropdown-list ui-widget-content ui-widget ui-corner-all ui-helper-reset">
                         <ng-container *ngIf="group">
                             <ng-template ngFor let-optgroup [ngForOf]="optionsToDisplay">
-                                <li class="ui-inputcombo-item-group">
+                                <li class="ui-dropdown-item-group">
                                     <span *ngIf="!groupTemplate">{{optgroup.label||'empty'}}</span>
                                     <ng-container *ngTemplateOutlet="groupTemplate; context: {$implicit: optgroup}"></ng-container>
                                 </li>
@@ -70,10 +70,10 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                         </ng-container>
                         <ng-template #itemslist let-options let-selectedOption="selectedOption">
                             <li *ngFor="let option of options;let i=index" (click)="onItemClick($event, option)"
-                                    [ngClass]="{'ui-inputcombo-item ui-corner-all':true,
+                                    [ngClass]="{'ui-dropdown-item ui-corner-all':true,
                                                 'ui-state-highlight':(selectedIndex == i),
                                                 'ui-state-disabled':(option.disabled),
-                                                'ui-inputcombo-item-empty':!option.label||option.label.length === 0}">
+                                                'ui-dropdown-item-empty':!option.label||option.label.length === 0}">
                                 <span *ngIf="!itemTemplate">{{option.label||'empty'}}</span>
                                 <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: option}"></ng-container>
                             </li>
@@ -157,7 +157,7 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
     
     @Input() resetFilterOnHide: boolean = false;
     
-    @Input() inputcomboIcon: string = 'pi pi-caret-down';
+    @Input() dropdownIcon: string = 'pi pi-caret-down';
     
     @Input() optionLabel: string;
 
@@ -476,9 +476,9 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
         if (this.podeAdicionar && !this.valueTypedIsPresent()){
             var addItem = {label: 'Adicionar novo', value: {isAdd: true, id: -3}};
             if (this.getFilterValue() == ""){
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-inputcombo"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
+                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar novo</span>`;
             } else {
-                addItem.value[this.optionLabel] = `<span class="adicionar-novo-inputcombo"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
+                addItem.value[this.optionLabel] = `<span class="adicionar-novo-dropdown"><i class="fa fa-plus"></i>&nbsp; Adicionar '${this.getFilterValue()}'</span>`;
             }
             if (!this.optionsToDisplay){
                 this.optionsToDisplay = [];
@@ -543,7 +543,7 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
         this.onClick.emit(event);
         
         this.selfClick = true;
-        this.clearClick = this.domHandler.hasClass(event.target, 'ui-inputcombo-clear-icon');
+        this.clearClick = this.domHandler.hasClass(event.target, 'ui-dropdown-clear-icon');
         
         if (!this.itemClick && !this.clearClick) {
             this.focusViewChild.nativeElement.focus();
@@ -608,7 +608,7 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
         switch (event.toState) {
             case 'visible':
                 this.overlay = event.element;
-                this.itemsWrapper = this.domHandler.findSingle(this.overlay, '.ui-inputcombo-items-wrapper');
+                this.itemsWrapper = this.domHandler.findSingle(this.overlay, '.ui-dropdown-items-wrapper');
                 this.appendOverlay();
                 if (this.autoZIndex) {
                     this.overlay.style.zIndex = String(this.baseZIndex + (++DomHandler.zindex));
@@ -618,7 +618,7 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
                 this.bindDocumentResizeListener();
 
                 if (this.options && this.options.length) {
-                    let selectedListItem = this.domHandler.findSingle(this.itemsWrapper, '.ui-inputcombo-item.ui-state-highlight');
+                    let selectedListItem = this.domHandler.findSingle(this.itemsWrapper, '.ui-dropdown-item.ui-state-highlight');
                     if (selectedListItem) {
                         this.domHandler.scrollInView(this.itemsWrapper, selectedListItem);
                     }
@@ -1068,7 +1068,7 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
     
     applyFocus(): void {
         if (this.editable)
-            this.domHandler.findSingle(this.el.nativeElement, '.ui-inputcombo-label.ui-inputtext').focus();
+            this.domHandler.findSingle(this.el.nativeElement, '.ui-dropdown-label.ui-inputtext').focus();
         else
             this.domHandler.findSingle(this.el.nativeElement, 'input[readonly]').focus();
     }
