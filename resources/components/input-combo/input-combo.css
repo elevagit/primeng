@@ -1,0 +1,122 @@
+.ui-inputcombo {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.ui-inputcombo .ui-inputcombo-clear-icon {
+    position: absolute;
+    right: 2em;
+    top: 50%;
+    font-size: 1em;
+    height: 1em;
+    margin-top: -.5em;
+}
+
+.ui-inputcombo .ui-inputcombo-trigger {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 .25em;
+}
+
+.ui-inputcombo .ui-inputcombo-trigger .ui-inputcombo-trigger-icon {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    position: absolute;
+}
+
+.ui-inputcombo .ui-inputcombo-label  {
+    display: block;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: normal;
+    width: 100%;
+    padding-right: 2.5em;
+}
+
+.ui-inputcombo-item-empty,
+.ui-inputcombo-label-empty {
+    text-indent: -9999px;   
+    overflow: hidden;
+}
+
+.ui-inputcombo.ui-state-disabled .ui-inputcombo-trigger,
+.ui-inputcombo.ui-state-disabled .ui-inputcombo-label {
+    cursor: default;
+}
+
+.ui-inputcombo label.ui-inputcombo-label  {
+    cursor: pointer;
+}
+
+.ui-inputcombo input.ui-inputcombo-label  {
+    cursor: default;
+}
+
+.ui-inputcombo .ui-inputcombo-panel {
+    min-width: 100%;
+}
+
+.ui-inputcombo-panel {
+    position: absolute;
+    height: auto;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-items-wrapper {
+    overflow: auto;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-item {
+    font-weight: normal;
+    border: 0 none;
+    cursor: pointer;
+    margin: 1px 0;
+    padding: .125em .25em;
+    text-align: left;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-item-group {
+    font-weight: bold;
+    cursor: default;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-list {
+    padding: 0.4em;
+    border: 0 none;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 1.5em;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter-container {
+    position: relative;
+    margin: 0;
+    padding: 0.4em;
+    display: inline-block;
+    width: 100%;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter-container .ui-inputcombo-filter-icon {
+    position: absolute;
+    top: .8em;
+    right: 1em;
+}
+
+/** Dropdown **/
+.ui-fluid .ui-inputcombo {
+    width: 100%;
+}

@@ -1958,6 +1958,92 @@ input[type=text]::-ms-clear {
 .ui-fieldset .ui-fieldset-content-wrapper-overflown {
     overflow: hidden;
 } 
+.ui-fluid .fc .ui-button {
+    width: auto;
+}
+.ui-galleria {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+
+.ui-galleria .ui-galleria-panel-wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-galleria .ui-galleria-panel {
+    filter: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+}
+
+.ui-galleria .ui-galleria-filmstrip-wrapper {
+    overflow: hidden;
+    margin: .25em auto;
+    position: relative;
+}
+
+.ui-galleria .ui-galleria-filmstrip {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 2340px;
+    z-index: 900;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ui-galleria .ui-galleria-frame {
+    float:left;
+    margin-right: 5px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.ui-galleria .ui-galleria-frame-active {
+    opacity: 1;
+}
+
+.ui-galleria .ui-galleria-frame-content {
+    overflow: hidden;
+}
+
+.ui-galleria .ui-galleria-nav-next, .ui-galleria .ui-galleria-nav-prev {
+	cursor: pointer;
+    position: absolute;
+    z-index: 910;
+}
+
+.ui-galleria .ui-galleria-nav-prev {
+    left: 4px;
+}
+
+.ui-galleria .ui-galleria-nav-next {
+    right: 4px;
+}
+
+.ui-galleria .ui-galleria-caption {
+    position: absolute;
+    left:1px;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    color: #ededed;
+    padding: 0.2em 1em;
+}
+
+.ui-galleria .ui-galleria-caption h4 {
+    color: #ededed;
+}
+
+.ui-galleria .ui-galleria-panel-content {
+    padding: 1em 1.4em;
+}
+
 /*
  * FileUpload
  */
@@ -2071,92 +2157,6 @@ input[type=text]::-ms-clear {
 
 
 
-.ui-fluid .fc .ui-button {
-    width: auto;
-}
-.ui-galleria {
-    overflow: hidden;
-    visibility: hidden;
-    position: relative;
-}
-
-.ui-galleria .ui-galleria-panel-wrapper {
-    position: relative;
-    padding: 0;
-    margin: 0;
-}
-
-.ui-galleria .ui-galleria-panel {
-    filter: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    list-style-type: none;
-}
-
-.ui-galleria .ui-galleria-filmstrip-wrapper {
-    overflow: hidden;
-    margin: .25em auto;
-    position: relative;
-}
-
-.ui-galleria .ui-galleria-filmstrip {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-    width: 2340px;
-    z-index: 900;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.ui-galleria .ui-galleria-frame {
-    float:left;
-    margin-right: 5px;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.ui-galleria .ui-galleria-frame-active {
-    opacity: 1;
-}
-
-.ui-galleria .ui-galleria-frame-content {
-    overflow: hidden;
-}
-
-.ui-galleria .ui-galleria-nav-next, .ui-galleria .ui-galleria-nav-prev {
-	cursor: pointer;
-    position: absolute;
-    z-index: 910;
-}
-
-.ui-galleria .ui-galleria-nav-prev {
-    left: 4px;
-}
-
-.ui-galleria .ui-galleria-nav-next {
-    right: 4px;
-}
-
-.ui-galleria .ui-galleria-caption {
-    position: absolute;
-    left:1px;
-    background-color: rgba(0,0,0,0.5);
-    display: none;
-    color: #ededed;
-    padding: 0.2em 1em;
-}
-
-.ui-galleria .ui-galleria-caption h4 {
-    color: #ededed;
-}
-
-.ui-galleria .ui-galleria-panel-content {
-    padding: 1em 1.4em;
-}
-
 .ui-growl {
 	position:fixed;
 	top: 20px;
@@ -2211,6 +2211,17 @@ input[type=text]::-ms-clear {
 
 .ui-growl-message p {
 	font-weight: normal;
+}
+.ui-inplace .ui-inplace-display {
+    display: inline;
+    cursor: pointer;
+    border: 0 none;
+    padding: .25em;
+    font-weight: normal;
+}
+
+.ui-inplace .ui-inplace-content {
+    display: inline;
 }
 /* Deprecated Grid CSS */
 .ui-grid {
@@ -2989,17 +3000,129 @@ input[type=text]::-ms-clear {
     padding: 0;
 }
 
-.ui-inplace .ui-inplace-display {
-    display: inline;
+.ui-inputcombo {
+    display: inline-block;
+    position: relative;
     cursor: pointer;
-    border: 0 none;
-    padding: .25em;
-    font-weight: normal;
+    vertical-align: middle;
 }
 
-.ui-inplace .ui-inplace-content {
-    display: inline;
+.ui-inputcombo .ui-inputcombo-clear-icon {
+    position: absolute;
+    right: 2em;
+    top: 50%;
+    font-size: 1em;
+    height: 1em;
+    margin-top: -.5em;
 }
+
+.ui-inputcombo .ui-inputcombo-trigger {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 .25em;
+}
+
+.ui-inputcombo .ui-inputcombo-trigger .ui-inputcombo-trigger-icon {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    position: absolute;
+}
+
+.ui-inputcombo .ui-inputcombo-label  {
+    display: block;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: normal;
+    width: 100%;
+    padding-right: 2.5em;
+}
+
+.ui-inputcombo-item-empty,
+.ui-inputcombo-label-empty {
+    text-indent: -9999px;   
+    overflow: hidden;
+}
+
+.ui-inputcombo.ui-state-disabled .ui-inputcombo-trigger,
+.ui-inputcombo.ui-state-disabled .ui-inputcombo-label {
+    cursor: default;
+}
+
+.ui-inputcombo label.ui-inputcombo-label  {
+    cursor: pointer;
+}
+
+.ui-inputcombo input.ui-inputcombo-label  {
+    cursor: default;
+}
+
+.ui-inputcombo .ui-inputcombo-panel {
+    min-width: 100%;
+}
+
+.ui-inputcombo-panel {
+    position: absolute;
+    height: auto;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-items-wrapper {
+    overflow: auto;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-item {
+    font-weight: normal;
+    border: 0 none;
+    cursor: pointer;
+    margin: 1px 0;
+    padding: .125em .25em;
+    text-align: left;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-item-group {
+    font-weight: bold;
+    cursor: default;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-list {
+    padding: 0.4em;
+    border: 0 none;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 1.5em;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter-container {
+    position: relative;
+    margin: 0;
+    padding: 0.4em;
+    display: inline-block;
+    width: 100%;
+}
+
+.ui-inputcombo-panel .ui-inputcombo-filter-container .ui-inputcombo-filter-icon {
+    position: absolute;
+    top: .8em;
+    right: 1em;
+}
+
+/** Dropdown **/
+.ui-fluid .ui-inputcombo {
+    width: 100%;
+}
+
 .ui-inputswitch {
     position: relative;
     display: inline-block;
@@ -3913,43 +4036,6 @@ input[type=text]::-ms-clear {
 .ui-overlaypanel-close-icon {
     line-height: inherit;
 }
-.ui-panel {
-	padding: 0.2em;
-}
-
-.ui-panel .ui-panel-titlebar {
-	padding: .5em .75em;
-}
-
-.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
-    cursor: pointer;
-}
-
-.ui-panel .ui-panel-titlebar-icon {
-	float: right;
-    cursor: pointer;
-}
-
-.ui-panel .ui-panel-titlebar-icon {
-	margin-left: 0.2em;
-    margin-top: -0.1em;
-}
-
-.ui-panel .ui-panel-content {
-	border: 0;
-    background: none;
-    padding: .5em .75em;
-}
-
-.ui-panel .ui-panel-footer {
-	border-width: 1px 0 0;
-	padding: .25em .5em;
-	text-align:left;
-}
-  
-.ui-panel-content-wrapper-overflown {
-    overflow: hidden;
-}     
 .ui-paginator {
     margin: 0;
     text-align: center;
@@ -4044,6 +4130,43 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-paginator .ui-dropdown {
     width: auto;
 }
+.ui-panel {
+	padding: 0.2em;
+}
+
+.ui-panel .ui-panel-titlebar {
+	padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-titlebar.ui-panel-titlebar-clickable {
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	float: right;
+    cursor: pointer;
+}
+
+.ui-panel .ui-panel-titlebar-icon {
+	margin-left: 0.2em;
+    margin-top: -0.1em;
+}
+
+.ui-panel .ui-panel-content {
+	border: 0;
+    background: none;
+    padding: .5em .75em;
+}
+
+.ui-panel .ui-panel-footer {
+	border-width: 1px 0 0;
+	padding: .25em .5em;
+	text-align:left;
+}
+  
+.ui-panel-content-wrapper-overflown {
+    overflow: hidden;
+}     
 .ui-panelmenu {
     width: auto;
 }
