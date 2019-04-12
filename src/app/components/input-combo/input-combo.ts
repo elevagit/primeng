@@ -49,7 +49,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
             <!-- <input #editableInput type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" class="ui-dropdown-label ui-inputtext ui-corner-all" *ngIf="editable" [disabled]="disabled" [attr.placeholder]="placeholder"
                         (click)="onEditableInputClick($event)" (input)="onEditableInputChange($event)" (focus)="onEditableInputFocus($event)" (blur)="onInputBlur($event)"> -->
             <i class="ui-dropdown-clear-icon pi pi-times" (click)="clear($event)" *ngIf="value != null && showClear && !disabled"></i>
-            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
+            <div *ngIf="showArrow" class="ui-dropdown-trigger ui-state-default ui-corner-right">
                 <span class="ui-dropdown-trigger-icon ui-clickable" [ngClass]="dropdownIcon"></span>
             </div>
             <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
@@ -170,6 +170,8 @@ export class InputCombo implements OnInit,AfterViewInit,AfterContentInit,AfterVi
     @Input() group: boolean;
 
     @Input() showClear: boolean;
+
+    @Input() showArrow: boolean = false;
 
     @Input() emptyFilterMessage: string = 'Nenhum resultado encontrado.';
 

@@ -42,6 +42,7 @@ export declare class InputCombo implements OnInit, AfterViewInit, AfterContentIn
     autoDisplayFirst: boolean;
     group: boolean;
     showClear: boolean;
+    showArrow: boolean;
     emptyFilterMessage: string;
     autoZIndex: boolean;
     baseZIndex: number;
