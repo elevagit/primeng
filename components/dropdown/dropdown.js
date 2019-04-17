@@ -22,6 +22,16 @@ exports.DROPDOWN_VALUE_ACCESSOR = {
     multi: true
 };
 var Dropdown = /** @class */ (function () {
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+        if (event.key == "\\" && event.key == '"') {
+            event.preventDefault();
+        }
+    }
+
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+        this.validateFields(event);
+    }
+    */
     function Dropdown(el, domHandler, renderer, cd, objectUtils, zone) {
         this.el = el;
         this.domHandler = domHandler;
@@ -58,14 +68,6 @@ var Dropdown = /** @class */ (function () {
         this.onModelChange = function () { };
         this.onModelTouched = function () { };
     }
-    Dropdown.prototype.onKeyPress = function (event) {
-        if (event.key == "\\" && event.key == '"') {
-            event.preventDefault();
-        }
-    };
-    Dropdown.prototype.blockPaste = function (event) {
-        this.validateFields(event);
-    };
     Dropdown.prototype.ngAfterContentInit = function () {
         var _this = this;
         this.templates.forEach(function (item) {
@@ -493,6 +495,9 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype.onKeydown = function (event, search) {
         if (this.readonly || !this.optionsToDisplay || this.optionsToDisplay.length === null) {
             return;
+        }
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
         }
         switch (event.which) {
             //down
@@ -1050,18 +1055,6 @@ var Dropdown = /** @class */ (function () {
         core_1.ContentChildren(shared_1.PrimeTemplate),
         __metadata("design:type", core_1.QueryList)
     ], Dropdown.prototype, "templates", void 0);
-    __decorate([
-        core_1.HostListener('keydown', ['$event']),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", void 0)
-    ], Dropdown.prototype, "onKeyPress", null);
-    __decorate([
-        core_1.HostListener('paste', ['$event']),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [KeyboardEvent]),
-        __metadata("design:returntype", void 0)
-    ], Dropdown.prototype, "blockPaste", null);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Array),

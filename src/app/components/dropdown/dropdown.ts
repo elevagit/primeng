@@ -275,7 +275,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
 
     documentResizeListener: any;
 
-    @HostListener('keydown', ['$event']) onKeyPress(event) {
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
         if (event.key == "\\" && event.key == '"') {
             event.preventDefault();
         }
@@ -284,7 +284,7 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
         this.validateFields(event);
     }
-    
+    */
     constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, private cd: ChangeDetectorRef,
                 public objectUtils: ObjectUtils, public zone: NgZone) {}
     
@@ -769,6 +769,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     onKeydown(event: KeyboardEvent, search: boolean) {
         if (this.readonly || !this.optionsToDisplay || this.optionsToDisplay.length === null) {
             return;
+        }
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
         }
 
         switch(event.which) {

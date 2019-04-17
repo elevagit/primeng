@@ -93,8 +93,6 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     differ: any;
     inputFieldValue: string;
     loading: boolean;
-    onKeyPress(event: any): void;
-    blockPaste(event: KeyboardEvent): void;
     constructor(el: ElementRef, domHandler: DomHandler, renderer: Renderer2, objectUtils: ObjectUtils, cd: ChangeDetectorRef, differs: IterableDiffers);
     suggestions: any[];
     ngDoCheck(): void;

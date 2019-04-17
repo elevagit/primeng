@@ -235,7 +235,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   loading: boolean;
 
-  @HostListener('keydown', ['$event']) onKeyPress(event) {
+  /*@HostListener('keydown', ['$event']) onKeyPress(event) {
     if (event.key == "\\" && event.key == '"') {
       event.preventDefault();
     }
@@ -243,7 +243,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
     this.validateFields(event);
-  }
+  }*/
 
   constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, public objectUtils: ObjectUtils, public cd: ChangeDetectorRef, public differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
@@ -693,6 +693,11 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
    }*/
 
   onKeydown(event) {
+
+    if (event.key == "\\" || event.key == '"') {
+      event.preventDefault();
+    }
+
     if (this.overlayVisible) {
       let highlightItemIndex = this.findOptionIndex(this.highlightOption);
 

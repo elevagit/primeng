@@ -24,6 +24,15 @@ exports.AUTOCOMPLETE_VALUE_ACCESSOR = {
     multi: true
 };
 var AutoComplete = /** @class */ (function () {
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+      if (event.key == "\\" && event.key == '"') {
+        event.preventDefault();
+      }
+    }
+  
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+      this.validateFields(event);
+    }*/
     function AutoComplete(el, domHandler, renderer, objectUtils, cd, differs) {
         this.el = el;
         this.domHandler = domHandler;
@@ -70,14 +79,6 @@ var AutoComplete = /** @class */ (function () {
         this.inputFieldValue = null;
         this.differ = differs.find([]).create(null);
     }
-    AutoComplete.prototype.onKeyPress = function (event) {
-        if (event.key == "\\" && event.key == '"') {
-            event.preventDefault();
-        }
-    };
-    AutoComplete.prototype.blockPaste = function (event) {
-        this.validateFields(event);
-    };
     Object.defineProperty(AutoComplete.prototype, "suggestions", {
         get: function () {
             return this._suggestions;
@@ -481,6 +482,9 @@ var AutoComplete = /** @class */ (function () {
          this.onUnselect.emit(removedValue);
      }*/
     AutoComplete.prototype.onKeydown = function (event) {
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
+        }
         if (this.overlayVisible) {
             var highlightItemIndex = this.findOptionIndex(this.highlightOption);
             switch (event.which) {
@@ -962,18 +966,6 @@ var AutoComplete = /** @class */ (function () {
         core_1.ContentChildren(shared_1.PrimeTemplate),
         __metadata("design:type", core_1.QueryList)
     ], AutoComplete.prototype, "templates", void 0);
-    __decorate([
-        core_1.HostListener('keydown', ['$event']),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", void 0)
-    ], AutoComplete.prototype, "onKeyPress", null);
-    __decorate([
-        core_1.HostListener('paste', ['$event']),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [KeyboardEvent]),
-        __metadata("design:returntype", void 0)
-    ], AutoComplete.prototype, "blockPaste", null);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Array),
