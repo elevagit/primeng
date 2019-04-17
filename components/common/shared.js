@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var core_2 = require("@angular/core");
+var remove_aspas_directive_1 = require("../utils/remove-aspas.directive");
+var remove_caracteres_directive_1 = require("../utils/remove-caracteres.directive");
 var Header = /** @class */ (function () {
     function Header() {
     }
@@ -305,7 +307,7 @@ var SharedModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [common_1.CommonModule],
             exports: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup],
-            declarations: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup]
+            declarations: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup, remove_aspas_directive_1.RemoveAspasDirective, remove_caracteres_directive_1.RemoveCaracteresDirective]
         })
     ], SharedModule);
     return SharedModule;

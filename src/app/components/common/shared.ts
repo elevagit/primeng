@@ -1,6 +1,8 @@
 import {NgModule,EventEmitter,Directive,ViewContainerRef,Input,Output,ContentChildren,ContentChild,TemplateRef,OnInit,OnChanges,OnDestroy,AfterContentInit,QueryList,SimpleChanges,EmbeddedViewRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
+import { RemoveAspasDirective } from '../utils/remove-aspas.directive';
+import { RemoveCaracteresDirective } from '../utils/remove-caracteres.directive';
 
 @Component({
     selector: 'p-header',
@@ -148,6 +150,6 @@ export class FooterColumnGroup {
 @NgModule({
     imports: [CommonModule],
     exports: [Header,Footer,Column,PrimeTemplate,Row,HeaderColumnGroup,FooterColumnGroup],
-    declarations: [Header,Footer,Column,PrimeTemplate,Row,HeaderColumnGroup,FooterColumnGroup]
+    declarations: [Header,Footer,Column,PrimeTemplate,Row,HeaderColumnGroup,FooterColumnGroup,RemoveAspasDirective,RemoveCaracteresDirective]
 })
 export class SharedModule { }
