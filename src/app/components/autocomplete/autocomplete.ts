@@ -1,4 +1,4 @@
-import { NgModule, Component, ViewChild, ElementRef, AfterViewChecked, AfterContentInit, DoCheck, Input, Output, EventEmitter, ContentChildren, QueryList, TemplateRef, Renderer2, forwardRef, ChangeDetectorRef, IterableDiffers } from '@angular/core';
+import { NgModule, Component, ViewChild, ElementRef, AfterViewChecked, AfterContentInit, DoCheck, Input, Output, EventEmitter, ContentChildren, QueryList, TemplateRef, Renderer2, forwardRef, ChangeDetectorRef, IterableDiffers, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate, AnimationEvent } from '@angular/animations';
 import { InputTextModule } from '../inputtext/inputtext';
@@ -18,7 +18,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: any = {
   selector: 'p-autoComplete',
   template: `
         <span [ngClass]="{'ui-autocomplete ui-widget':true,'ui-autocomplete-dd':dropdown,'ui-autocomplete-multiple':multiple}" [ngStyle]="style" [class]="styleClass">
-            <input removeAspas removeCaracteres *ngIf="!multiple" #in [attr.type]="type" [attr.id]="inputId" [ngStyle]="inputStyle" [class]="inputStyleClass" autocomplete="off" [attr.required]="required"
+            <input *ngIf="!multiple" #in [attr.type]="type" [attr.id]="inputId" [ngStyle]="inputStyle" [class]="inputStyleClass" autocomplete="off" [attr.required]="required"
             [ngClass]="'ui-inputtext ui-widget ui-state-default ui-corner-all ui-autocomplete-input'" [value]="inputFieldValue"
             (click)="onInputClick($event)" (input)="onInput($event)" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" (focus)="onInputFocus($event)" (blur)="onInputBlur($event)" (change)="onInputChange($event)" (paste)="onInputPaste($event)"
             [attr.placeholder]="placeholder" [attr.size]="size" [attr.maxlength]="maxlength" [attr.tabindex]="tabindex" [readonly]="readonly" [disabled]="disabled" [attr.aria-label]="ariaLabel" [attr.aria-labelledby]="ariaLabelledBy" [attr.aria-required]="required"
@@ -29,7 +29,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: any = {
                     <ng-container *ngTemplateOutlet="selectedItemTemplate; context: {$implicit: val}"></ng-container>
                 </li>
                 <li class="ui-autocomplete-input-token" (click)="onInputClick($event)">
-                    <input removeAspas removeCaracteres #multiIn [attr.type]="type" [attr.maxlength]="maxlength" [attr.id]="inputId" [disabled]="disabled" [attr.placeholder]="(value&&value.length ? null : placeholder)" [attr.tabindex]="tabindex" (input)="onInput($event)"  (click)="onInputClick($event)"
+                    <input #multiIn [attr.type]="type" [attr.maxlength]="maxlength" [attr.id]="inputId" [disabled]="disabled" [attr.placeholder]="(value&&value.length ? null : placeholder)" [attr.tabindex]="tabindex" (input)="onInput($event)"  (click)="onInputClick($event)"
                             (keydown)="onKeydown($event)" [readonly]="readonly" (keyup)="onKeyup($event)" (focus)="onInputFocus($event)" (blur)="onInputBlur($event)" (change)="onInputChange($event)" (paste)="onInputPaste($event)" autocomplete="off" 
                             [ngStyle]="inputStyle" [class]="inputStyleClass" [attr.aria-label]="ariaLabel" [attr.aria-labelledby]="ariaLabelledBy" [attr.aria-required]="required">
                 </li>
@@ -235,6 +235,16 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   loading: boolean;
 
+  @HostListener('keydown', ['$event']) onKeyPress(event) {
+    if (event.key == "\\" && event.key == '"') {
+      event.preventDefault();
+    }
+  }
+
+  @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+    this.validateFields(event);
+  }
+
   constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, public objectUtils: ObjectUtils, public cd: ChangeDetectorRef, public differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
   }
@@ -278,6 +288,13 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       }, 1);
       this.highlightOptionChanged = false;
     }
+  }
+
+  validateFields(event) {
+    setTimeout(() => {
+      this.el.nativeElement.value = this.el.nativeElement.value.replace("\\", "").replace('"', '');
+      event.preventDefault();
+    }, 100);
   }
 
   includeAddToOptionsToDisplay() {

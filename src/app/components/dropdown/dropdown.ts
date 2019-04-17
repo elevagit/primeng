@@ -1,5 +1,5 @@
 import {NgModule,Component,ElementRef,OnInit,AfterViewInit,AfterContentInit,AfterViewChecked,OnDestroy,Input,Output,Renderer2,EventEmitter,ContentChildren,
-        QueryList,ViewChild,TemplateRef,forwardRef,ChangeDetectorRef,NgZone} from '@angular/core';
+        QueryList,ViewChild,TemplateRef,forwardRef,ChangeDetectorRef,NgZone, HostListener} from '@angular/core';
 import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/animations';
 import {CommonModule} from '@angular/common';
 import {SelectItem} from '../common/selectitem';
@@ -34,7 +34,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                 </select>
             </div>
             <div class="ui-helper-hidden-accessible">
-                <input removeAspas removeCaracteres #in [attr.id]="inputId" type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" readonly (focus)="onInputFocus($event)" role="listbox"
+                <input #in [attr.id]="inputId" type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" readonly (focus)="onInputFocus($event)" role="listbox"
                     (blur)="onInputBlur($event)" (keydown)="onKeydown($event, true)" [disabled]="disabled" [attr.tabindex]="tabindex" [attr.autofocus]="autofocus">
             </div>
             <label [ngClass]="{'ui-dropdown-label ui-inputtext ui-corner-all':true,'ui-dropdown-label-empty':(label == null || label.length === 0)}" *ngIf="!editable && (label != null)">
@@ -42,7 +42,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
                 <ng-container *ngTemplateOutlet="selectedItemTemplate; context: {$implicit: selectedOption}"></ng-container>
             </label>
             <label [ngClass]="{'ui-dropdown-label ui-inputtext ui-corner-all ui-placeholder':true,'ui-dropdown-label-empty': (placeholder == null || placeholder.length === 0)}" *ngIf="!editable && (label == null)">{{placeholder||'empty'}}</label>
-            <input removeAspas removeCaracteres #editableInput type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" class="ui-dropdown-label ui-inputtext ui-corner-all" *ngIf="editable" [disabled]="disabled" [attr.placeholder]="placeholder"
+            <input #editableInput type="text" [attr.aria-label]="selectedOption ? selectedOption.label : ' '" class="ui-dropdown-label ui-inputtext ui-corner-all" *ngIf="editable" [disabled]="disabled" [attr.placeholder]="placeholder"
                         (click)="onEditableInputClick($event)" (input)="onEditableInputChange($event)" (focus)="onEditableInputFocus($event)" (blur)="onInputBlur($event)">
             <i class="ui-dropdown-clear-icon pi pi-times" (click)="clear($event)" *ngIf="value != null && showClear && !disabled"></i>
             <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
@@ -50,7 +50,7 @@ export const DROPDOWN_VALUE_ACCESSOR: any = {
             </div>
             <div #containerPanel *ngIf="overlayVisible" [ngClass]="'ui-dropdown-panel  ui-widget ui-widget-content ui-corner-all ui-shadow'" [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" [ngStyle]="panelStyle" [class]="panelStyleClass">
                 <div *ngIf="filter" class="ui-dropdown-filter-container" (input)="onFilter($event)" (click)="$event.stopPropagation()">
-                    <input removeAspas removeCaracteres #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
+                    <input #filter type="text" autocomplete="off" [value]="filterValue||''" class="ui-dropdown-filter ui-inputtext ui-widget ui-state-default ui-corner-all" [attr.placeholder]="filterPlaceholder"
                     (keyup.enter)="onEnterKey($event)" (input)="dropDownFilter($event.target.value);" (keydown)="onKeydown($event, false)">
                     <span class="ui-dropdown-filter-icon pi" [ngClass]="{'pi-search': !loading, 'pi-spinner pi-spin': loading}"></span>
                 </div>
@@ -274,6 +274,16 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     currentSearchChar: string;
 
     documentResizeListener: any;
+
+    @HostListener('keydown', ['$event']) onKeyPress(event) {
+        if (event.key == "\\" && event.key == '"') {
+            event.preventDefault();
+        }
+    }
+
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+        this.validateFields(event);
+    }
     
     constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, private cd: ChangeDetectorRef,
                 public objectUtils: ObjectUtils, public zone: NgZone) {}
@@ -335,6 +345,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     get label(): string {
         return (this.selectedOption ? this.selectedOption.label : null);
+    }
+
+    validateFields(event) {
+        setTimeout(() => {
+            this.el.nativeElement.value = this.el.nativeElement.value.replace("\\", "").replace('"', '');
+            event.preventDefault();
+        }, 100);
     }
     
     updateEditableLabel(): void {

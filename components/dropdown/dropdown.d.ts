@@ -96,12 +96,15 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     previousSearchChar: string;
     currentSearchChar: string;
     documentResizeListener: any;
+    onKeyPress(event: any): void;
+    blockPaste(event: KeyboardEvent): void;
     constructor(el: ElementRef, domHandler: DomHandler, renderer: Renderer2, cd: ChangeDetectorRef, objectUtils: ObjectUtils, zone: NgZone);
     ngAfterContentInit(): void;
     ngOnInit(): void;
     options: any[];
     ngAfterViewInit(): void;
     readonly label: string;
+    validateFields(event: any): void;
     updateEditableLabel(): void;
     willShowOption(option: any): boolean;
     valueTypedIsPresent(): boolean;
