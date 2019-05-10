@@ -420,8 +420,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     selectItem(event, option) {
         if (option && option.value && option.value.isAdd){
-            this.onAddNovo(event);
-            return;
+            if (option.value.trim != "") {
+                this.onAddNovo(event);
+                return;
+            } else {
+                this.resetFilter();
+                return;
+            }                     
         }
         if (this.selectedOption != option) {
             this.selectedOption = option;
@@ -861,7 +866,11 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             case 13:
                 if (this.optionsToDisplay[this.selectedIndex]){
                     if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd){
-                        this.onAddNovo(event);
+                        if (this.optionsToDisplay[this.selectedIndex].value.trim != "") {
+                            this.onAddNovo(event);
+                        } else {
+                            this.resetFilter();
+                        }                        
                     } else {
                         this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
                         this.selectedOptionUpdated = true;
