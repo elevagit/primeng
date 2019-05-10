@@ -191,7 +191,7 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.selectItem = function (event, option) {
         if (option && option.value && option.value.isAdd) {
-            if (option.value.trim != "") {
+            if (this.filterViewChild.nativeElement.value.trim != "") {
                 this.onAddNovo(event);
                 return;
             }
@@ -587,7 +587,7 @@ var Dropdown = /** @class */ (function () {
             case 13:
                 if (this.optionsToDisplay[this.selectedIndex]) {
                     if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd) {
-                        if (this.optionsToDisplay[this.selectedIndex].value.trim != "") {
+                        if (this.filterViewChild.nativeElement.value.trim != "") {
                             this.onAddNovo(event);
                         }
                         else {
