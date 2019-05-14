@@ -298,7 +298,7 @@ var AutoComplete = /** @class */ (function () {
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
             var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
             if (option && !isRepetido && !isPseudoExcluido) {
-                if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
+                if (option.isAdd && this.multiInputEL.nativeElement.value.trim() != '') {
                     var newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;

@@ -237,6 +237,50 @@ button {
 .ui-rtl .ui-accordion .ui-accordion-toggle-icon.pi-caret-right:before {
     content: '\e904';
 }
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-blockui-document {
+    position: fixed;
+}
+/** Breadcrumb **/
+.ui-breadcrumb {
+    margin: 0;
+    padding: 0;
+    padding: .5em;
+}
+
+.ui-breadcrumb ul {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-breadcrumb ul li {
+    display: inline-block;
+    margin: 0 .25em;
+}
+
+.ui-breadcrumb-chevron, .ui-breadcrumb-home {
+    vertical-align: middle;
+}
+
+.ui-breadcrumb ul li .ui-menuitem-link {
+    text-decoration: none;
+}
+
+.ui-breadcrumb .ui-menuitem-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.ui-breadcrumb .ui-menuitem-text {
+    vertical-align: middle;
+}
 .ui-autocomplete {
     width: auto;
     zoom: 1;
@@ -400,458 +444,6 @@ button {
     width: 2em;
 }
 
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
-}
-/** Breadcrumb **/
-.ui-breadcrumb {
-    margin: 0;
-    padding: 0;
-    padding: .5em;
-}
-
-.ui-breadcrumb ul {
-    margin: 0;
-    padding: 0;
-}
-
-.ui-breadcrumb ul li {
-    display: inline-block;
-    margin: 0 .25em;
-}
-
-.ui-breadcrumb-chevron, .ui-breadcrumb-home {
-    vertical-align: middle;
-}
-
-.ui-breadcrumb ul li .ui-menuitem-link {
-    text-decoration: none;
-}
-
-.ui-breadcrumb .ui-menuitem-icon {
-    margin-right: .25em;
-    vertical-align: middle;
-}
-
-.ui-breadcrumb .ui-menuitem-text {
-    vertical-align: middle;
-}
-/* Button */
-.ui-button {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    text-decoration: none !important;
-    cursor: pointer;
-    text-align: center;
-    zoom: 1;
-    overflow: visible; /* the overflow property removes extra width in IE */
-}
-
-p-button {
-    display: inline-block;
-}
-
-/*button text element */
-.ui-button .ui-button-text {
-    display: block;
-    line-height: normal;
-}
-
-.ui-button-text-only .ui-button-text {
-    padding: .25em 1em;
-}
-
-.ui-button-icon-only .ui-button-text,
-.ui-button-text-empty .ui-button-text {
-    padding: .25em;
-    text-indent: -9999999px;
-}
-
-.ui-button-text-icon-left .ui-button-text {
-    padding: .25em 1em .25em 2.1em;
-}
-
-.ui-button-text-icon-right .ui-button-text {
-    padding: .25em 2.1em .25em 1em;
-}
-
-/*button icon element(s) */
-.ui-button-icon-only .ui-button-icon-left,
-.ui-button-text-icon-left .ui-button-icon-left,
-.ui-button-text-icon-right .ui-button-icon-right {
-    position: absolute;
-    top: 50%;
-    margin-top: -.5em;
-    height: 1em;
-}
-
-.ui-button-icon-only .ui-button-icon-left {
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    width: 1em;
-    height: 1em;
-}
-
-.ui-button-icon-left {
-    left: .5em;
-}
-
-.ui-button-icon-right {
-    right: .5em;
-}
-
-/*button sets*/
-.ui-buttonset .ui-button {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* workarounds */
-button.ui-button::-moz-focus-inner {
-    border: 0; padding: 0; /* reset extra padding in Firefox */
-}
-
-/** Fluid **/
-.ui-fluid .ui-button {
-    width: 100%;
-}
-
-.ui-fluid .ui-button-text-icon-left .ui-button-text,
-.ui-fluid .ui-button-text-icon-right .ui-button-text {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-/** ButtonSet **/
-.ui-fluid .ui-buttonset {
-    width: 100%;
-}
-
-.ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button {width: 100%;}
-.ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {width: 50%;}
-.ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button {width: 33.3%;}
-.ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button {width: 25%;}
-.ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button {width: 20%;}
-.ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {width: 16.6%;}
-
-@media (max-width: 640px) {
-    .ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button,
-    .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
-        width: 100%;
-    }
-}
-.ui-calendar {
-    position: relative;
-    display: inline-block;
-}
-
-.ui-calendar .ui-calendar-button {
-    position: absolute;
-    height: 100%;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    width: 2em;
-    border-left: 0 none;
-}
-
-.ui-calendar .ui-calendar-button:enabled:hover,
-.ui-calendar .ui-calendar-button:focus {
-    border-left: 0 none;
-}
-
-.ui-calendar .ui-datepicker {
-    min-width: 100%;
-}
-
-/* Fluid */
-.ui-fluid .ui-calendar {
-    width: 100%;
-}
-
-.ui-fluid .ui-calendar-button {
-    width: 2em;
-}
-
-.ui-fluid .ui-datepicker-buttonbar button {
-    width: auto;
-}
-
-.ui-fluid .ui-calendar.ui-calendar-w-btn .ui-inputtext {
-    width: calc(100% - 2em);
-}
-
-/* Datepicker */
-.ui-datepicker {
-	width: auto;
-	padding: .2em;
-    position: absolute;
-}
-
-.ui-datepicker.ui-datepicker-inline {
-    display: inline-block;
-    position: static;
-}
-
-.ui-datepicker .ui-datepicker-group {
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-}
-
-/* Header */
-.ui-datepicker .ui-datepicker-header {
-	position: relative;
-	padding: .5em 0;
-}
-.ui-datepicker .ui-datepicker-prev,
-.ui-datepicker .ui-datepicker-next {
-	position: absolute;
-	top: .5em;
-	width: 1.8em;
-	height: 1.8em;
-}
-
-.ui-datepicker .ui-datepicker-prev {
-	left: .125em;
-}
-.ui-datepicker .ui-datepicker-next {
-	right: .125em;
-}
-.ui-datepicker .ui-datepicker-prev span,
-.ui-datepicker .ui-datepicker-next span {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-}
-.ui-datepicker .ui-datepicker-title {
-	margin: 0 2.3em;
-	line-height: 1.8em;
-	text-align: center;
-}
-.ui-datepicker .ui-datepicker-title select {
-	font-size: 1em;
-	margin: .125em 0;
-    vertical-align: middle;
-}
-.ui-datepicker select.ui-datepicker-month {
-    margin-right: .25em;
-}
-.ui-datepicker span.ui-datepicker-year {
-	margin-left: .25em;
-}
-
-/* Multiple Month DatePicker */
-.ui-datepicker-multiple-month .ui-datepicker-group {
-    display: table-cell;
-    border-left-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    border-right-width: 1px;
-}
-
-/* DatePicker Table */
-.ui-datepicker table {
-	width: 100%;
-	font-size: .9em;
-	border-collapse: collapse;
-	margin: 0 0 .4em;
-}
-.ui-datepicker th {
-	padding: .5em;
-	text-align: center;
-	font-weight: bold;
-	border: 0;
-}
-.ui-datepicker td {
-	border: 0;
-	padding: 0;
-}
-.ui-datepicker td > span,
-.ui-datepicker td > a {
-	display: block;
-	padding: .5em;
-    text-decoration: none;
-    border: 0 none;
-    text-align: center;
-}
-
-.ui-datepicker .ui-datepicker-buttonbar {
-    border-left: 0 none;
-    border-right: 0 none;
-    border-bottom: 0 none;
-	padding: .5em;
-}
-
-.ui-datepicker .ui-datepicker-buttonbar > .ui-g > div:last-child {
-    text-align: right;
-}
-
-.ui-datepicker .ui-datepicker-buttonbar > .ui-g > div {
-    padding: 0;
-}
-
-.ui-calendar.ui-calendar-w-btn input {
-    -moz-border-radius-topright: 0px;
-    -webkit-border-top-right-radius: 0px;
-    -khtml-border-top-right-radius: 0px;
-    border-top-right-radius: 0px;
-    -moz-border-radius-bottomright: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    -khtml-border-bottom-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-/* Month Picker */
-.ui-monthpicker .ui-monthpicker-month {
-    width: 33.3%;
-    display: inline-block;
-    text-align: center;
-    padding: .5em;
-}
-
-.ui-datepicker-monthpicker select.ui-datepicker-year {
-    width: auto;
-}
-
-/* Time Picker */
-.ui-timepicker {
-    text-align: center;
-    padding: .5em 0;
-}
-
-.ui-timepicker > div {
-    display: inline-block;
-    margin-left: .5em;
-    min-width: 1.5em;
-}
-
-.ui-timepicker > .ui-minute-picker,
-.ui-timepicker > .ui-second-picker {
-    margin-left: 0;
-}
-
-.ui-timepicker > .ui-separator {
-    margin-left: 0px;
-    min-width: .75em;
-}
-
-.ui-timepicker > .ui-separator a {
-    visibility: hidden;
-}
-
-.ui-timepicker > div a {
-    display: block;
-    opacity: 0.7;
-    filter:Alpha(Opacity=70);
-    cursor: pointer;
-}
-
-.ui-timepicker > div a:last-child {
-    margin-top: .3em;
-}
-
-.ui-timepicker > div a:hover {
-    display: block;
-    opacity: 1;
-    filter:Alpha(Opacity=100);
-}
-input[type=text]::-ms-clear {
-    display: none;
-}
-
-/* Touch UI */
-.ui-datepicker-touch-ui,
-.ui-calendar .ui-datepicker-touch-ui {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 80vw;
-}
-
-.ui-datepicker-touch-ui.ui-datepicker th {
-	padding: 2em 0;
-}
-.ui-datepicker-touch-ui.ui-datepicker td {
-	padding: 0;
-}
-.ui-datepicker-touch-ui.ui-datepicker td > span,
-.ui-datepicker-touch-ui.ui-datepicker td > a {
-	padding: 2em 0;
-}
-
-.ui-datepicker-touch-ui .ui-timepicker {
-    padding: 1em 0;
-}
-
-.ui-datepicker-touch-ui .ui-timepicker > div a {
-    font-size: 2em;
-}
-
-.ui-datepicker-mask {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-@media screen and (max-width: 40em) {
-    .ui-datepicker-multiple-month {
-        width: 17em;
-        overflow: auto;
-    }
-
-    .ui-datepicker-touch-ui.ui-datepicker th {
-        padding: 1em 0;
-    }
-
-    .ui-datepicker-touch-ui.ui-datepicker td span,
-    .ui-datepicker-touch-ui.ui-datepicker td a {
-        padding: 1em 0;
-    }
-}
-
-.ui-card-header img {
-    width: 100%;
-}
-
-.ui-card-body {
-    padding: 1em;
-}
-
-.ui-card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: .5em;
-}
-
-.ui-card-subtitle {
-    opacity: .7;
-    margin-bottom: .5em;
-    margin-top: -.25em;
-    font-weight: bold;
-}
-
-.ui-card-footer {
-    padding-top: 1em;
-}
 .ui-carousel {
     position: relative;
     padding: .063em;
@@ -936,6 +528,30 @@ input[type=text]::-ms-clear {
 
 .ui-carousel .ui-carousel-mobiledropdown {
     display: none;
+}
+.ui-card-header img {
+    width: 100%;
+}
+
+.ui-card-body {
+    padding: 1em;
+}
+
+.ui-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.ui-card-subtitle {
+    opacity: .7;
+    margin-bottom: .5em;
+    margin-top: -.25em;
+    font-weight: bold;
+}
+
+.ui-card-footer {
+    padding-top: 1em;
 }
 .ui-chkbox {
     display: inline-block;
@@ -2989,6 +2605,279 @@ input[type=text]::-ms-clear {
 .ui-growl-message p {
 	font-weight: normal;
 }
+.ui-calendar {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-calendar .ui-calendar-button {
+    position: absolute;
+    height: 100%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 2em;
+    border-left: 0 none;
+}
+
+.ui-calendar .ui-calendar-button:enabled:hover,
+.ui-calendar .ui-calendar-button:focus {
+    border-left: 0 none;
+}
+
+.ui-calendar .ui-datepicker {
+    min-width: 100%;
+}
+
+/* Fluid */
+.ui-fluid .ui-calendar {
+    width: 100%;
+}
+
+.ui-fluid .ui-calendar-button {
+    width: 2em;
+}
+
+.ui-fluid .ui-datepicker-buttonbar button {
+    width: auto;
+}
+
+.ui-fluid .ui-calendar.ui-calendar-w-btn .ui-inputtext {
+    width: calc(100% - 2em);
+}
+
+/* Datepicker */
+.ui-datepicker {
+	width: auto;
+	padding: .2em;
+    position: absolute;
+}
+
+.ui-datepicker.ui-datepicker-inline {
+    display: inline-block;
+    position: static;
+}
+
+.ui-datepicker .ui-datepicker-group {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+/* Header */
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .5em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: .5em;
+	width: 1.8em;
+	height: 1.8em;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	left: .125em;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: .125em;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: .125em 0;
+    vertical-align: middle;
+}
+.ui-datepicker select.ui-datepicker-month {
+    margin-right: .25em;
+}
+.ui-datepicker span.ui-datepicker-year {
+	margin-left: .25em;
+}
+
+/* Multiple Month DatePicker */
+.ui-datepicker-multiple-month .ui-datepicker-group {
+    display: table-cell;
+    border-left-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-right-width: 1px;
+}
+
+/* DatePicker Table */
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th {
+	padding: .5em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 0;
+}
+.ui-datepicker td > span,
+.ui-datepicker td > a {
+	display: block;
+	padding: .5em;
+    text-decoration: none;
+    border: 0 none;
+    text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-buttonbar {
+    border-left: 0 none;
+    border-right: 0 none;
+    border-bottom: 0 none;
+	padding: .5em;
+}
+
+.ui-datepicker .ui-datepicker-buttonbar > .ui-g > div:last-child {
+    text-align: right;
+}
+
+.ui-datepicker .ui-datepicker-buttonbar > .ui-g > div {
+    padding: 0;
+}
+
+.ui-calendar.ui-calendar-w-btn input {
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -khtml-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -khtml-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Month Picker */
+.ui-monthpicker .ui-monthpicker-month {
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    padding: .5em;
+}
+
+.ui-datepicker-monthpicker select.ui-datepicker-year {
+    width: auto;
+}
+
+/* Time Picker */
+.ui-timepicker {
+    text-align: center;
+    padding: .5em 0;
+}
+
+.ui-timepicker > div {
+    display: inline-block;
+    margin-left: .5em;
+    min-width: 1.5em;
+}
+
+.ui-timepicker > .ui-minute-picker,
+.ui-timepicker > .ui-second-picker {
+    margin-left: 0;
+}
+
+.ui-timepicker > .ui-separator {
+    margin-left: 0px;
+    min-width: .75em;
+}
+
+.ui-timepicker > .ui-separator a {
+    visibility: hidden;
+}
+
+.ui-timepicker > div a {
+    display: block;
+    opacity: 0.7;
+    filter:Alpha(Opacity=70);
+    cursor: pointer;
+}
+
+.ui-timepicker > div a:last-child {
+    margin-top: .3em;
+}
+
+.ui-timepicker > div a:hover {
+    display: block;
+    opacity: 1;
+    filter:Alpha(Opacity=100);
+}
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+/* Touch UI */
+.ui-datepicker-touch-ui,
+.ui-calendar .ui-datepicker-touch-ui {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 80vw;
+}
+
+.ui-datepicker-touch-ui.ui-datepicker th {
+	padding: 2em 0;
+}
+.ui-datepicker-touch-ui.ui-datepicker td {
+	padding: 0;
+}
+.ui-datepicker-touch-ui.ui-datepicker td > span,
+.ui-datepicker-touch-ui.ui-datepicker td > a {
+	padding: 2em 0;
+}
+
+.ui-datepicker-touch-ui .ui-timepicker {
+    padding: 1em 0;
+}
+
+.ui-datepicker-touch-ui .ui-timepicker > div a {
+    font-size: 2em;
+}
+
+.ui-datepicker-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 40em) {
+    .ui-datepicker-multiple-month {
+        width: 17em;
+        overflow: auto;
+    }
+
+    .ui-datepicker-touch-ui.ui-datepicker th {
+        padding: 1em 0;
+    }
+
+    .ui-datepicker-touch-ui.ui-datepicker td span,
+    .ui-datepicker-touch-ui.ui-datepicker td a {
+        padding: 1em 0;
+    }
+}
+
 .ui-inplace .ui-inplace-display {
     display: inline;
     cursor: pointer;
@@ -3656,51 +3545,6 @@ input[type=text]::-ms-clear {
 .ui-fluid .ui-message {
     display: block;
 }
-.ui-messages {
-    border: 1px solid;
-    margin: .5em 0;
-    padding: 1em 1em 1em .5em;
-    position: relative;
-}
-
-.ui-messages .ui-messages-icon {
-    display:inline-block;
-    padding: 0;
-    vertical-align: middle;
-    font-size: 2em;
-}
-
-.ui-messages .ui-messages-summary {
-    font-weight: bold;
-    margin-left: .25em;
-}
-
-.ui-messages .ui-messages-detail {
-    margin-left: .25em;
-}
-
-.ui-messages ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.ui-messages ul > li {
-    padding: .25em 0;
-}
-
-.ui-messages.ui-messages-noicon ul {
-    margin: 0 1.5em 0 0;
-}
-
-.ui-messages .ui-messages-close {
-    cursor: pointer;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
 .ui-multiselect {
     display: inline-block;
     position: relative;
@@ -3852,6 +3696,51 @@ input[type=text]::-ms-clear {
 }
 
 
+.ui-messages {
+    border: 1px solid;
+    margin: .5em 0;
+    padding: 1em 1em 1em .5em;
+    position: relative;
+}
+
+.ui-messages .ui-messages-icon {
+    display:inline-block;
+    padding: 0;
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+.ui-messages .ui-messages-summary {
+    font-weight: bold;
+    margin-left: .25em;
+}
+
+.ui-messages .ui-messages-detail {
+    margin-left: .25em;
+}
+
+.ui-messages ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-messages ul > li {
+    padding: .25em 0;
+}
+
+.ui-messages.ui-messages-noicon ul {
+    margin: 0 1.5em 0 0;
+}
+
+.ui-messages .ui-messages-close {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 .ui-orderlist {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4009,33 +3898,6 @@ input[type=text]::-ms-clear {
     cursor: pointer;
 }
 
-.ui-overlaypanel {
-    padding: 0;
-    margin: 0;
-    position: absolute;
-}
-
-.ui-overlaypanel-content {
-    padding: 0.5em 1em;
-}
-
-.ui-overlaypanel-close {
-    position: absolute;
-    top: -1em;
-    right: -1em;
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-    -moz-border-radius: 100%;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
-    cursor: pointer;
-}
-
-.ui-overlaypanel-close-icon {
-    line-height: inherit;
-}
 .ui-paginator {
     margin: 0;
     text-align: center;
@@ -4129,6 +3991,33 @@ input[type=text]::-ms-clear {
 
 .ui-fluid .ui-paginator .ui-dropdown {
     width: auto;
+}
+.ui-overlaypanel {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+
+.ui-overlaypanel-content {
+    padding: 0.5em 1em;
+}
+
+.ui-overlaypanel-close {
+    position: absolute;
+    top: -1em;
+    right: -1em;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.ui-overlaypanel-close-icon {
+    line-height: inherit;
 }
 .ui-panel {
 	padding: 0.2em;
@@ -4691,11 +4580,11 @@ input[type=text]::-ms-clear {
 .ui-radiobutton, .ui-radiobutton-label {
     vertical-align: middle;
 }
-.ui-rating {
-    font-size: 1.25em;
-}
 .ui-fluid .fc .ui-button {
     width: auto;
+}
+.ui-rating {
+    font-size: 1.25em;
 }
 .ui-scrollpanel-wrapper {
     overflow: hidden;
@@ -4750,17 +4639,6 @@ input[type=text]::-ms-clear {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-}
-.ui-selectbutton {
-    display: inline-block;
-}
-            
-.ui-selectbutton.ui-state-error {
-    padding: 0;
-}
-
-.ui-selectbutton .ui-button.ui-state-focus {
-    outline: none;
 }
 .ui-sidebar {
     position: fixed;
@@ -5429,6 +5307,17 @@ input[type=text]::-ms-clear {
 .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-disabled a {
      cursor: default;
 } 
+.ui-selectbutton {
+    display: inline-block;
+}
+            
+.ui-selectbutton.ui-state-error {
+    padding: 0;
+}
+
+.ui-selectbutton .ui-button.ui-state-focus {
+    outline: none;
+}
 .ui-tabview {
     padding: .25em; 
 }
@@ -6211,4 +6100,115 @@ input[type=text]::-ms-clear {
 
 .ui-treetable .ui-treetable-loading-icon {
     font-size: 2em;
+}
+/* Button */
+.ui-button {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible; /* the overflow property removes extra width in IE */
+}
+
+p-button {
+    display: inline-block;
+}
+
+/*button text element */
+.ui-button .ui-button-text {
+    display: block;
+    line-height: normal;
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: .25em 1em;
+}
+
+.ui-button-icon-only .ui-button-text,
+.ui-button-text-empty .ui-button-text {
+    padding: .25em;
+    text-indent: -9999999px;
+}
+
+.ui-button-text-icon-left .ui-button-text {
+    padding: .25em 1em .25em 2.1em;
+}
+
+.ui-button-text-icon-right .ui-button-text {
+    padding: .25em 2.1em .25em 1em;
+}
+
+/*button icon element(s) */
+.ui-button-icon-only .ui-button-icon-left,
+.ui-button-text-icon-left .ui-button-icon-left,
+.ui-button-text-icon-right .ui-button-icon-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    height: 1em;
+}
+
+.ui-button-icon-only .ui-button-icon-left {
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    width: 1em;
+    height: 1em;
+}
+
+.ui-button-icon-left {
+    left: .5em;
+}
+
+.ui-button-icon-right {
+    right: .5em;
+}
+
+/*button sets*/
+.ui-buttonset .ui-button {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* workarounds */
+button.ui-button::-moz-focus-inner {
+    border: 0; padding: 0; /* reset extra padding in Firefox */
+}
+
+/** Fluid **/
+.ui-fluid .ui-button {
+    width: 100%;
+}
+
+.ui-fluid .ui-button-text-icon-left .ui-button-text,
+.ui-fluid .ui-button-text-icon-right .ui-button-text {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/** ButtonSet **/
+.ui-fluid .ui-buttonset {
+    width: 100%;
+}
+
+.ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button {width: 100%;}
+.ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {width: 50%;}
+.ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button {width: 33.3%;}
+.ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button {width: 25%;}
+.ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button {width: 20%;}
+.ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {width: 16.6%;}
+
+@media (max-width: 640px) {
+    .ui-fluid .ui-buttonset.ui-buttonset-1 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-5 .ui-button,
+    .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
+        width: 100%;
+    }
 }
