@@ -400,17 +400,6 @@ button {
     width: 2em;
 }
 
-.ui-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.ui-blockui-document {
-    position: fixed;
-}
 /** Breadcrumb **/
 .ui-breadcrumb {
     margin: 0;
@@ -554,6 +543,17 @@ button.ui-button::-moz-focus-inner {
     .ui-fluid .ui-buttonset.ui-buttonset-6 .ui-button {
         width: 100%;
     }
+}
+.ui-blockui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-blockui-document {
+    position: fixed;
 }
 .ui-calendar {
     position: relative;
@@ -3701,6 +3701,115 @@ input[type=text]::-ms-clear {
     top: 5px;
     right: 5px;
 }
+.ui-orderlist {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.ui-orderlist-controls-left {
+    flex-direction: row;
+}
+
+.ui-orderlist-controls-right {
+    flex-direction: row-reverse;
+}
+
+.ui-orderlist-controls,
+.ui-orderlist-list-container {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+.ui-orderlist-controls {
+    padding: 0 .25em;
+    width: 16.66666%;
+    align-self: center;
+}
+
+.ui-orderlist-controls .ui-button.ui-button-icon-only {
+    display: block;
+    margin-bottom: 0.25em;
+    width: 100%;
+}
+
+.ui-orderlist-list-container {
+    width: 83.33333%;
+}
+
+.ui-orderlist-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+    height: 12.5em;
+}
+
+.ui-orderlist-caption {
+    text-align: center;
+	padding: .5em .75em;
+    border-bottom: 0 none;
+}
+
+.ui-orderlist-item {
+    margin: 1px;
+    padding: .125em;
+    cursor: pointer;
+    border: 0 none;
+    font-weight: inherit;
+}
+
+.ui-orderlist-filter-container {
+    position: relative;
+    width: 100%;
+    padding: .5em .6em;
+    border-bottom: 0 none;
+}
+
+.ui-orderlist-filter-container .ui-inputtext {
+    text-indent: 1.1em;
+    width: 100%;
+}
+
+.ui-orderlist-filter-container .ui-orderlist-filter-icon {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    margin-top: -.6em;
+}
+
+.ui-orderlist.ui-state-disabled .ui-orderlist-item,
+.ui-orderlist.ui-state-disabled .ui-button {
+    cursor: default;
+}
+
+.ui-orderlist.ui-state-disabled .ui-orderlist-list {
+    overflow:hidden;
+}
+
+.ui-orderlist .ui-orderlist-droppoint {
+    height: 6px;
+    list-style-type: none;
+}
+
+@media (max-width: 767px) {
+    .ui-orderlist-controls {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ui-orderlist .ui-orderlist-list-container {
+        width: 100%;
+    }
+    
+    .ui-orderlist .ui-orderlist-controls .ui-button.ui-button.ui-button-icon-only {
+        display: inline-block;
+        width: 20%;
+        margin-right: .25em;
+    }
+}
 .ui-multiselect {
     display: inline-block;
     position: relative;
@@ -3852,115 +3961,6 @@ input[type=text]::-ms-clear {
 }
 
 
-.ui-orderlist {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.ui-orderlist-controls-left {
-    flex-direction: row;
-}
-
-.ui-orderlist-controls-right {
-    flex-direction: row-reverse;
-}
-
-.ui-orderlist-controls,
-.ui-orderlist-list-container {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-}
-.ui-orderlist-controls {
-    padding: 0 .25em;
-    width: 16.66666%;
-    align-self: center;
-}
-
-.ui-orderlist-controls .ui-button.ui-button-icon-only {
-    display: block;
-    margin-bottom: 0.25em;
-    width: 100%;
-}
-
-.ui-orderlist-list-container {
-    width: 83.33333%;
-}
-
-.ui-orderlist-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow:auto;
-    height: 12.5em;
-}
-
-.ui-orderlist-caption {
-    text-align: center;
-	padding: .5em .75em;
-    border-bottom: 0 none;
-}
-
-.ui-orderlist-item {
-    margin: 1px;
-    padding: .125em;
-    cursor: pointer;
-    border: 0 none;
-    font-weight: inherit;
-}
-
-.ui-orderlist-filter-container {
-    position: relative;
-    width: 100%;
-    padding: .5em .6em;
-    border-bottom: 0 none;
-}
-
-.ui-orderlist-filter-container .ui-inputtext {
-    text-indent: 1.1em;
-    width: 100%;
-}
-
-.ui-orderlist-filter-container .ui-orderlist-filter-icon {
-    position: absolute;
-    top: 50%;
-    left: 1em;
-    margin-top: -.6em;
-}
-
-.ui-orderlist.ui-state-disabled .ui-orderlist-item,
-.ui-orderlist.ui-state-disabled .ui-button {
-    cursor: default;
-}
-
-.ui-orderlist.ui-state-disabled .ui-orderlist-list {
-    overflow:hidden;
-}
-
-.ui-orderlist .ui-orderlist-droppoint {
-    height: 6px;
-    list-style-type: none;
-}
-
-@media (max-width: 767px) {
-    .ui-orderlist-controls {
-        width: 100%;
-        text-align: center;
-    }
-
-    .ui-orderlist .ui-orderlist-list-container {
-        width: 100%;
-    }
-    
-    .ui-orderlist .ui-orderlist-controls .ui-button.ui-button.ui-button-icon-only {
-        display: inline-block;
-        width: 20%;
-        margin-right: .25em;
-    }
-}
 .ui-organizationchart .ui-organizationchart-table {
     border-spacing: 0;
     border-collapse: separate;
@@ -5048,6 +5048,67 @@ input[type=text]::-ms-clear {
 .ui-slider-animate .ui-slider-handle {
     transition: left .3s;
 }
+.ui-spinner {
+    display: inline-block;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.ui-spinner-input {
+    vertical-align: middle;
+    padding-right: 1.5em;
+}
+
+.ui-spinner-button {
+    cursor: default;
+    display: block;
+    height: 50%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 1.5em;
+}
+
+.ui-spinner .ui-spinner-button-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    width: 1em;
+}
+
+.ui-spinner-up {
+    top: 0;
+}
+
+.ui-spinner-down {
+    bottom: 0;
+}
+
+/* Fluid */
+.ui-fluid .ui-spinner {
+    width: 100%;
+}
+
+.ui-fluid .ui-spinner .ui-spinner-input {
+    padding-right: 2em;
+    width: 100%;
+}
+
+.ui-fluid .ui-spinner .ui-spinner-button {
+    width: 1.5em;
+}
+
+.ui-fluid .ui-spinner .ui-spinner-button .ui-spinner-button-icon {
+    left: .7em;
+}
 .ui-splitbutton {
     position: relative;
     display: inline-block;
@@ -5122,67 +5183,6 @@ input[type=text]::-ms-clear {
     .ui-steps .ui-steps-item .ui-steps-title {
         display: none;
     }
-}
-.ui-spinner {
-    display: inline-block;
-    overflow: visible;
-    padding: 0;
-    position: relative;
-    vertical-align: middle;
-}
-
-.ui-spinner-input {
-    vertical-align: middle;
-    padding-right: 1.5em;
-}
-
-.ui-spinner-button {
-    cursor: default;
-    display: block;
-    height: 50%;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    vertical-align: middle;
-    width: 1.5em;
-}
-
-.ui-spinner .ui-spinner-button-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -.5em;
-    margin-left: -.5em;
-    width: 1em;
-}
-
-.ui-spinner-up {
-    top: 0;
-}
-
-.ui-spinner-down {
-    bottom: 0;
-}
-
-/* Fluid */
-.ui-fluid .ui-spinner {
-    width: 100%;
-}
-
-.ui-fluid .ui-spinner .ui-spinner-input {
-    padding-right: 2em;
-    width: 100%;
-}
-
-.ui-fluid .ui-spinner .ui-spinner-button {
-    width: 1.5em;
-}
-
-.ui-fluid .ui-spinner .ui-spinner-button .ui-spinner-button-icon {
-    left: .7em;
 }
 .ui-table {
     position: relative;

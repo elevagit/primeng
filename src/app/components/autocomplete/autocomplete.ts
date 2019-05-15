@@ -833,7 +833,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);
-    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+    /*if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) { //REMOVIDO ADD NO FOCUS OUT
       let newItem = {};
       newItem['acao'] = 1;
       if (this.podeAdicionar) {
@@ -843,7 +843,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
       newItem[this.field] = this.multiInputEL.nativeElement.value;
       this.selectItem(newItem);
-    }
+    }*/
   }
 
   onInputChange(event) {
