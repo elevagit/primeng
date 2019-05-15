@@ -299,6 +299,7 @@ var AutoComplete = /** @class */ (function () {
             var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
             if (option && !isRepetido && !isPseudoExcluido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value.trim() == '') {
+                    this.multiInputEL.nativeElement.value = '';
                     return;
                 }
                 if (option.isAdd && this.multiInputEL.nativeElement.value.trim() != '') {
