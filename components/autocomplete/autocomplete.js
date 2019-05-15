@@ -295,8 +295,8 @@ var AutoComplete = /** @class */ (function () {
             if (!Array.isArray(this.value)) {
                 this.value = [].push(this.value);
             }
-            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
-            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
+            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase(); });
+            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase() && opt.acao == 3; });
             if (option && !isRepetido && !isPseudoExcluido) {
                 if (option.isAdd && this.multiInputEL.nativeElement.value.trim() == '') {
                     this.multiInputEL.nativeElement.value = '';
