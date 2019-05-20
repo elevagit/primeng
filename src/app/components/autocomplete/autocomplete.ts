@@ -487,9 +487,15 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       }
       
       var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field].toUpperCase() == option[this.field].toUpperCase());
+
+      var isRepetidoChip = false;
+      if (option.isAdd == true && this.multiInputEL.nativeElement.value.trim() != '')  {
+        isRepetidoChip = this.value.some(opt => opt[this.field].toUpperCase() == this.multiInputEL.nativeElement.value.toUpperCase());
+      }
+
       var isPseudoExcluido = this.value.some(opt => opt[this.field].toUpperCase() == option[this.field].toUpperCase() && opt.acao == 3);
       if (option && !isRepetido && !isPseudoExcluido) {
-        if (option.isAdd && this.multiInputEL.nativeElement.value.trim() == '') {
+        if (option.isAdd && (this.multiInputEL.nativeElement.value.trim() == '' || isRepetidoChip == true)) {
           this.multiInputEL.nativeElement.value = '';
           return;
         }

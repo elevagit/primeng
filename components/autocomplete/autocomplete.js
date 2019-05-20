@@ -296,9 +296,13 @@ var AutoComplete = /** @class */ (function () {
                 this.value = [].push(this.value);
             }
             var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase(); });
+            var isRepetidoChip = false;
+            if (option.isAdd == true && this.multiInputEL.nativeElement.value.trim() != '') {
+                isRepetidoChip = this.value.some(function (opt) { return opt[_this.field].toUpperCase() == _this.multiInputEL.nativeElement.value.toUpperCase(); });
+            }
             var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase() && opt.acao == 3; });
             if (option && !isRepetido && !isPseudoExcluido) {
-                if (option.isAdd && this.multiInputEL.nativeElement.value.trim() == '') {
+                if (option.isAdd && (this.multiInputEL.nativeElement.value.trim() == '' || isRepetidoChip == true)) {
                     this.multiInputEL.nativeElement.value = '';
                     return;
                 }
