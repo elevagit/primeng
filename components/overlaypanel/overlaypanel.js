@@ -108,6 +108,7 @@ var OverlayPanel = /** @class */ (function () {
         }
     };
     OverlayPanel.prototype.hide = function () {
+        this.onHide.emit({});
         this.visible = false;
     };
     OverlayPanel.prototype.onPanelClick = function (event) {

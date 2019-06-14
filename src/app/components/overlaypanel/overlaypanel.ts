@@ -168,6 +168,7 @@ export class OverlayPanel implements OnDestroy {
     }
 
     hide() {
+        this.onHide.emit({});
         this.visible = false;
     }
     
