@@ -22,6 +22,16 @@ exports.DROPDOWN_VALUE_ACCESSOR = {
     multi: true
 };
 var Dropdown = /** @class */ (function () {
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+        if (event.key == "\\" && event.key == '"') {
+            event.preventDefault();
+        }
+    }
+
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+        this.validateFields(event);
+    }
+    */
     function Dropdown(el, domHandler, renderer, cd, objectUtils, zone) {
         this.el = el;
         this.domHandler = domHandler;
@@ -115,6 +125,13 @@ var Dropdown = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Dropdown.prototype.validateFields = function (event) {
+        var _this = this;
+        setTimeout(function () {
+            _this.el.nativeElement.value = _this.el.nativeElement.value.replace("\\", "").replace('"', '');
+            event.preventDefault();
+        }, 100);
+    };
     Dropdown.prototype.updateEditableLabel = function () {
         if (this.editableInputViewChild && this.editableInputViewChild.nativeElement) {
             this.editableInputViewChild.nativeElement.value = (this.selectedOption ? this.selectedOption.label : this.value || '');
@@ -174,8 +191,14 @@ var Dropdown = /** @class */ (function () {
     };
     Dropdown.prototype.selectItem = function (event, option) {
         if (option && option.value && option.value.isAdd) {
-            this.onAddNovo(event);
-            return;
+            if (this.filterViewChild.nativeElement.value.trim() != "") {
+                this.onAddNovo(event);
+                return;
+            }
+            else {
+                this.resetFilter();
+                return;
+            }
         }
         if (this.selectedOption != option) {
             this.selectedOption = option;
@@ -479,6 +502,9 @@ var Dropdown = /** @class */ (function () {
         if (this.readonly || !this.optionsToDisplay || this.optionsToDisplay.length === null) {
             return;
         }
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
+        }
         switch (event.which) {
             //down
             case 40:
@@ -561,7 +587,12 @@ var Dropdown = /** @class */ (function () {
             case 13:
                 if (this.optionsToDisplay[this.selectedIndex]) {
                     if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd) {
-                        this.onAddNovo(event);
+                        if (this.filterViewChild.nativeElement.value.trim() != "") {
+                            this.onAddNovo(event);
+                        }
+                        else {
+                            this.resetFilter();
+                        }
                     }
                     else {
                         this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);

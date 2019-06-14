@@ -102,6 +102,7 @@ export declare class Dropdown implements OnInit, AfterViewInit, AfterContentInit
     options: any[];
     ngAfterViewInit(): void;
     readonly label: string;
+    validateFields(event: any): void;
     updateEditableLabel(): void;
     willShowOption(option: any): boolean;
     valueTypedIsPresent(): boolean;

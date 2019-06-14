@@ -1,4 +1,4 @@
-import { NgModule, Component, ViewChild, ElementRef, AfterViewChecked, AfterContentInit, DoCheck, Input, Output, EventEmitter, ContentChildren, QueryList, TemplateRef, Renderer2, forwardRef, ChangeDetectorRef, IterableDiffers } from '@angular/core';
+import { NgModule, Component, ViewChild, ElementRef, AfterViewChecked, AfterContentInit, DoCheck, Input, Output, EventEmitter, ContentChildren, QueryList, TemplateRef, Renderer2, forwardRef, ChangeDetectorRef, IterableDiffers, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate, AnimationEvent } from '@angular/animations';
 import { InputTextModule } from '../inputtext/inputtext';
@@ -235,6 +235,16 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
 
   loading: boolean;
 
+  /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+    if (event.key == "\\" && event.key == '"') {
+      event.preventDefault();
+    }
+  }
+
+  @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+    this.validateFields(event);
+  }*/
+
   constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, public objectUtils: ObjectUtils, public cd: ChangeDetectorRef, public differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
   }
@@ -278,6 +288,13 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       }, 1);
       this.highlightOptionChanged = false;
     }
+  }
+
+  validateFields(event) {
+    setTimeout(() => {
+      this.el.nativeElement.value = this.el.nativeElement.value.replace("\\", "").replace('"', '');
+      event.preventDefault();
+    }, 100);
   }
 
   includeAddToOptionsToDisplay() {
@@ -469,10 +486,20 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
           this.value = [].push(this.value);
       }
       
-      var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field] == option[this.field]);
-      var isPseudoExcluido = this.value.some(opt => opt[this.field] == option[this.field] && opt.acao == 3);
+      var isRepetido = this.podeDuplicados ? false : this.value.some(opt => opt[this.field].toUpperCase() == option[this.field].toUpperCase());
+
+      var isRepetidoChip = false;
+      if (option.isAdd == true && this.multiInputEL.nativeElement.value.trim() != '')  {
+        isRepetidoChip = this.value.some(opt => opt[this.field].toUpperCase() == this.multiInputEL.nativeElement.value.toUpperCase());
+      }
+
+      var isPseudoExcluido = this.value.some(opt => opt[this.field].toUpperCase() == option[this.field].toUpperCase() && opt.acao == 3);
       if (option && !isRepetido && !isPseudoExcluido) {
-        if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
+        if (option.isAdd && (this.multiInputEL.nativeElement.value.trim() == '' || isRepetidoChip == true)) {
+          this.multiInputEL.nativeElement.value = '';
+          return;
+        }
+        if (option.isAdd && this.multiInputEL.nativeElement.value.trim() != '') {
           let newItem = {};
           newItem['acao'] = 1;
           newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -676,6 +703,11 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
    }*/
 
   onKeydown(event) {
+
+    if (event.key == "\\" || event.key == '"') {
+      event.preventDefault();
+    }
+
     if (this.overlayVisible) {
       let highlightItemIndex = this.findOptionIndex(this.highlightOption);
 
@@ -807,7 +839,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
     this.focus = false;
     this.onModelTouched();
     this.onBlur.emit(event);
-    if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
+    /*if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) { //REMOVIDO ADD NO FOCUS OUT
       let newItem = {};
       newItem['acao'] = 1;
       if (this.podeAdicionar) {
@@ -817,7 +849,7 @@ export class AutoComplete implements AfterViewChecked, AfterContentInit, DoCheck
       newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
       newItem[this.field] = this.multiInputEL.nativeElement.value;
       this.selectItem(newItem);
-    }
+    }*/
   }
 
   onInputChange(event) {

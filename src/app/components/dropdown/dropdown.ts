@@ -1,5 +1,5 @@
 import {NgModule,Component,ElementRef,OnInit,AfterViewInit,AfterContentInit,AfterViewChecked,OnDestroy,Input,Output,Renderer2,EventEmitter,ContentChildren,
-        QueryList,ViewChild,TemplateRef,forwardRef,ChangeDetectorRef,NgZone} from '@angular/core';
+        QueryList,ViewChild,TemplateRef,forwardRef,ChangeDetectorRef,NgZone, HostListener} from '@angular/core';
 import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/animations';
 import {CommonModule} from '@angular/common';
 import {SelectItem} from '../common/selectitem';
@@ -274,7 +274,17 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     currentSearchChar: string;
 
     documentResizeListener: any;
-    
+
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+        if (event.key == "\\" && event.key == '"') {
+            event.preventDefault();
+        }
+    }
+
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+        this.validateFields(event);
+    }
+    */
     constructor(public el: ElementRef, public domHandler: DomHandler, public renderer: Renderer2, private cd: ChangeDetectorRef,
                 public objectUtils: ObjectUtils, public zone: NgZone) {}
     
@@ -335,6 +345,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     get label(): string {
         return (this.selectedOption ? this.selectedOption.label : null);
+    }
+
+    validateFields(event) {
+        setTimeout(() => {
+            this.el.nativeElement.value = this.el.nativeElement.value.replace("\\", "").replace('"', '');
+            event.preventDefault();
+        }, 100);
     }
     
     updateEditableLabel(): void {
@@ -403,8 +420,13 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
     
     selectItem(event, option) {
         if (option && option.value && option.value.isAdd){
-            this.onAddNovo(event);
-            return;
+            if (this.filterViewChild.nativeElement.value.trim() != "") {
+                this.onAddNovo(event);
+                return;
+            } else {
+                this.resetFilter();
+                return;
+            }                     
         }
         if (this.selectedOption != option) {
             this.selectedOption = option;
@@ -753,6 +775,9 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
         if (this.readonly || !this.optionsToDisplay || this.optionsToDisplay.length === null) {
             return;
         }
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
+        }
 
         switch(event.which) {
             //down
@@ -841,7 +866,11 @@ export class Dropdown implements OnInit,AfterViewInit,AfterContentInit,AfterView
             case 13:
                 if (this.optionsToDisplay[this.selectedIndex]){
                     if (this.optionsToDisplay[this.selectedIndex].value && this.optionsToDisplay[this.selectedIndex].value.isAdd){
-                        this.onAddNovo(event);
+                        if (this.filterViewChild.nativeElement.value.trim() != "") {
+                            this.onAddNovo(event);
+                        } else {
+                            this.resetFilter();
+                        }                        
                     } else {
                         this.selectItem(event, this.optionsToDisplay[this.selectedIndex]);
                         this.selectedOptionUpdated = true;

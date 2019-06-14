@@ -24,6 +24,15 @@ exports.AUTOCOMPLETE_VALUE_ACCESSOR = {
     multi: true
 };
 var AutoComplete = /** @class */ (function () {
+    /*@HostListener('keydown', ['$event']) onKeyPress(event) {
+      if (event.key == "\\" && event.key == '"') {
+        event.preventDefault();
+      }
+    }
+  
+    @HostListener('paste', ['$event']) blockPaste(event: KeyboardEvent) {
+      this.validateFields(event);
+    }*/
     function AutoComplete(el, domHandler, renderer, objectUtils, cd, differs) {
         this.el = el;
         this.domHandler = domHandler;
@@ -108,6 +117,13 @@ var AutoComplete = /** @class */ (function () {
             }, 1);
             this.highlightOptionChanged = false;
         }
+    };
+    AutoComplete.prototype.validateFields = function (event) {
+        var _this = this;
+        setTimeout(function () {
+            _this.el.nativeElement.value = _this.el.nativeElement.value.replace("\\", "").replace('"', '');
+            event.preventDefault();
+        }, 100);
     };
     AutoComplete.prototype.includeAddToOptionsToDisplay = function () {
         if (this._suggestions && this._suggestions.length > 0) {
@@ -279,10 +295,18 @@ var AutoComplete = /** @class */ (function () {
             if (!Array.isArray(this.value)) {
                 this.value = [].push(this.value);
             }
-            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field] == option[_this.field]; });
-            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field] == option[_this.field] && opt.acao == 3; });
+            var isRepetido = this.podeDuplicados ? false : this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase(); });
+            var isRepetidoChip = false;
+            if (option.isAdd == true && this.multiInputEL.nativeElement.value.trim() != '') {
+                isRepetidoChip = this.value.some(function (opt) { return opt[_this.field].toUpperCase() == _this.multiInputEL.nativeElement.value.toUpperCase(); });
+            }
+            var isPseudoExcluido = this.value.some(function (opt) { return opt[_this.field].toUpperCase() == option[_this.field].toUpperCase() && opt.acao == 3; });
             if (option && !isRepetido && !isPseudoExcluido) {
-                if (option.isAdd && this.multiInputEL.nativeElement.value != '') {
+                if (option.isAdd && (this.multiInputEL.nativeElement.value.trim() == '' || isRepetidoChip == true)) {
+                    this.multiInputEL.nativeElement.value = '';
+                    return;
+                }
+                if (option.isAdd && this.multiInputEL.nativeElement.value.trim() != '') {
                     var newItem = {};
                     newItem['acao'] = 1;
                     newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
@@ -466,6 +490,9 @@ var AutoComplete = /** @class */ (function () {
          this.onUnselect.emit(removedValue);
      }*/
     AutoComplete.prototype.onKeydown = function (event) {
+        if (event.key == "\\" || event.key == '"') {
+            event.preventDefault();
+        }
         if (this.overlayVisible) {
             var highlightItemIndex = this.findOptionIndex(this.highlightOption);
             switch (event.which) {
@@ -582,17 +609,17 @@ var AutoComplete = /** @class */ (function () {
         this.focus = false;
         this.onModelTouched();
         this.onBlur.emit(event);
-        if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) {
-            var newItem = {};
-            newItem['acao'] = 1;
-            if (this.podeAdicionar) {
-                newItem['isAdd'] = true;
-            }
-            newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
-            newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
-            newItem[this.field] = this.multiInputEL.nativeElement.value;
-            this.selectItem(newItem);
-        }
+        /*if (this.multiple && this.multiInputEL.nativeElement.value && !this.forceSelection) { //REMOVIDO ADD NO FOCUS OUT
+          let newItem = {};
+          newItem['acao'] = 1;
+          if (this.podeAdicionar) {
+            newItem['isAdd'] = true;
+          }
+          newItem[this.colunaOpcao] = this.multiInputEL.nativeElement.value;
+          newItem[this.colunaChip] = this.multiInputEL.nativeElement.value;
+          newItem[this.field] = this.multiInputEL.nativeElement.value;
+          this.selectItem(newItem);
+        }*/
     };
     AutoComplete.prototype.onInputChange = function (event) {
         if (this.forceSelection && this.suggestions) {

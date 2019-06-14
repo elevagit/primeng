@@ -4751,17 +4751,6 @@ input[type=text]::-ms-clear {
     -webkit-user-select: none;
     user-select: none;
 }
-.ui-selectbutton {
-    display: inline-block;
-}
-            
-.ui-selectbutton.ui-state-error {
-    padding: 0;
-}
-
-.ui-selectbutton .ui-button.ui-state-focus {
-    outline: none;
-}
 .ui-sidebar {
     position: fixed;
     padding: .5em 1em;
@@ -4878,6 +4867,17 @@ input[type=text]::-ms-clear {
     .ui-sidebar-right.ui-sidebar-md {
         width: 20em;
     }
+}
+.ui-selectbutton {
+    display: inline-block;
+}
+            
+.ui-selectbutton.ui-state-error {
+    padding: 0;
+}
+
+.ui-selectbutton .ui-button.ui-state-focus {
+    outline: none;
 }
 .ui-slidemenu {
     width: 12.5em;

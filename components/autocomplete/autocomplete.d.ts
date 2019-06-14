@@ -97,6 +97,7 @@ export declare class AutoComplete implements AfterViewChecked, AfterContentInit,
     suggestions: any[];
     ngDoCheck(): void;
     ngAfterViewChecked(): void;
+    validateFields(event: any): void;
     includeAddToOptionsToDisplay(): void;
     getFilterValue(): string;
     valueTypedIsPresent(): boolean;
