@@ -81,6 +81,7 @@ var InputCombo = /** @class */ (function () {
     InputCombo.prototype.ngOnInit = function () {
         this.optionsToDisplay = this.options;
         this.updateSelectedOption(null);
+        console.log("teste combo");
     };
     Object.defineProperty(InputCombo.prototype, "options", {
         get: function () {
