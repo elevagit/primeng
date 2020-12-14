@@ -752,7 +752,7 @@ var InputCombo = /** @class */ (function () {
                 this.optionsToDisplay = filteredGroups;
             }
             else {
-                this.optionsToDisplay = this.objectUtils.filter(this.options, searchFields, this.filterValue.toLowerCase());
+                this.optionsToDisplay = this.options;// this.objectUtils.filter(this.options, searchFields, this.filterValue.toLowerCase());
                 this.includeAddToOptionsToDisplay();
             }
             this.optionsChanged = true;
